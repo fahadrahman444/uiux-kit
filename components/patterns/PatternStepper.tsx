@@ -1,0 +1,74 @@
+import React from "react";
+import type { PatternStepperProps } from "./types";
+
+export const PatternStepper: React.FC<PatternStepperProps> = ({
+  id = "roadmap",
+  badge = "PROCESS",
+  title,
+  description,
+  steps,
+}) => {
+  return (
+    <section id={id} className="py-16 sm:py-24 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mb-12">
+          {badge && (
+            <div className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">
+              {badge}
+            </div>
+          )}
+          <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
+            {title}
+          </h2>
+          {description && (
+            <p className="mt-3 text-base text-slate-600 dark:text-slate-400">
+              {description}
+            </p>
+          )}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((step, idx) => (
+            <div
+              key={idx}
+              className="relative rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-6 flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
+                  <span className="text-xs font-mono font-bold text-blue-600 dark:text-blue-400">
+                    {step.step}
+                  </span>
+                  {step.duration && (
+                    <span className="text-[11px] font-mono text-slate-400">
+                      {step.duration}
+                    </span>
+                  )}
+                </div>
+
+                <h3 className="mt-4 text-base font-bold text-slate-900 dark:text-white">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+
+              {step.deliverables && step.deliverables.length > 0 && (
+                <div className="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800/60">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Deliverables</span>
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {step.deliverables.map((d, dIdx) => (
+                      <span key={dIdx} className="text-[11px] px-2 py-0.5 rounded bg-slate-200/50 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                        {d}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};

@@ -7,6 +7,15 @@ description: Systematic process to diagnose, deconstruct, and redesign generic A
 
 Use this skill when auditing or revising interfaces that look "AI generated", generic, or bloated.
 
+> **Full Anti-Slop Reference Suite:** For the complete 9-pass methodology, exact token ramps, visual benchmarks, and sign checklists, refer to the integrated [`unslop` skill](../unslop/SKILL.md) and its references:
+> - [`signs.md`](../unslop/references/signs.md) — The comprehensive audit checklist of AI slop signs.
+> - [`tokens.md`](../unslop/references/tokens.md) — Tinted neutral ramps (Graphite, Warm, Ink) & exact type/spacing scales.
+> - [`visuals.md`](../unslop/references/visuals.md) — Working visual styles, lighting, shadows, and hero scenes.
+> - [`effects.md`](../unslop/references/effects.md) — Glyph rendering, canvas effects, and code treatments.
+> - [`rtl.md`](../unslop/references/rtl.md) — Bi-directional & RTL layout rules.
+
+---
+
 ## Diagnostic Checklist: The Hallmarks of AI Slop
 1. **Purple/Pink/Cyan Gradient Overkill:** Defaulting to neon cyberpunk or generic SaaS purple gradients.
 2. **Excessive Glassmorphism:** Layering `backdrop-blur-md` on cards with faint 1px white borders that look washed out.
