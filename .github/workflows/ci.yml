@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shellcheck CLI and Scripts
+        run: |
+          chmod +x bin/gemini-uiux scripts/*.sh install.sh uninstall.sh
+          bash scripts/doctor.sh

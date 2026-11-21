@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+# Gemini UI/UX Kit CLI - Deterministic Design System & Accessibility Tool
+set -e
+
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+KIT_DIR="$(cd -P "$(dirname "$SOURCE")/.." && pwd)"
+VERSION=$(cat "${KIT_DIR}/VERSION" 2>/dev/null || echo "1.0.0")
+
+GREEN="\033[0;32m"
+CYAN="\033[0;36m"
+YELLOW="\033[0;33m"
+BOLD="\033[1m"
+RESET="\033[0m"
+
+show_help() {
+    echo -e "${BOLD}${CYAN}Gemini UI/UX Kit CLI (v${VERSION})${RESET}"
+    echo -e "Universal Design System, Accessibility (A11y), and Anti-Slop UI Engine."
+    echo ""
+    echo -e "${BOLD}Usage:${RESET}"
+    echo -e "  gemini-uiux <command> [arguments]"
+    echo ""
+    echo -e "${BOLD}Commands:${RESET}"
+    echo -e "  ${GREEN}init${RESET}        Bootstrap design tokens, standards, and templates in project"
+    echo -e "  ${GREEN}audit${RESET}       Run automated check for tap targets, WCAG compliance & blur lag"
+    echo -e "  ${GREEN}doctor${RESET}      Verify frontend UI dependencies and environment"
+    echo -e "  ${GREEN}component${RESET}   List or copy accessible component templates"
+    echo -e "  ${GREEN}version${RESET}     Show current version"
+    echo -e "  ${GREEN}help${RESET}        Display this help message"
+    echo ""
+}
+
+COMMAND="$1"
+shift || true
+
+case "$COMMAND" in
+    init)
+        echo -e "${CYAN}==> Bootstrapping Gemini UI/UX Design System in $(pwd)...${RESET}"
+        mkdir -p .design/tokens .design/rules .design/audits
+        
+        if [ ! -f ".design/DESIGN_SYSTEM.md" ]; then
+            cp "${KIT_DIR}/templates/DESIGN_SYSTEM.md" .design/DESIGN_SYSTEM.md 2>/dev/null || touch .design/DESIGN_SYSTEM.md
+            echo -e "${GREEN}✓ Created .design/DESIGN_SYSTEM.md${RESET}"
+        fi
+        
+        cp -r "${KIT_DIR}/rules/"* .design/rules/ 2>/dev/null || true
+        echo -e "${GREEN}✓ Synced UI/UX rules to .design/rules/${RESET}"
+        echo -e "${GREEN}✓ Initialized project design workspace!${RESET}"
+        ;;
+    audit)
+        "${KIT_DIR}/scripts/audit-ui.sh" "${1:-.}" "$2"
+        ;;
+    doctor)
+        "${KIT_DIR}/scripts/doctor.sh"
+        ;;
+    component)
+        SUB_CMD="$1"
+        COMP_NAME="$2"
+        if [ "$SUB_CMD" = "list" ] || [ -z "$SUB_CMD" ]; then
+            echo -e "${CYAN}Available Component Templates:${RESET}"
+            find "${KIT_DIR}/components" -type f \( -name "*.tsx" -o -name "*.jsx" \) | while read -r comp; do
+                basename "$comp"
+            done
+        elif [ "$SUB_CMD" = "add" ] && [ -n "$COMP_NAME" ]; then
+            TARGET_FILE=$(find "${KIT_DIR}/components" -type f -name "*${COMP_NAME}*" | head -n 1)
+            if [ -n "$TARGET_FILE" ]; then
+                mkdir -p ./src/components/ui 2>/dev/null || mkdir -p ./components/ui
+                DEST="./src/components/ui/$(basename "$TARGET_FILE")"
+                [ ! -d "./src" ] && DEST="./components/ui/$(basename "$TARGET_FILE")"
+                cp "$TARGET_FILE" "$DEST"
+                echo -e "${GREEN}✓ Injected component to ${DEST}${RESET}"
+            else
+                echo -e "${YELLOW}Component not found matching: ${COMP_NAME}${RESET}"
+            fi
+        else
+            echo "Usage: gemini-uiux component [list | add <component_name>]"
+        fi
+        ;;
+    version|-v|--version)
+        echo "gemini-uiux version ${VERSION}"
+        ;;
+    help|--help|-h|"")
+        show_help
+        ;;
+    *)
+        echo -e "Unknown command: $COMMAND"
+        show_help
+        exit 1
+        ;;
+esac
