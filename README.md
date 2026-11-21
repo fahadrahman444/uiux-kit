@@ -1,5 +1,9 @@
 # Gemini UI/UX Kit 🎨
 
+[![CI](https://github.com/fahadrahman444/uiux-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/fahadrahman444/uiux-kit/actions/workflows/ci.yml)
+[![Version](https://img.shields.io/badge/version-v1.0.0-blue.svg)](VERSION)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 An enterprise-grade, design-system-first UI/UX engineering toolkit for AI agents and modern web developers.
 
 The kit enforces **mobile ergonomics**, **WCAG 2.1 AA accessibility**, **physics-grounded micro-interactions**, **anti-slop visual rehabilitation**, and **compositor performance standards** across React, Next.js, and Tailwind CSS.
@@ -39,7 +43,13 @@ gemini-uiux-kit/
 
 ## 🚀 Quick Start
 
-### 1. Installation
+### 1. One-Command Installation
+```bash
+git clone https://github.com/fahadrahman444/uiux-kit.git ~/.gemini/uiux-kit
+bash ~/.gemini/uiux-kit/install.sh
+```
+
+### 2. Local Installation
 ```bash
 bash install.sh
 ```
