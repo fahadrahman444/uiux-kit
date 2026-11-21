@@ -65,8 +65,8 @@ export const PatternSplitHero: React.FC<PatternSplitHeroProps> = ({
           </div>
 
           {/* Right Column (5 cols): Proof Card */}
-          <div className="lg:col-span-5">
-            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 p-6 sm:p-8 shadow-sm">
+          <div className="lg:col-span-5 min-h-[360px] aspect-video sm:aspect-auto">
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 p-6 sm:p-8 shadow-sm h-full">
               <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
                 <span className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   {proofCard.title || "Live Performance"}

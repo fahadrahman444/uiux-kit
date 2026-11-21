@@ -25,9 +25,9 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
   };
 
   const variantStyles = {
-    primary: "bg-blue-600 hover:bg-blue-700 text-white focus-visible:ring-blue-500",
-    secondary: "bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 focus-visible:ring-slate-400",
-    danger: "bg-rose-600 hover:bg-rose-700 text-white focus-visible:ring-rose-500",
+    primary: "bg-blue-600 hover:bg-blue-700 text-white focus-visible:outline-blue-600",
+    secondary: "bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 focus-visible:outline-slate-500",
+    danger: "bg-rose-600 hover:bg-rose-700 text-white focus-visible:outline-rose-600",
   };
 
   return (
@@ -35,7 +35,7 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
       whileTap={!loading && !disabled ? { scale: 0.98 } : undefined}
       onClick={handleClick}
       disabled={disabled || loading}
-      className={`relative inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-5 py-2.5 rounded-lg font-medium text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed ${variantStyles[variant]} ${className}`}
+      className={`relative inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-5 py-2.5 rounded-lg font-medium text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 forced-colors:focus-visible:outline-[Highlight] focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed ${variantStyles[variant]} ${className}`}
       {...props}
     >
       {loading ? (

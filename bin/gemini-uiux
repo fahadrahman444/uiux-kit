@@ -18,11 +18,11 @@ BOLD="\033[1m"
 RESET="\033[0m"
 
 show_help() {
-    echo -e "${BOLD}${CYAN}Gemini UI/UX Kit CLI (v${VERSION})${RESET}"
+    echo -e "${BOLD}${CYAN}SlopGuard UI/UX Kit CLI (v${VERSION})${RESET}"
     echo -e "Universal Design System, Accessibility (A11y), and Anti-Slop UI Engine."
     echo ""
     echo -e "${BOLD}Usage:${RESET}"
-    echo -e "  gemini-uiux <command> [arguments]"
+    echo -e "  slopguard <command> [arguments]  (alias: gemini-uiux)"
     echo ""
     echo -e "${BOLD}Commands:${RESET}"
     echo -e "  ${GREEN}init${RESET}        Bootstrap design tokens, standards, and templates in project"
@@ -81,7 +81,7 @@ case "$COMMAND" in
         fi
         ;;
     version|-v|--version)
-        echo "gemini-uiux version ${VERSION}"
+        echo "slopguard version ${VERSION} (alias: gemini-uiux)"
         ;;
     help|--help|-h|"")
         show_help

@@ -3,7 +3,7 @@ import type { PatternBentoGridProps } from "./types";
 
 export const PatternBentoGrid: React.FC<PatternBentoGridProps> = ({
   id = "features",
-  badge = "CAPABILITIES",
+  badge = "Capabilities",
   title,
   description,
   items,
@@ -21,7 +21,7 @@ export const PatternBentoGrid: React.FC<PatternBentoGridProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-12">
           {badge && (
-            <div className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">
+            <div className="text-xs font-mono font-medium text-blue-600 dark:text-blue-400 mb-2">
               {badge}
             </div>
           )}

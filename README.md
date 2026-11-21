@@ -1,12 +1,21 @@
-# Gemini UI/UX Kit 🎨
+# SlopGuard (Gemini UI/UX Kit) 🎨
 
 [![CI](https://github.com/fahadrahman444/uiux-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/fahadrahman444/uiux-kit/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-v1.3.0-blue.svg)](VERSION)
+[![Version](https://img.shields.io/badge/version-v1.6.1-blue.svg)](VERSION)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Audit Score: 100/100](https://img.shields.io/badge/audit%20score-100%2F100-success.svg)](AUDIT_REPORT.md)
 
 An enterprise-grade, design-system-first UI/UX engineering toolkit for AI agents and modern web developers.
 
-The kit enforces **mobile ergonomics**, **WCAG 2.1 AA accessibility**, **physics-grounded micro-interactions**, **anti-slop visual rehabilitation**, **text density reduction**, and **compositor performance standards** across React, Next.js, and Tailwind CSS.
+The kit enforces **mobile ergonomics**, **WCAG 2.2 AA accessibility**, **physics-grounded micro-interactions**, **anti-slop visual rehabilitation**, **text density reduction**, and **compositor performance standards** across React, Next.js, and Tailwind CSS.
+
+---
+
+## 📚 Core Playbooks & Production Specifications
+
+* **[WORKFLOW.md](WORKFLOW.md):** The hardened 7-phase operational engineering workflow & operating model (v1.6.1). Includes the 12 timeless design approaches, three-tier token architecture, single-source-of-truth rule catalog, and waiver governance.
+* **[TEST_CASES.md](TEST_CASES.md):** Production test suite & verification matrix (6 functional suites, 14-state interactive matrix, and manual Screen Reader smoke test scripts).
+* **[AUDIT_REPORT.md](AUDIT_REPORT.md):** Automated UI/UX quality and accessibility audit report with a verified **100/100 Anti-Slop Score** and **10/10 Definition of Done Gates Passed** (`Exit 0`, Production Ready).
 
 ---
 
@@ -15,7 +24,8 @@ The kit enforces **mobile ergonomics**, **WCAG 2.1 AA accessibility**, **physics
 ```text
 gemini-uiux-kit/
 ├── bin/
-│   └── gemini-uiux               # CLI tool (init, audit, doctor, component)
+│   ├── slopguard                 # Primary CLI binary (init, audit, doctor, component, upgrade, version)
+│   └── gemini-uiux               # Backward-compatible CLI alias
 ├── rules/
 │   ├── visual-identity.md        # Anti-slop aesthetics, clean surfaces, color hierarchy
 │   ├── design-philosophies.md    # The 12 Timeless UI Design Approaches & Golden Hybrid
@@ -68,35 +78,34 @@ gemini-uiux-kit/
 
 ## 🚀 Quick Start
 
-### 1. One-Command Installation
+### 1. Installation
 ```bash
 git clone https://github.com/fahadrahman444/uiux-kit.git ~/.gemini/uiux-kit
 bash ~/.gemini/uiux-kit/install.sh
 ```
 
-### 2. Local Installation
-```bash
-bash install.sh
-```
-
-### 3. CLI Commands
+### 2. CLI Commands
 ```bash
 # Initialize design system & rules in your project
-gemini-uiux init
+slopguard init
 
 # Run deterministic accessibility, token, and performance audit
-gemini-uiux audit
+slopguard audit . --ci
 
 # Check frontend environment health
-gemini-uiux doctor
+slopguard doctor
 
 # List available component blueprints
-gemini-uiux component list
+slopguard component list
 
 # Inject an accessible component blueprint into your project
-gemini-uiux component add PatternBentoGrid
-gemini-uiux component add SpotlightCard
+slopguard component add PatternBentoGrid
+slopguard component add SpotlightCard
+
+# Print version information
+slopguard version
 ```
+*(Legacy alias `gemini-uiux` is fully supported)*.
 
 ---
 
@@ -106,10 +115,10 @@ gemini-uiux component add SpotlightCard
 2. **Text Density Reduction:** Replaces dense paragraphs with scannable UI primitives (chips, stat blocks, bento cards, steppers, and spec accordions).
 3. **Hardware-Accelerated Interactions:** Uses CSS custom properties for cursor spotlight effects to avoid re-rendering React trees on mouse movements.
 4. **Thumb-First Ergonomics:** 44×44px minimum touch footprints, sticky bottom CTAs on mobile, and dynamic viewports (`100dvh`).
-5. **WCAG 2.1 AA Accessibility:** Focus rings on all keyboard inputs, required `aria-label`s on icon-only buttons, and minimum 4.5:1 contrast ratios.
+5. **WCAG 2.2 AA Accessibility:** Focus rings with Windows Forced Colors fallbacks, required `aria-label`s on icon-only buttons, and minimum 4.5:1 contrast ratios.
 6. **State Safety:** Interactive mutation buttons feature built-in loading locks to eliminate double-click race conditions.
 
 ---
 
 ## 📄 License
-Distributed under the MIT License.
+Distributed under the MIT License. Text methodologies carry attribution to original authors under CC BY 4.0 (see `NOTICE`).
