@@ -69,6 +69,11 @@ CSV_CONFIG = {
         "file": "web-interface.csv",
         "search_cols": ["Category", "Issue", "Keywords", "Description"],
         "output_cols": ["Category", "Issue", "Platform", "Description", "Do", "Don't", "Code Example Good", "Code Example Bad", "Severity"]
+    },
+    "section": {
+        "file": "section-archetypes.csv",
+        "search_cols": ["Section Name", "Archetype Name", "Keywords", "Best For", "Layout Structure"],
+        "output_cols": ["Section Name", "Archetype ID", "Archetype Name", "Best For", "Layout Structure", "Typography Specs", "Key Components", "Responsive Behavior", "Accessibility", "Anti-Slop Rules"]
     }
 }
 
