@@ -77,6 +77,11 @@ SECTION_FALLBACKS = {
     "about_values":              "val-01",   # 6-Card Numbered Principle Grid
     "about_culture_gallery":     "cult-01",  # Curated Multi-Aspect Studio Collage
     "about_leadership_board":    "lead-01",  # C-Suite Grid with Alumni Credibility Badges
+    # Dedicated Services Page
+    "service_architecture":      "arch-01",  # Node-Based Data Pipeline Diagram
+    "service_deliverables_matrix": "deliv-01",# Categorized Scope & Artifact Accordion
+    "service_tech_stack":        "stack-01", # Categorized Monochromatic Tech Stack Grid
+    "service_use_cases":         "use-01",   # Industry Tabbed Solution Switcher
 }
 
 fallback_warnings = []
@@ -342,6 +347,30 @@ def select_archetype(section_data: dict, project_info: dict) -> dict:
         if project_info.get("has_investors"):        return pick("lead-02")
         return pick("lead-01")
 
+    # ── SERVICE ARCHITECTURE ─────────────────────────────
+    elif sec_id == "service_architecture":
+        if project_info.get("arch_layered"):         return pick("arch-02")
+        if project_info.get("workflow_phases") or project_info.get("service_model") == "consulting":
+            return pick("arch-03")
+        return pick("arch-01")
+
+    # ── SERVICE DELIVERABLES MATRIX ──────────────────────
+    elif sec_id == "service_deliverables_matrix":
+        if project_info.get("has_sla"):              return pick("deliv-02")
+        if project_info.get("interactive_scope"):    return pick("deliv-03")
+        return pick("deliv-01")
+
+    # ── SERVICE TECH STACK ───────────────────────────────
+    elif sec_id == "service_tech_stack":
+        if project_info.get("has_partners"):         return pick("stack-02")
+        if project_info.get("searchable_integrations"): return pick("stack-03")
+        return pick("stack-01")
+
+    # ── SERVICE USE CASES ────────────────────────────────
+    elif sec_id == "service_use_cases":
+        if project_info.get("multi_persona"):        return pick("use-02")
+        return pick("use-01")
+
     # ── GLOBAL FALLBACK (unknown section) ────────────────
     else:
         fallback_id = SECTION_FALLBACKS.get(sec_id, archetypes[0]["archetype_id"])
@@ -486,6 +515,13 @@ if __name__ == "__main__":
     parser.add_argument("--culture-focus", action="store_true", help="Focus on team working norms and culture quotes")
     parser.add_argument("--has-investors", action="store_true", help="Tier-1 VC backers and advisory board")
     parser.add_argument("--has-office-photos", action="store_true", help="Studio and authentic office photo collage")
+    # Services Page flags
+    parser.add_argument("--arch-layered", action="store_true", help="Layered enterprise stack architecture diagram")
+    parser.add_argument("--workflow-phases", action="store_true", help="4-phase delivery workflow and milestone outputs")
+    parser.add_argument("--interactive-scope", action="store_true", help="Interactive module scope configurator")
+    parser.add_argument("--has-partners", action="store_true", help="Official certified cloud partner badges")
+    parser.add_argument("--searchable-integrations", action="store_true", help="Searchable integration ecosystem playground")
+    parser.add_argument("--multi-persona", action="store_true", help="Role-based persona solution cards (CTO/CMO/CFO)")
     parser.add_argument("--out", type=str, default=None, help="Output file path")
     args = parser.parse_args()
 
@@ -526,6 +562,13 @@ if __name__ == "__main__":
         "culture_focus": args.culture_focus,
         "has_investors": args.has_investors,
         "has_office_photos": args.has_office_photos,
+        # Services Page variables
+        "arch_layered": args.arch_layered,
+        "workflow_phases": args.workflow_phases,
+        "interactive_scope": args.interactive_scope,
+        "has_partners": args.has_partners,
+        "searchable_integrations": args.searchable_integrations,
+        "multi_persona": args.multi_persona,
     }
 
     prompt = generate_master_prompt(project)
