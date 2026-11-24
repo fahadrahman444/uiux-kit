@@ -90,6 +90,10 @@ SECTION_FALLBACKS = {
     "case_study_hero_highlight": "csh-01",   # Split Hero Transformation Spotlight
     "case_study_filter_hub":     "csf-01",   # Multi-Pill Filterable Grid with Impact Badges
     "case_study_client_quote_strip": "csq-01",# 3-Column Pull Quote Grid with Enterprise Headshots
+    # Dedicated Blog Page
+    "blog_featured_editorial":   "bfeat-01", # Split Hero Lead Story
+    "blog_topic_filter_feed":    "bfeed-01", # 3-Column Responsive Article Card Grid
+    "blog_newsletter_capture":   "bnews-01", # Full-Width High-Contrast Knowledge Card
 }
 
 fallback_warnings = []
@@ -414,6 +418,25 @@ def select_archetype(section_data: dict, project_info: dict) -> dict:
         if project_info.get("has_vip_quote"):        return pick("csq-02")
         return pick("csq-01")
 
+    # ── BLOG FEATURED EDITORIAL ──────────────────────────
+    elif sec_id == "blog_featured_editorial":
+        if project_info.get("has_trending") or project_info.get("post_density") == "high":
+            return pick("bfeat-02")
+        s = project_info.get("style", "").lower()
+        if "minimalist" in s or "longform" in s:     return pick("bfeat-03")
+        return pick("bfeat-01")
+
+    # ── BLOG TOPIC FILTER FEED ───────────────────────────
+    elif sec_id == "blog_topic_filter_feed":
+        if project_info.get("feed_horizontal"):      return pick("bfeed-02")
+        if project_info.get("feed_archive"):         return pick("bfeed-03")
+        return pick("bfeed-01")
+
+    # ── BLOG NEWSLETTER CAPTURE ──────────────────────────
+    elif sec_id == "blog_newsletter_capture":
+        if project_info.get("split_digest"):         return pick("bnews-02")
+        return pick("bnews-01")
+
     # ── GLOBAL FALLBACK (unknown section) ────────────────
     else:
         fallback_id = SECTION_FALLBACKS.get(sec_id, archetypes[0]["archetype_id"])
@@ -572,6 +595,11 @@ if __name__ == "__main__":
     # Case Studies Page flags
     parser.add_argument("--data-dense", action="store_true", help="Data-dense ledger portfolio view")
     parser.add_argument("--has-vip-quote", action="store_true", help="Marquee Fortune 500 client quote banner")
+    # Blog Page flags
+    parser.add_argument("--has-trending", action="store_true", help="Asymmetric 1+2 trending stories hero")
+    parser.add_argument("--feed-horizontal", action="store_true", help="Magazine-style horizontal article rows")
+    parser.add_argument("--feed-archive", action="store_true", help="High-density date ledger archive")
+    parser.add_argument("--split-digest", action="store_true", help="Split curated newsletter box with RSS link")
     parser.add_argument("--out", type=str, default=None, help="Output file path")
     args = parser.parse_args()
 
@@ -626,6 +654,11 @@ if __name__ == "__main__":
         # Case Studies Page variables
         "data_dense": args.data_dense,
         "has_vip_quote": args.has_vip_quote,
+        # Blog Page variables
+        "has_trending": args.has_trending,
+        "feed_horizontal": args.feed_horizontal,
+        "feed_archive": args.feed_archive,
+        "split_digest": args.split_digest,
     }
 
     prompt = generate_master_prompt(project)

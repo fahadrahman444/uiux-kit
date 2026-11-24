@@ -115,9 +115,9 @@
       "description": "Organic traffic engine and thought leadership library with topic clustering.",
       "default_section_flow": [
         "navbar",
-        "hero",
-        "blog_featured",
-        "blog_feed",
+        "blog_featured_editorial",
+        "blog_topic_filter_feed",
+        "blog_newsletter_capture",
         "final_cta",
         "footer"
       ]
