@@ -72,6 +72,11 @@ SECTION_FALLBACKS = {
     "pricing_addons":            "padd-01",  # 2-Column Selectable Add-on Card Grid
     "pricing_enterprise_sla":    "psla-01",  # Full-Width High-Trust Procurement Card
     "pricing_guarantee_bar":     "pbar-01",  # 3-Badge Security & Money-Back Strip
+    # Dedicated About Page
+    "about_timeline":            "time-01",  # Vertical Alternating Milestone Spine
+    "about_values":              "val-01",   # 6-Card Numbered Principle Grid
+    "about_culture_gallery":     "cult-01",  # Curated Multi-Aspect Studio Collage
+    "about_leadership_board":    "lead-01",  # C-Suite Grid with Alumni Credibility Badges
 }
 
 fallback_warnings = []
@@ -312,6 +317,31 @@ def select_archetype(section_data: dict, project_info: dict) -> dict:
         if project_info.get("mobile_drawer"):        return pick("pbar-02")
         return pick("pbar-01")
 
+    # ── ABOUT TIMELINE ───────────────────────────────────
+    elif sec_id == "about_timeline":
+        if project_info.get("timeline_horizontal"):  return pick("time-02")
+        s = project_info.get("style", "").lower()
+        if "minimalist" in s or "editorial" in s:   return pick("time-03")
+        return pick("time-01")
+
+    # ── ABOUT VALUES ─────────────────────────────────────
+    elif sec_id == "about_values":
+        if project_info.get("has_manifesto") or project_info.get("founder_led"): return pick("val-02")
+        s = project_info.get("style", "").lower()
+        if "bento" in s or "contemporary" in s:      return pick("val-03")
+        return pick("val-01")
+
+    # ── ABOUT CULTURE GALLERY ────────────────────────────
+    elif sec_id == "about_culture_gallery":
+        if project_info.get("distributed_team"):     return pick("cult-02")
+        if project_info.get("culture_focus"):        return pick("cult-03")
+        return pick("cult-01")
+
+    # ── ABOUT LEADERSHIP BOARD ───────────────────────────
+    elif sec_id == "about_leadership_board":
+        if project_info.get("has_investors"):        return pick("lead-02")
+        return pick("lead-01")
+
     # ── GLOBAL FALLBACK (unknown section) ────────────────
     else:
         fallback_id = SECTION_FALLBACKS.get(sec_id, archetypes[0]["archetype_id"])
@@ -449,6 +479,13 @@ if __name__ == "__main__":
     parser.add_argument("--mobile-drawer", action="store_true", help="Sticky bottom mobile checkout drawer")
     parser.add_argument("--roi-calc", action="store_true", help="Interactive ROI payback estimator")
     parser.add_argument("--usage-based", action="store_true", help="Usage-based consumption pricing")
+    # About Page flags
+    parser.add_argument("--timeline-horizontal", action="store_true", help="Horizontal timeline carousel")
+    parser.add_argument("--has-manifesto", action="store_true", help="Founder core thesis manifesto")
+    parser.add_argument("--distributed-team", action="store_true", help="Global distributed hubs and remote map")
+    parser.add_argument("--culture-focus", action="store_true", help="Focus on team working norms and culture quotes")
+    parser.add_argument("--has-investors", action="store_true", help="Tier-1 VC backers and advisory board")
+    parser.add_argument("--has-office-photos", action="store_true", help="Studio and authentic office photo collage")
     parser.add_argument("--out", type=str, default=None, help="Output file path")
     args = parser.parse_args()
 
@@ -482,6 +519,13 @@ if __name__ == "__main__":
         "mobile_drawer": args.mobile_drawer,
         "has_roi": args.roi_calc,
         "pricing_model": "usage_based" if args.usage_based else "subscription",
+        # About Page variables
+        "timeline_horizontal": args.timeline_horizontal,
+        "has_manifesto": args.has_manifesto,
+        "distributed_team": args.distributed_team,
+        "culture_focus": args.culture_focus,
+        "has_investors": args.has_investors,
+        "has_office_photos": args.has_office_photos,
     }
 
     prompt = generate_master_prompt(project)
