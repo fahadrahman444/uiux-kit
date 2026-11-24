@@ -101,7 +101,9 @@
       "description": "Friction-minimized pipeline for qualified lead routing, discovery booking, and enterprise RFQ.",
       "default_section_flow": [
         "navbar",
-        "contact_intake",
+        "contact_intake_form",
+        "contact_sla_banner",
+        "contact_location_map",
         "trusted_by",
         "faq",
         "footer"

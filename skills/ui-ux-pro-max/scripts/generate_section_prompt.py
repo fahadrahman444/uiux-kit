@@ -82,6 +82,10 @@ SECTION_FALLBACKS = {
     "service_deliverables_matrix": "deliv-01",# Categorized Scope & Artifact Accordion
     "service_tech_stack":        "stack-01", # Categorized Monochromatic Tech Stack Grid
     "service_use_cases":         "use-01",   # Industry Tabbed Solution Switcher
+    # Dedicated Contact Page
+    "contact_intake_form":       "cform-01", # Split 2-Column High-Trust Intake
+    "contact_location_map":      "cmap-01",  # Multi-City Interactive Location Cards
+    "contact_sla_banner":        "csla-01",  # 3-Pillar Response & Support Commitment Strip
 }
 
 fallback_warnings = []
@@ -371,6 +375,22 @@ def select_archetype(section_data: dict, project_info: dict) -> dict:
         if project_info.get("multi_persona"):        return pick("use-02")
         return pick("use-01")
 
+    # ── CONTACT INTAKE FORM ──────────────────────────────
+    elif sec_id == "contact_intake_form":
+        if project_info.get("direct_calendar"):      return pick("cform-03")
+        if project_info.get("multi_step"):           return pick("cform-02")
+        return pick("cform-01")
+
+    # ── CONTACT LOCATION MAP ─────────────────────────────
+    elif sec_id == "contact_location_map":
+        if project_info.get("map_view"):             return pick("cmap-02")
+        return pick("cmap-01")
+
+    # ── CONTACT SLA BANNER ───────────────────────────────
+    elif sec_id == "contact_sla_banner":
+        if project_info.get("has_support_route"):    return pick("csla-02")
+        return pick("csla-01")
+
     # ── GLOBAL FALLBACK (unknown section) ────────────────
     else:
         fallback_id = SECTION_FALLBACKS.get(sec_id, archetypes[0]["archetype_id"])
@@ -522,6 +542,10 @@ if __name__ == "__main__":
     parser.add_argument("--has-partners", action="store_true", help="Official certified cloud partner badges")
     parser.add_argument("--searchable-integrations", action="store_true", help="Searchable integration ecosystem playground")
     parser.add_argument("--multi-persona", action="store_true", help="Role-based persona solution cards (CTO/CMO/CFO)")
+    # Contact Page flags
+    parser.add_argument("--multi-step", action="store_true", help="Multi-step progressive disclosure wizard")
+    parser.add_argument("--map-view", action="store_true", help="Stylized vector map view")
+    parser.add_argument("--has-support-route", action="store_true", help="Dual-track sales vs support routing banner")
     parser.add_argument("--out", type=str, default=None, help="Output file path")
     args = parser.parse_args()
 
@@ -569,6 +593,10 @@ if __name__ == "__main__":
         "has_partners": args.has_partners,
         "searchable_integrations": args.searchable_integrations,
         "multi_persona": args.multi_persona,
+        # Contact Page variables
+        "multi_step": args.multi_step,
+        "map_view": args.map_view,
+        "has_support_route": args.has_support_route,
     }
 
     prompt = generate_master_prompt(project)
