@@ -50,21 +50,28 @@ def normalize_intent(raw_style: str) -> str:
 # PER-SECTION SAFE FALLBACK ARCHETYPES
 # =====================================================
 SECTION_FALLBACKS = {
-    "navbar":          "nav-02",   # Full-Width Enterprise Edge-to-Edge
-    "hero":            "hero-01",  # Split-Screen
-    "trusted_by":      "tb-01",    # Infinite Greyscale Marquee
-    "about":           "abt-02",   # Split Mission & Metric Cards
-    "services":        "srv-01",   # 3-Column Feature Cards
-    "why_choose_us":   "wcu-01",   # 4-Column Icon Feature Grid
-    "how_we_work":     "hww-04",   # Big Number Typography
-    "portfolio":       "port-01",  # Masonry Visual Grid
-    "testimonials":    "tst-01",   # Masonry Wall of Love
-    "results_metrics": "res-01",   # 4-Column Animated Counter Strip
-    "pricing":         "prc-01",   # 3-Tier Standard Cards
-    "team":            "team-01",  # Card Grid
-    "faq":             "faq-01",   # Single-Column Centered Accordion
-    "final_cta":       "cta-01",   # High-Impact Contrast Card Band
-    "footer":          "ftr-01",   # Multi-Column Sitemap Hub
+    # Homepage Core
+    "navbar":                    "nav-02",   # Full-Width Enterprise Edge-to-Edge
+    "hero":                      "hero-01",  # Split-Screen
+    "trusted_by":                "tb-01",    # Infinite Greyscale Marquee
+    "about":                     "abt-02",   # Split Mission & Metric Cards
+    "services":                  "srv-01",   # 3-Column Feature Cards
+    "why_choose_us":             "wcu-01",   # 4-Column Icon Feature Grid
+    "how_we_work":               "hww-04",   # Big Number Typography
+    "portfolio":                 "port-01",  # Masonry Visual Grid
+    "testimonials":              "tst-01",   # Masonry Wall of Love
+    "results_metrics":           "res-01",   # 4-Column Animated Counter Strip
+    "pricing":                   "prc-01",   # 3-Tier Standard Cards
+    "team":                      "team-01",  # Card Grid
+    "faq":                       "faq-01",   # Single-Column Centered Accordion
+    "final_cta":                 "cta-01",   # High-Impact Contrast Card Band
+    "footer":                    "ftr-01",   # Multi-Column Sitemap Hub
+    # Dedicated Pricing Page
+    "pricing_hero":              "phero-01", # Centered Toggle Hero with Trial Chip
+    "pricing_comparison_matrix": "pmat-01",  # Sticky Header Grouped Category Matrix
+    "pricing_addons":            "padd-01",  # 2-Column Selectable Add-on Card Grid
+    "pricing_enterprise_sla":    "psla-01",  # Full-Width High-Trust Procurement Card
+    "pricing_guarantee_bar":     "pbar-01",  # 3-Badge Security & Money-Back Strip
 }
 
 fallback_warnings = []
@@ -75,6 +82,14 @@ def load_json_dataset():
     if not json_path.exists():
         raise FileNotFoundError(f"Dataset missing: {json_path}")
     with open(json_path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_page_templates():
+    tpl_path = DATA_DIR / "page-templates.json"
+    if not tpl_path.exists():
+        return None
+    with open(tpl_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -270,6 +285,33 @@ def select_archetype(section_data: dict, project_info: dict) -> dict:
         if project_info.get("single_page"):          return pick("ftr-04")
         return pick("ftr-01")
 
+    # ── PRICING HERO ─────────────────────────────────────
+    elif sec_id == "pricing_hero":
+        if project_info.get("pricing_model") == "usage_based": return pick("phero-03")
+        if project_info.get("has_roi") or project_info.get("enterprise"): return pick("phero-02")
+        return pick("phero-01")
+
+    # ── PRICING COMPARISON MATRIX ────────────────────────
+    elif sec_id == "pricing_comparison_matrix":
+        if project_info.get("matrix_tabs"):          return pick("pmat-02")
+        if project_info.get("minimal_diff"):         return pick("pmat-03")
+        return pick("pmat-01")
+
+    # ── PRICING ADDONS ───────────────────────────────────
+    elif sec_id == "pricing_addons":
+        if project_info.get("addon_compact"):        return pick("padd-02")
+        return pick("padd-01")
+
+    # ── PRICING ENTERPRISE SLA ───────────────────────────
+    elif sec_id == "pricing_enterprise_sla":
+        if project_info.get("direct_rfq_form"):      return pick("psla-02")
+        return pick("psla-01")
+
+    # ── PRICING GUARANTEE BAR ────────────────────────────
+    elif sec_id == "pricing_guarantee_bar":
+        if project_info.get("mobile_drawer"):        return pick("pbar-02")
+        return pick("pbar-01")
+
     # ── GLOBAL FALLBACK (unknown section) ────────────────
     else:
         fallback_id = SECTION_FALLBACKS.get(sec_id, archetypes[0]["archetype_id"])
@@ -284,7 +326,27 @@ def select_archetype(section_data: dict, project_info: dict) -> dict:
 # =====================================================
 
 def generate_master_prompt(project_info: dict) -> str:
-    sections = load_json_dataset()
+    all_sections = load_json_dataset()
+    section_map = {s["section_id"]: s for s in all_sections}
+
+    page_id = project_info.get("page_id", "home")
+    templates = load_page_templates()
+    page_meta = None
+    if templates and "pages" in templates:
+        page_meta = next((p for p in templates["pages"] if p["page_id"] == page_id), None)
+
+    if page_meta and "default_section_flow" in page_meta:
+        sections = []
+        for sid in page_meta["default_section_flow"]:
+            if sid in section_map:
+                sections.append(section_map[sid])
+            else:
+                fallback_warnings.append(f"[WARN] Page '{page_id}' requested section '{sid}' which is not in dataset yet")
+        page_display_name = page_meta.get("name", page_id.title())
+    else:
+        sections = all_sections
+        page_display_name = "Full System (15 Sections)"
+
     proj_name = project_info.get("project_name", "Modern Web Platform")
     raw_style = project_info.get("style", "Industrial Precision / Minimalist")
     target = project_info.get("target_audience", "B2B Decision Makers")
@@ -303,9 +365,10 @@ def generate_master_prompt(project_info: dict) -> str:
     p = []
     p.append(f"# Master Production-Grade UI/UX Blueprint")
     p.append(f"**Project:** {proj_name}")
+    p.append(f"**Page:** {page_display_name} (`{page_id}`)")
     p.append(f"**Style Archetype:** {raw_style}")
     p.append(f"**Target Audience:** {target}")
-    p.append(f"**Sections covered:** {len(sections)}/15")
+    p.append(f"**Sections covered:** {len(sections)} sections")
     p.append(f"**Compliance:** WCAG 2.2 AA | Anti-Slop Gates Enabled\n")
 
     p.append("---")
@@ -360,6 +423,7 @@ def generate_master_prompt(project_info: dict) -> str:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate Production UI/UX Master Prompt")
+    parser.add_argument("--page", default="home", choices=["home", "pricing", "about", "services", "case_studies", "contact", "blog", "careers", "legal"], help="Page type")
     parser.add_argument("--name", default="Apex Growth Agency", help="Project name")
     parser.add_argument("--style", default="Industrial Minimalist", help="Style archetype")
     parser.add_argument("--industry", default="b2b", help="Industry for color lookup")
@@ -371,10 +435,25 @@ if __name__ == "__main__":
     parser.add_argument("--productized", action="store_true", help="Flat-rate productized pricing")
     parser.add_argument("--founder-led", action="store_true", help="Founder-led agency")
     parser.add_argument("--has-stats", action="store_true", help="Agency has proof stats")
+    parser.add_argument("--enterprise", action="store_true", help="Enterprise tier targeting")
+    # Pricing Page flags
+    parser.add_argument("--billing-toggle", action="store_true", help="Include billing cycle toggle")
+    parser.add_argument("--has-matrix", action="store_true", help="Include deep feature comparison matrix")
+    parser.add_argument("--matrix-tabs", action="store_true", help="Use tabbed feature matrix")
+    parser.add_argument("--minimal-diff", action="store_true", help="Use delta/diff-only matrix")
+    parser.add_argument("--has-addons", action="store_true", help="Include modular add-on upgrades")
+    parser.add_argument("--addon-compact", action="store_true", help="Compact horizontal addon strip")
+    parser.add_argument("--has-sla", action="store_true", help="Include enterprise procurement / SLA card")
+    parser.add_argument("--direct-rfq", action="store_true", help="Direct RFQ inquiry form")
+    parser.add_argument("--has-guarantee", action="store_true", help="Include risk reversal guarantee banner")
+    parser.add_argument("--mobile-drawer", action="store_true", help="Sticky bottom mobile checkout drawer")
+    parser.add_argument("--roi-calc", action="store_true", help="Interactive ROI payback estimator")
+    parser.add_argument("--usage-based", action="store_true", help="Usage-based consumption pricing")
     parser.add_argument("--out", type=str, default=None, help="Output file path")
     args = parser.parse_args()
 
     project = {
+        "page_id": args.page,
         "project_name": args.name,
         "style": args.style,
         "industry": args.industry,
@@ -386,9 +465,23 @@ if __name__ == "__main__":
         "is_productized": args.productized,
         "founder_led": args.founder_led,
         "has_proof_stats": args.has_stats,
-        "target_audience": "B2B Marketing and Sales Leaders",
+        "enterprise": args.enterprise,
+        "target_audience": "Enterprise & Growth Leaders" if args.enterprise else "B2B Marketing and Sales Leaders",
         "has_mockup": True,
         "logo_count": 10,
+        # Pricing Page variables
+        "has_billing_toggle": args.billing_toggle,
+        "has_matrix": args.has_matrix,
+        "matrix_tabs": args.matrix_tabs,
+        "minimal_diff": args.minimal_diff,
+        "has_addons": args.has_addons,
+        "addon_compact": args.addon_compact,
+        "compliance": args.has_sla,
+        "direct_rfq_form": args.direct_rfq,
+        "has_guarantee": args.has_guarantee,
+        "mobile_drawer": args.mobile_drawer,
+        "has_roi": args.roi_calc,
+        "pricing_model": "usage_based" if args.usage_based else "subscription",
     }
 
     prompt = generate_master_prompt(project)

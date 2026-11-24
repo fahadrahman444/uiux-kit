@@ -1,0 +1,143 @@
+{
+  "version": "1.0.0",
+  "total_pages": 10,
+  "pages": [
+    {
+      "page_id": "home",
+      "name": "Home / Landing Page",
+      "description": "Primary conversion, brand positioning, and social proof hub for incoming traffic.",
+      "default_section_flow": [
+        "navbar",
+        "hero",
+        "trusted_by",
+        "about",
+        "services",
+        "why_choose_us",
+        "how_we_work",
+        "portfolio",
+        "results_metrics",
+        "testimonials",
+        "pricing",
+        "team",
+        "faq",
+        "final_cta",
+        "footer"
+      ]
+    },
+    {
+      "page_id": "pricing",
+      "name": "Dedicated Pricing & Plans",
+      "description": "Conversion engine for high-intent evaluators. Provides granular feature comparison, billing flexibility, and procurement confidence.",
+      "default_section_flow": [
+        "navbar",
+        "pricing_hero",
+        "pricing",
+        "pricing_comparison_matrix",
+        "pricing_addons",
+        "pricing_enterprise_sla",
+        "pricing_guarantee_bar",
+        "faq",
+        "final_cta",
+        "footer"
+      ]
+    },
+    {
+      "page_id": "about",
+      "name": "About Us & Company Culture",
+      "description": "Establishes executive credibility, mission authenticity, team caliber, and brand legacy.",
+      "default_section_flow": [
+        "navbar",
+        "hero",
+        "about",
+        "about_timeline",
+        "about_values",
+        "team",
+        "trusted_by",
+        "results_metrics",
+        "final_cta",
+        "footer"
+      ]
+    },
+    {
+      "page_id": "services",
+      "name": "Services & Solutions Hub",
+      "description": "Catalog of organizational capabilities, target use-cases, methodology, and technical deliverables.",
+      "default_section_flow": [
+        "navbar",
+        "hero",
+        "services",
+        "how_we_work",
+        "service_architecture",
+        "portfolio",
+        "testimonials",
+        "faq",
+        "final_cta",
+        "footer"
+      ]
+    },
+    {
+      "page_id": "case_studies",
+      "name": "Case Studies & Portfolio Index",
+      "description": "Proof-of-performance index organized by sector, service line, and measurable business impact.",
+      "default_section_flow": [
+        "navbar",
+        "hero",
+        "trusted_by",
+        "portfolio",
+        "results_metrics",
+        "testimonials",
+        "final_cta",
+        "footer"
+      ]
+    },
+    {
+      "page_id": "contact",
+      "name": "Contact & Sales Intake",
+      "description": "Friction-minimized pipeline for qualified lead routing, discovery booking, and enterprise RFQ.",
+      "default_section_flow": [
+        "navbar",
+        "contact_intake",
+        "trusted_by",
+        "faq",
+        "footer"
+      ]
+    },
+    {
+      "page_id": "blog",
+      "name": "Resources & Editorial Hub",
+      "description": "Organic traffic engine and thought leadership library with topic clustering.",
+      "default_section_flow": [
+        "navbar",
+        "hero",
+        "blog_featured",
+        "blog_feed",
+        "final_cta",
+        "footer"
+      ]
+    },
+    {
+      "page_id": "careers",
+      "name": "Careers & Talent Acquisition",
+      "description": "Talent attraction portal emphasizing mission, compensation philosophy, culture, and open requisitions.",
+      "default_section_flow": [
+        "navbar",
+        "hero",
+        "about_values",
+        "careers_perks",
+        "careers_jobs",
+        "testimonials",
+        "footer"
+      ]
+    },
+    {
+      "page_id": "legal",
+      "name": "Legal, Privacy & Compliance Hub",
+      "description": "High-legibility legal documentation with structured anchors and versioning.",
+      "default_section_flow": [
+        "navbar",
+        "legal_doc",
+        "footer"
+      ]
+    }
+  ]
+}
