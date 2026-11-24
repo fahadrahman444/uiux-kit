@@ -86,11 +86,11 @@
       "description": "Proof-of-performance index organized by sector, service line, and measurable business impact.",
       "default_section_flow": [
         "navbar",
-        "hero",
+        "case_study_hero_highlight",
         "trusted_by",
-        "portfolio",
+        "case_study_filter_hub",
+        "case_study_client_quote_strip",
         "results_metrics",
-        "testimonials",
         "final_cta",
         "footer"
       ]

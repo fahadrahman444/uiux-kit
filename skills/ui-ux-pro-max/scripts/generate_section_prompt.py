@@ -86,6 +86,10 @@ SECTION_FALLBACKS = {
     "contact_intake_form":       "cform-01", # Split 2-Column High-Trust Intake
     "contact_location_map":      "cmap-01",  # Multi-City Interactive Location Cards
     "contact_sla_banner":        "csla-01",  # 3-Pillar Response & Support Commitment Strip
+    # Dedicated Case Studies Page
+    "case_study_hero_highlight": "csh-01",   # Split Hero Transformation Spotlight
+    "case_study_filter_hub":     "csf-01",   # Multi-Pill Filterable Grid with Impact Badges
+    "case_study_client_quote_strip": "csq-01",# 3-Column Pull Quote Grid with Enterprise Headshots
 }
 
 fallback_warnings = []
@@ -391,6 +395,25 @@ def select_archetype(section_data: dict, project_info: dict) -> dict:
         if project_info.get("has_support_route"):    return pick("csla-02")
         return pick("csla-01")
 
+    # ── CASE STUDY HERO HIGHLIGHT ────────────────────────
+    elif sec_id == "case_study_hero_highlight":
+        if project_info.get("has_video") or project_info.get("immersive"): return pick("csh-02")
+        s = project_info.get("style", "").lower()
+        if "minimalist" in s or "editorial" in s:   return pick("csh-03")
+        return pick("csh-01")
+
+    # ── CASE STUDY FILTER HUB ────────────────────────────
+    elif sec_id == "case_study_filter_hub":
+        if project_info.get("data_dense") or project_info.get("ledger_view"): return pick("csf-03")
+        s = project_info.get("style", "").lower()
+        if "creative" in s or "editorial" in s:      return pick("csf-02")
+        return pick("csf-01")
+
+    # ── CASE STUDY CLIENT QUOTE STRIP ────────────────────
+    elif sec_id == "case_study_client_quote_strip":
+        if project_info.get("has_vip_quote"):        return pick("csq-02")
+        return pick("csq-01")
+
     # ── GLOBAL FALLBACK (unknown section) ────────────────
     else:
         fallback_id = SECTION_FALLBACKS.get(sec_id, archetypes[0]["archetype_id"])
@@ -546,6 +569,9 @@ if __name__ == "__main__":
     parser.add_argument("--multi-step", action="store_true", help="Multi-step progressive disclosure wizard")
     parser.add_argument("--map-view", action="store_true", help="Stylized vector map view")
     parser.add_argument("--has-support-route", action="store_true", help="Dual-track sales vs support routing banner")
+    # Case Studies Page flags
+    parser.add_argument("--data-dense", action="store_true", help="Data-dense ledger portfolio view")
+    parser.add_argument("--has-vip-quote", action="store_true", help="Marquee Fortune 500 client quote banner")
     parser.add_argument("--out", type=str, default=None, help="Output file path")
     args = parser.parse_args()
 
@@ -597,6 +623,9 @@ if __name__ == "__main__":
         "multi_step": args.multi_step,
         "map_view": args.map_view,
         "has_support_route": args.has_support_route,
+        # Case Studies Page variables
+        "data_dense": args.data_dense,
+        "has_vip_quote": args.has_vip_quote,
     }
 
     prompt = generate_master_prompt(project)
