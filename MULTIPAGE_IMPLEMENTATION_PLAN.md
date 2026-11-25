@@ -1,8 +1,8 @@
 # Multi-Page UI/UX Intelligence System — Master Implementation Plan
 
 > **Project:** UI/UX Pro Max Engine  
-> **Repository:** `D:\gemini\gemini-uiux-kit\`  
-> **Current Milestone:** 9 of 9 Core Pages Complete (100% Complete)  
+> **Repository:** Root (`skills/ui-ux-pro-max/`, `components/`, `docs/`)  
+> **Current Milestone:** 9 of 9 Core Pages Complete (100% Complete — Live in Static Studio & Python API)  
 > **Current Scale:** 40 Sections · 173 Archetypes · 0 Critical Audit Errors  
 > **Compliance Standard:** WCAG 2.2 AA / AAA · Anti-Slop Rubric (SLOP-001 to SLOP-006)
 
@@ -10,206 +10,147 @@
 
 ## 1. Executive Summary & Architecture
 
-This implementation plan documents the roadmap to complete the multi-page design intelligence system. The system translates high-level client discovery intake into deterministic, token-level UI/UX blueprint prompts across any modern website page type.
+This implementation plan documents the multi-page design intelligence system. The system translates high-level client discovery intake into deterministic, token-level UI/UX blueprint prompts across 9 core page templates (`home`, `pricing`, `about`, `services`, `case_studies`, `contact`, `blog`, `careers`, `legal`).
 
 ```mermaid
 flowchart TD
-    ClientIntake["Client Intake & Brief\n(Niche, Style, Page Type, Tech Stack)"] --> PageRouter{"Page Selection Engine\n(--page home|pricing|about|services|case_studies|blog|careers|legal)"}
+    ClientIntake["Client Discovery Studio / Intake\n(5-Step Wizard, Niche, Style, Sitemap, Stack)"] --> PageRouter{"Page Selection Engine\n(Single Route or Multi-Page Sitemap)"}
     
     subgraph DataFoundation ["Layer 1: Universal Design Foundation"]
         Palettes["96 WCAG Contrast Palettes\n(576 Hex Tokens)"]
-        Styles["58 Visual Styles\n(B2B, Industrial Minimalist, etc.)"]
+        Styles["Visual Styles & Reasoning Rules"]
         Typography["57 Typographic Pairings\n(Scale, Tracking, Leading)"]
-        Rules["199 Cognitive UX Laws &\nUI Reasoning Guidelines"]
+        Rules["UX Laws, Web Interface & Stack Rules"]
     end
     
     PageRouter --> DataFoundation
-    DataFoundation --> FlowResolver["Page Template Flow Resolver\n(page-templates.json)"]
+    DataFoundation --> FlowResolver["Page Template Flow Resolver\n(page-templates.json · 9 pages)"]
     
-    subgraph SectionCatalog ["Layer 2: Master Section Catalog (163 Archetypes)"]
-        HomeSecs["Homepage Sections (15)\n106 Archetypes"]
-        PricingSecs["Pricing Sections (5)\n12 Archetypes"]
-        AboutSecs["About Sections (4)\n11 Archetypes"]
-        ServicesSecs["Services Sections (4)\n11 Archetypes"]
-        CaseSecs["Case Studies Sections (3)\n8 Archetypes"]
-        BlogSecs["Blog Sections (3)\n8 Archetypes"]
-        CareersSecs["Careers Sections (2)\nPending (7 Archetypes)"]
-        LegalSecs["Legal Sections (1)\nPending (3 Archetypes)"]
+    subgraph SectionCatalog ["Layer 2: Master Section Catalog (40 Sections / 173 Archetypes)"]
+        HomeSecs["Homepage Sections\n16-section flow"]
+        PricingSecs["Pricing Sections\n10-section flow"]
+        AboutSecs["About Sections\n8-section flow"]
+        ServicesSecs["Services Sections\n8-section flow"]
+        CaseSecs["Case Studies Sections\n7-section flow"]
+        ContactSecs["Contact Sections\n7-section flow"]
+        BlogSecs["Blog Sections\n6-section flow"]
+        CareersSecs["Careers Sections\n6-section flow"]
+        LegalSecs["Legal Sections\n4-section flow"]
     end
     
     FlowResolver --> SectionCatalog
-    SectionCatalog --> Gatekeeper["Anti-Slop & A11y Verification Gate\n(No purple blobs, No emojis, Min 44px tap, High contrast)"]
-    Gatekeeper --> FinalOutput["Production-Grade UI/UX Blueprint Prompt\n(Section-by-Section, Code-Ready Tokens)"]
+    SectionCatalog --> Gatekeeper["Anti-Slop & A11y Verification Gate\n(audit_engine.py + Playwright/Axe)"]
+    Gatekeeper --> FinalOutput["Production-Grade UI/UX Blueprints & Briefs\n(Browser Studio docs/ + Python CLI)"]
 ```
 
 ---
 
 ## 2. Current Completion Status
 
-| Page Template | Route | Sections | Archetypes | Status | Artifact / Script Link |
-|---|---|:---:|:---:|:---:|---|
-| **01. Homepage** | `/` | 15 | 106 | ✅ **Complete** | [master_prompt_v2.md](file:///D:/gemini/master_prompt_v2.md) |
-| **02. Pricing** | `/pricing` | 10 | 12 new | ✅ **Complete** | [pricing_page_prompt.md](file:///D:/gemini/pricing_page_prompt.md) |
-| **03. About Us** | `/about` | 12 | 11 new | ✅ **Complete** | [about_page_prompt.md](file:///D:/gemini/about_page_prompt.md) |
-| **04. Services & Solutions** | `/services` | 13 | 11 new | ✅ **Complete** | [services_page_prompt.md](file:///D:/gemini/services_page_prompt.md) |
-| **05. Case Studies Hub** | `/case-studies` | 8 | 8 new | ✅ **Complete** | [case_studies_page_prompt.md](file:///D:/gemini/case_studies_page_prompt.md) |
-| **06. Blog & Resources** | `/blog` | 6 | 8 new | ✅ **Complete** | [blog_page_prompt.md](file:///D:/gemini/blog_page_prompt.md) |
-| **07. Careers & Jobs** | `/careers` | 7 | 7 new | ✅ **Complete** | [add_careers_page_sections.py](file:///D:/gemini/gemini-uiux-kit/skills/ui-ux-pro-max/scripts/add_careers_page_sections.py) |
-| **08. Legal & Compliance** | `/legal` | 3 | 3 new | ✅ **Complete** | [add_legal_page_sections.py](file:///D:/gemini/gemini-uiux-kit/skills/ui-ux-pro-max/scripts/add_legal_page_sections.py) |
+| Page Template | Route | Sections in Flow | Status | Artifact / Script Link |
+|---|---|:---:|:---:|---|
+| **01. Homepage** | `/` (`home`) | 16 | Complete | [page-templates.json](skills/ui-ux-pro-max/data/page-templates.json) |
+| **02. Pricing** | `/pricing` (`pricing`) | 10 | Complete | [add_pricing_page_sections.py](skills/ui-ux-pro-max/scripts/add_pricing_page_sections.py) |
+| **03. About Us** | `/about` (`about`) | 8 | Complete | [add_about_page_sections.py](skills/ui-ux-pro-max/scripts/add_about_page_sections.py) |
+| **04. Services & Solutions** | `/services` (`services`) | 8 | Complete | [add_services_page_sections.py](skills/ui-ux-pro-max/scripts/add_services_page_sections.py) |
+| **05. Case Studies Hub** | `/case-studies` (`case_studies`) | 7 | Complete | [add_case_studies_page_sections.py](skills/ui-ux-pro-max/scripts/add_case_studies_page_sections.py) |
+| **06. Contact & Intake** | `/contact` (`contact`) | 7 | Complete | [add_contact_page_sections.py](skills/ui-ux-pro-max/scripts/add_contact_page_sections.py) |
+| **07. Blog & Resources** | `/blog` (`blog`) | 6 | Complete | [add_blog_page_sections.py](skills/ui-ux-pro-max/scripts/add_blog_page_sections.py) |
+| **08. Careers & Jobs** | `/careers` (`careers`) | 6 | Complete | [add_careers_page_sections.py](skills/ui-ux-pro-max/scripts/add_careers_page_sections.py) |
+| **09. Legal & Compliance** | `/legal` (`legal`) | 4 | Complete | [add_legal_page_sections.py](skills/ui-ux-pro-max/scripts/add_legal_page_sections.py) |
 
 ---
 
-## 3. Remaining Implementation Phases
+## 3. Executed Implementation Phases
 
 ### Phase 1: Dedicated Careers & Talent Acquisition Page (`/careers`)
 
 **Objective:** Build a talent attraction engine that communicates compensation transparency, culture, benefits, and open requisitions without corporate platitudes.
 
-#### 1.1 Dedicated Section Archetypes to Build
+#### 1.1 Dedicated Section Archetypes Implemented
 1. **`careers_perks` (4 Archetypes):**
-   - `perk-01`: **4-Column High-Trust Benefits Grid** — Categorized cards: Compensation & Equity, Health & Family, Workspace & Setup Stipends, Time Off & Sabbaticals.
-   - `perk-02`: **Compensation Philosophy Manifesto** — Transparent band formula, geographic tiering explanation, open salary bands, and equity refreshers.
-   - `perk-03`: **Remote-First Stipend Matrix** — Breakdown of home office setup budget ($2,000), annual learning budget ($1,500), co-working space pass.
-   - `perk-04`: **Parental & Wellness Commitment Banner** — 16-week paid parental leave, mental health stipend, four-week annual company recharge.
+   - `perk-01`: **4-Column High-Trust Benefits Grid**
+   - `perk-02`: **Compensation Philosophy Manifesto**
+   - `perk-03`: **Remote-First Stipend Matrix**
+   - `perk-04`: **Parental & Wellness Commitment Banner**
 2. **`careers_jobs` (3 Archetypes):**
-   - `jobs-01`: **Department Filterable Requisition Board** — Sticky tabs: All, Engineering, Product, Design, Go-To-Market. Job cards display: Role title, Department, Location (Remote / Hybrid), Experience tier, and 'Apply ->' button.
-   - `jobs-02`: **Single Requisition Expandable Accordion** — Inline accordion previewing role mission, 3 core responsibilities, qualifications, and direct application form without redirecting.
-   - `jobs-03`: **Interview Pipeline & Transparent Process Stepper** — 4-step chronological pipeline: Recruiter Sync (30m) -> Technical Deep Dive (60m) -> Paid Take-Home or Pair Programming (2h) -> Executive Offer.
+   - `jobs-01`: **Department Filterable Requisition Board**
+   - `jobs-02`: **Single Requisition Expandable Accordion**
+   - `jobs-03`: **Interview Pipeline & Transparent Process Stepper**
 
-#### 1.2 Execution Tasks
-- [ ] Create `scripts/add_careers_page_sections.py`
-- [ ] Append `careers_perks` and `careers_jobs` (7 archetypes) into `data/section-archetypes.json`
-- [ ] Sync `data/section-archetypes.csv` (170 total archetypes)
-- [ ] Update `careers` section flow in `data/page-templates.json`
-- [ ] Add selection triggers to `scripts/generate_section_prompt.py` (`--remote-stipend`, `--salary-transparent`, `--accordion-jobs`)
-- [ ] Test end-to-end: `generate_section_prompt.py --page careers --out D:\gemini\careers_page_prompt.md`
-- [ ] Re-run system audit and commit to git.
+#### 1.2 Execution Status
+- [x] Create `scripts/add_careers_page_sections.py`
+- [x] Append `careers_perks` and `careers_jobs` into `data/section-archetypes.json`
+- [x] Sync `data/section-archetypes.csv`
+- [x] Update `careers` section flow in `data/page-templates.json`
+- [x] Add selection triggers (`remote_stipend`, `salary_transparent`, `accordion_jobs`, `interview_pipeline`)
+- [x] Verify end-to-end generation & `system_audit.py`
 
 ---
 
 ### Phase 2: Dedicated Legal, Privacy & Compliance Hub (`/legal`)
 
-**Objective:** Deliver an audit-grade, high-legibility legal documentation center with zero unstyled walls of text.
+#### 2.1 Dedicated Section Archetypes Implemented
+1. **`legal_doc` (3 Archetypes):** `leg-01`, `leg-02`, `leg-03`.
 
-#### 2.1 Dedicated Section Archetypes to Build
-1. **`legal_doc` (3 Archetypes):**
-   - `leg-01`: **Sticky Table of Contents & Prose Split** — Left (3 cols): Sticky scroll-spy navigation tracking active section anchors (Introduction, Data Collection, Third-Party Processors, GDPR Rights, Security Measures). Right (9 cols): Typographically optimized prose layout with strict 65-character line length.
-   - `leg-02`: **Tabbed Policy Multi-Doc Hub** — Segmented control tab bar: Terms of Service, Privacy Policy, Sub-processors List, Acceptable Use Policy, Data Processing Addendum (DPA).
-   - `leg-03`: **Versioned Compliance Header with PDF Download** — Top utility bar with: Last Modified timestamp, Version selector (e.g. `v2.4 (Active)`, `v2.3 (Archived)`), Plain-English Summary toggle, and Download Official PDF button.
-
-#### 2.2 Execution Tasks
-- [ ] Create `scripts/add_legal_page_sections.py`
-- [ ] Append `legal_doc` (3 archetypes) into `data/section-archetypes.json`
-- [ ] Sync `data/section-archetypes.csv` (173 total archetypes across 38 sections)
-- [ ] Update `legal` section flow in `data/page-templates.json`
-- [ ] Add selection triggers to `scripts/generate_section_prompt.py` (`--has-toc`, `--has-version-selector`, `--multi-policy`)
-- [ ] Test end-to-end: `generate_section_prompt.py --page legal --out D:\gemini\legal_page_prompt.md`
-- [ ] Re-run system audit and commit to git.
+#### 2.2 Execution Status
+- [x] Create `scripts/add_legal_page_sections.py`
+- [x] Append `legal_doc` (3 archetypes) into `data/section-archetypes.json`
+- [x] Sync `data/section-archetypes.csv` (173 total archetypes across 40 sections)
+- [x] Update `legal` section flow in `data/page-templates.json`
+- [x] Add selection triggers (`has_toc`, `has_version_selector`, `multi_policy`)
+- [x] Verify `system_audit.py` (`100.0/100`)
 
 ---
 
-### Phase 3: Single Item Detail Page Extensions (Bonus)
+### Phase 3: Child Detail Extensions (Optional Scope-Only Routes in Discovery Studio)
 
-**Objective:** Complete the individual deep-dive templates for child routes:
-
-1. **`case_study_detail` (`/case-studies/[slug]`):**
-   - Hero: Client, Problem Statement, Delivery Timeline, Team Composition.
-   - Challenge vs. Solution Deep Dive with architecture diagrams.
-   - Before/After Interactive Visual Comparison slider.
-   - Deliverable tech stack pills and repository deliverables list.
-   - Executive client video pull quote.
-   - Next case study teaser footer.
-2. **`blog_post_detail` (`/blog/[slug]`):**
-   - Sticky scroll-progress bar at top of viewport.
-   - Author byline with verified LinkedIn credential and technical reviewer credit.
-   - High-contrast code syntax highlighting block with copy-to-clipboard button.
-   - Pull quotes with direct 'Share to X/LinkedIn' button.
-   - Related reading cards (3 articles from same topic cluster).
+Custom routes such as `case_study_detail`, `blog_post_detail`, `Individual Service Detail Pages`, `Portfolio Showcase`, `Standalone FAQ Hub`, and `Resources / Downloads Hub` are selectable as scope-only sitemap pages inside the [docs/ Discovery Studio](docs/README.md).
 
 ---
 
-### Phase 4: Schema Normalization & Technical Debt Remediation (P1)
+### Phase 4: Schema Normalization & Technical Debt Remediation (Complete)
 
-**Issue:** Currently, `products.csv` references styles and landing patterns using descriptive compound strings (e.g., `"Feature-Rich Showcase + Social Proof"`), producing 96 non-blocking foreign key warnings in the audit.
-
-**Remediation Steps:**
-1. Add normalized integer foreign key columns:
-   - `products.csv`: add `style_id` (int), `landing_id` (int), `product_slug` (string PK).
-2. Create `data/product-type-mapping.json` junction table:
-   ```json
-   {
-     "b2b-saas-enterprise": {
-       "style_ids": [1, 14],
-       "landing_pattern_id": 4,
-       "recommended_sections": ["hero", "pricing_comparison_matrix", "service_architecture"]
-     }
-   }
-   ```
-3. Update `scripts/system_audit.py` to validate against strict FK IDs.
-4. Target: **Reduce FK warnings from 96 to 0**.
+* [x] Added normalized `style_id`, `landing_id`, and `product_slug` foreign key columns in [products.csv](skills/ui-ux-pro-max/data/products.csv).
+* [x] Generated [product-type-mapping.json](skills/ui-ux-pro-max/data/product-type-mapping.json) via `normalize_products_dataset.py`.
+* [x] Removed all deprecated `Neumorphism` recommendations (`0` in `ui-reasoning.csv` and `products.csv`).
+* [x] Verified **0 FK warnings** across all 96 rows via `system_audit.py`.
 
 ---
 
-### Phase 5: Production Evaluation Harness (P2)
+### Phase 5: Production Evaluation Harness (Complete)
 
-**Objective:** Build an automated test suite that validates prompt quality, token consistency, and anti-slop adherence against a golden set of real-world briefs.
-
-1. **Create `scripts/eval_golden_set.py`:**
-   - 30 diverse reference client briefs:
-     - 10 B2B Enterprise & Infrastructure (AWS/Stripe caliber)
-     - 10 High-Craft Creative Studios & Agencies (Pentagram/Work&Co caliber)
-     - 10 Consumer & Growth SaaS (Figma/Linear caliber)
-2. **Automated 5-Axis Scoring Rubric (100-point scale):**
-   - **Section Relevance & Flow (25 pts):** Zero redundant or misplaced sections.
-   - **Token Integrity (20 pts):** All hex values valid, typography weights specified, motion curves bound.
-   - **WCAG 2.2 Compliance (25 pts):** Strict contrast >= 4.5:1 (>= 7:1 for headers), touch targets >= 44px.
-   - **Anti-Slop Compliance (20 pts):** Zero violations of SLOP-001 through SLOP-006.
-   - **Engineering Readiness (10 pts):** Real semantic HTML5 elements (`<article>`, `<nav>`, `<aside>`, `<dl>`).
-3. **Pass Criteria:** Average score >= 95/100 across all 30 briefs.
+* [x] Built [eval_golden_set.py](skills/ui-ux-pro-max/scripts/eval_golden_set.py) with 30 reference client briefs (`Enterprise`, `Agency`, `GrowthSaaS`).
+* [x] Achieved **100.00/100** average score (`Target >= 95.00`, all `30/30` briefs `>= 95/100`).
 
 ---
 
-### Phase 6: Missing Enterprise Component Library Additions (P2)
+### Phase 6: Missing Enterprise Component Library & Static Studio Workbench (Complete)
 
-Currently, `gemini-uiux-kit/components/` has 15 landing page components. To support enterprise web applications and complex pages, build the 4 missing components:
-
-1. `components/patterns/PatternDataTable.tsx`:
-   - Accessible virtualized table with column sorting, search filtering, sticky headers, and keyboard row navigation.
-2. `components/patterns/PatternFormEngine.tsx`:
-   - Accessible form container with inline validation, aria-invalid tracking, and error recovery banners.
-3. `components/patterns/PatternAppShell.tsx`:
-   - Collapsible navigation sidebar, top breadcrumb bar, user profile dropdown, and notification drawer.
-4. `components/patterns/PatternChartRow.tsx`:
-   - Accessible SVG sparkline and area chart component bound to semantic design tokens.
+* [x] [PatternDataTable.tsx](components/patterns/PatternDataTable.tsx)
+* [x] [PatternFormEngine.tsx](components/patterns/PatternFormEngine.tsx)
+* [x] [PatternAppShell.tsx](components/patterns/PatternAppShell.tsx)
+* [x] [PatternChartRow.tsx](components/patterns/PatternChartRow.tsx)
+* [x] Runnable Vite + React demo host in [apps/demo/](apps/demo/src/App.tsx)
+* [x] Zero-backend Multi-Page Studio Workbench in [docs/](docs/index.html)
 
 ---
 
 ## 4. Anti-Slop Rule Index Reference
 
-All generated prompts must enforce the 6 immutable rules:
-
-| Rule ID | Name | Prohibited Pattern | Required Alternative |
-|---|---|---|---|
-| **SLOP-001** | Radioactive Blobs | Purple/cyan blurry radial gradient backgrounds (`filter: blur(100px)`) | Clean semantic card borders (`border-[var(--border-subtle)]`), solid slate backgrounds |
-| **SLOP-002** | Emoji Clipart | Using emojis as UI icons (🚀, ✨, 🔥, 💡) | Crisp 24x24 SVG icons with 1.5px stroke width |
-| **SLOP-003** | Shouting Badges | Neon pulsating 'NEW ✨' or 'HOT 🔥' badges | Subdued monospaced chips (`text-xs font-mono uppercase tracking-wider`) |
-| **SLOP-004** | Gradient Paragraphs | Rainbow gradient text fills on long-form copy | Solid high-contrast text tokens (`#F8FAFC` or `#020617`, min 7:1 contrast) |
-| **SLOP-005** | Fragile Contrast | Low-contrast grey-on-grey text or hairline borders | Strict WCAG 2.2 AA compliant tokens (min 4.5:1 for body, 7:1 for headers) |
-| **SLOP-006** | Micro Touch Targets | Sub-44px buttons and cramped interactive links | Minimum 44x44px interactive tap target with 2px offset focus rings |
+Canonical rules `SLOP-001..006`, `TOKEN-001..002`, `PERF-001`, and `A11Y-001..008` are enforced deterministically in [scripts/audit_engine.py](scripts/audit_engine.py) (`19` active rules). See [WORKFLOW.md](WORKFLOW.md) for the authoritative catalog.
 
 ---
 
-## 5. Quick-Start Guide for Resuming
+## 5. Quick-Start Verification Commands
 
-When ready to resume work on the next phase, run:
+```bash
+# 1. Verify dataset, FK, and archetype integrity (100.0/100)
+npm run audit:system
 
-```powershell
-# 1. Verify current system health
-python D:\gemini\gemini-uiux-kit\skills\ui-ux-pro-max\scripts\system_audit.py
+# 2. Rebuild docs/ studio bundle after any dataset change
+python scripts/build_studio_bundle.py
 
-# 2. Check current page template flows
-cat D:\gemini\gemini-uiux-kit\skills\ui-ux-pro-max\data\page-templates.json
-
-# 3. Resume with Phase 1 (Careers Page builder)
-python D:\gemini\gemini-uiux-kit\skills\ui-ux-pro-max\scripts\add_careers_page_sections.py
+# 3. Run full 7-suite verification (TS, System Audit, AST Audit, Golden Eval, Unit, E2E, Studio)
+npm test
 ```

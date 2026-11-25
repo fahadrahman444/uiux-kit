@@ -97,38 +97,68 @@ test("Vanilla Studio works over HTTP (GitHub Pages mode) and passes WCAG 2.2 AA 
   assert.equal(sectionCards, 10, "Pricing page should compile 10 sections");
 
   await page.locator("#tab-intel").click();
-  assert.equal(await page.locator("#panel-intel").isVisible(), true);
+  await page.locator("#panel-intel").waitFor({ state: "visible" });
   assert.ok((await page.locator("#panel-intel").textContent()).includes("Style Priority"));
 
+  await page.locator("#tab-strategy").click();
+  await page.locator("#panel-strategy").waitFor({ state: "visible" });
+  assert.ok((await page.locator("#panel-strategy").textContent()).includes("05. Consolidated Project Sitemap"));
+
   await page.locator("#tab-stack").click();
-  assert.equal(await page.locator("#panel-stack").isVisible(), true);
+  await page.locator("#panel-stack").waitFor({ state: "visible" });
   assert.ok((await page.locator("#panel-stack").textContent()).includes("Stack Guidelines"));
 
   await page.locator("#tab-markdown").click();
+  await page.locator("#panel-markdown").waitFor({ state: "visible" });
   const mdText = await page.locator("#panel-markdown pre").textContent();
   assert.ok(mdText.includes("Apex Security Suite") && mdText.includes("Production Engineering & Audit Guardrails"));
 
   await page.locator("#tab-cli").click();
+  await page.locator("#panel-cli").waitFor({ state: "visible" });
   const cliText = await page.locator("#panel-cli").textContent();
   assert.ok(cliText.includes('"page_id": "pricing"'));
 
-  // Stage 6 contextual route highlighting follows Page Route selection
-  await page.locator("#page_id").selectOption("about");
+  // 5-Step Wizard navigation & multi-page Sitemap compilation
+  await page.locator('[data-preset="multisite"]').click();
+  await page.locator("#tab-sections").click();
+  await page.locator("#panel-sections").waitFor({ state: "visible" });
+  const groupCount = await page.locator("#panel-sections .page-group-header").count();
+  assert.equal(groupCount, 5, "Multisite preset should compile 5 page groups");
+
+  await page.locator('#wizard-next-btn').click();
+  await page.locator('.wizard-step[data-step="2"]').waitFor({ state: "visible" });
+  await page.locator('#wizard-prev-btn').click();
+  await page.locator('.wizard-step[data-step="1"]').waitFor({ state: "visible" });
+  await page.locator('.step-pill[data-wizard-step="4"]').click();
+  await page.locator('.wizard-step[data-step="4"]').waitFor({ state: "visible" });
+
+  // Step 4 contextual Sitemap route highlighting
   assert.equal(await page.locator('details[data-route-group="about"]').getAttribute("open") !== null, true);
   assert.equal(await page.locator('details[data-route-group="about"] .route-tag').isVisible(), true);
   assert.equal(await page.locator('details[data-route-group="careers"]').getAttribute("open"), null);
-  assert.ok((await page.locator("#route-context-note").textContent()).includes("About Us & Culture"));
 
+  await page.locator("#sitemap-single-btn").click();
   await page.locator("#page_id").selectOption("careers");
   assert.equal(await page.locator('details[data-route-group="careers"]').getAttribute("open") !== null, true);
   assert.equal(await page.locator('details[data-route-group="about"]').getAttribute("open"), null);
   await page.locator('input[name="interview_pipeline"]').check();
   await page.locator("#compile-btn").click();
-  await page.locator("#tab-sections").click();
   assert.ok((await page.locator("#panel-sections").textContent()).includes("jobs-03"));
 
-  // Toggle Dark Mode and re-run Axe
+  // Required validation from Step 5 auto-returns to Step 1
+  await page.locator('.step-pill[data-wizard-step="1"]').click();
+  await page.locator('.wizard-step[data-step="1"]').waitFor({ state: "visible" });
+  await page.locator("#project_name").fill("");
+  await page.locator('.step-pill[data-wizard-step="5"]').click();
+  await page.locator('.wizard-step[data-step="5"]').waitFor({ state: "visible" });
+  await page.locator("#compile-btn").click();
+  await page.locator('.wizard-step[data-step="1"]').waitFor({ state: "visible" });
+  await page.locator("#project_name").fill("Restored Project");
+  await page.locator("#compile-btn").click();
+
+  // Toggle Dark Mode (also exercising View Transitions) and re-run Axe once transition settles
   await page.locator("#theme-toggle").click();
+  await page.waitForFunction(() => document.documentElement.classList.contains("dark") && !document.documentElement.hasAttribute("data-vt"));
   const axeDark = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze();
   assert.deepEqual(axeDark.violations, [], `Studio dark violations: ${JSON.stringify(axeDark.violations, null, 2)}`);
 

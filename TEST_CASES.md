@@ -234,3 +234,26 @@
   2. Inspect payload fields for PII (names, email strings, IP addresses).
 * **Expected Result:** Payload contains only sanitized behavioral data (`cta_name`, `source_section`, `duration_ms`).
 * **Pass / Fail:** FAIL if raw email or user identity is detected in analytics payload.
+
+---
+
+## Suite 7: Zero-Backend Static Discovery Studio & View Transitions (`tests/studio.spec.mjs`)
+
+### TC-STUDIO-001: GitHub Pages HTTP Mode, WCAG 2.2 AA & View Transitions Wizard
+* **Target:** [docs/index.html](docs/index.html) served over local HTTP (`tests/studio.spec.mjs`).
+* **Test Steps:**
+  1. Load `docs/` over HTTP, wait for initial `#panel-sections .blueprint-card` render, verify 0 runtime page errors.
+  2. Run `AxeBuilder` (`wcag2a`, `wcag2aa`, `wcag21aa`, `wcag22aa`) in **Light Mode**.
+  3. Select `[data-preset="pricing"]`, fill `#project_name`, click `#compile-btn`, and verify `10` section cards plus all 6 output tabs (`#tab-sections`, `#tab-strategy`, `#tab-intel`, `#tab-stack`, `#tab-markdown`, `#tab-cli`).
+  4. Select `[data-preset="multisite"]` and assert 5 `.page-group-header` route blueprints render cleanly.
+  5. Navigate wizard Step 1 → Step 2 (`#wizard-next-btn`) → Step 1 (`#wizard-prev-btn`) → Step 4 (`.step-pill`), confirming View Transition frame settlement (`waitFor`) and contextual `[data-route-group]` accordion opening (`about` open, `careers` closed).
+  6. Test validation step auto-return: clear required `#project_name` on Step 1, navigate to Step 5, click `#compile-btn`, and verify wizard switches back to Step 1 and focuses `#project_name`.
+  7. Toggle Dark Mode (`#theme-toggle`) and run `AxeBuilder` (`0` violations).
+* **Pass / Fail:** PASS when all checks pass with `0` runtime errors and `0` Axe violations in Light and Dark themes.
+
+### TC-STUDIO-002: Direct `file://` Execution & 320px Mobile Reflow
+* **Target:** Direct file URL (`file://.../docs/index.html`) at `320×740px` mobile viewport.
+* **Test Steps:**
+  1. Open `docs/index.html` directly via `file://` (`docs/data/kit-bundle.js` offline loader).
+  2. Verify sections compile with `0` console/page errors and `document.documentElement.scrollWidth <= window.innerWidth`.
+* **Pass / Fail:** PASS with zero errors and `0px` horizontal overflow.

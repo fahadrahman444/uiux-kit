@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [Unreleased]
+
+### Added
+- **Zero-Backend Static Discovery Studio (`docs/` & `docs/README.md`):**
+  - Standalone HTML/CSS/JS workbench deployed automatically to GitHub Pages (`https://fahadrahman444.github.io/uiux-kit/`) via `.github/workflows/pages.yml` and playable offline over `file://` via `docs/data/kit-bundle.js`.
+  - **5-Step Dual-Layer Client Discovery Wizard:** Covers Business & Buyers, Brand Assets & A11y, Content Ownership & `SLOP-003` Proof, Multi-Page Sitemap & Commercial Flows, and Stack/P0-P2 Launch Reality with collapsible Layer 2 Studio Overrides.
+  - **Warm Drafting Paper & Graphite Dark Design (`docs/tokens.css` & `docs/styles.css`):** Unslopped studio chrome with compact top bar, single-row mobile stepper, sticky Live Specification Inspector, scannable 2-column section spec grids, and strict `<meta>` CSP (`style-src 'self'`).
+  - **Multi-Page Sitemap Compiler & 6 Output Tabs (`docs/app.js`):** Compiles single pages or multi-page website sitemaps across all 9 native routes plus custom scope pages, flags open research gaps, auto-saves drafts to `localStorage`, and supports portable `.json` session export/import + full `.md` export.
+  - **Progressive View Transitions API (`runViewTransition`):** Directional `forward`/`backward` transitions for wizard steps, fade-rise transitions for output panels, theme crossfades, and `@media (prefers-reduced-motion: reduce)` guards.
+- **Enterprise Patterns, Runner & Evaluators:**
+  - Added `PatternDataTable.tsx`, `PatternFormEngine.tsx`, `PatternAppShell.tsx`, `PatternChartRow.tsx` and runnable host showcase in `apps/demo/`.
+  - Upgraded `scripts/audit_engine.py` + `scripts/ast_analyzer.mjs` to 19 rules with TypeScript AST + multi-file CSS resolution across `components/`, `apps/demo/src/`, and `docs/`.
+  - Added `skills/ui-ux-pro-max/scripts/eval_golden_set.py` (30 briefs, `100.00/100`), `tests/test_kit.py`, `tests/e2e.spec.mjs`, `tests/studio.spec.mjs`, and `scripts/build_studio_bundle.py`.
+
+### Fixed & Remediated
+- **Dataset Normalization & Anti-Slop Debt:** Normalized all 96 `products.csv` rows via `product-type-mapping.json` (`0` FK warnings) and eliminated all prohibited `Neumorphism` recommendations (`0` in `ui-reasoning.csv` and `products.csv`).
+- **Accessibility & Static Checks:** Fixed `PatternSpecAccordion.tsx` collapsed focusability (`inert`, `aria-hidden`, `visible`/`invisible`), fixed `ActionButton.tsx` `HTMLMotionProps` typing, resolved CI `shellcheck` warnings (`SC2013`/`SC2034`), renamed `.sr-only` to `.studio-vh` inside `docs/`, and fixed `aria-label` on live spectrum bar (`role="img"` + `aria-hidden` stops).
+
+---
+
 ## [1.6.1] - 2026-11-22
 
 ### Fixed & Remediated

@@ -549,3 +549,12 @@ During pilot deployment, track velocity and quality against these 5 benchmark me
 | **CWV Mobile SLA Pass Rate** | 68% passing routes | ≥ 98% passing routes | +30% field compliance |
 | **Token Adherence Ratio** | 71% token mapping | ≥ 99% token mapping | +28% visual consistency |
 | **Rework Rate Post-Redline** | 28% rejected PRs | ≤ 5% rejected PRs | −82% wasted rework |
+
+---
+
+## 10. Zero-Backend Static Discovery Studio & CI/CD (`docs/`)
+
+To bridge client discovery directly into this engineering contract without requiring a backend service:
+* **Static Discovery Workbench (`docs/`):** Deployed automatically to GitHub Pages via [`.github/workflows/pages.yml`](.github/workflows/pages.yml) (and runnable offline via `file://`), pairing a plain-language 5-step dual-layer intake with a real-time WCAG token & specimen inspector and Layer 2 archetype overrides.
+* **Multi-Page & View Transitions Flow:** Compiles either focused single routes or multi-page sitemaps across all 9 canonical page templates while wrapping step and output-panel navigation in progressive `document.startViewTransition` helpers guarded by `@media (prefers-reduced-motion: reduce)`.
+* **Unified Verification Gate (`npm test`):** Runs `typecheck`, `audit:system`, `audit:static` (scanning `components/`, `apps/demo/src/`, and `docs/`), `eval:golden`, `test:unit`, `test:e2e`, and `test:studio`.

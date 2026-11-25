@@ -83,8 +83,39 @@
   const PRESETS = {
     enterprise: {
       page_id: "home",
+      sitemapPages: ["home"],
+      customSitemapPages: [],
       project_name: "CloudCore Telemetry",
+      legal_name: "CloudCore Systems Inc.",
+      tagline: "Sub-second observability without telemetry bloat.",
+      existing_url: "",
       industry: "b2b saas analytics",
+      business_model: "B2B SaaS",
+      primary_goal: "Qualified Sales Leads & Demos",
+      primary_device: "Desktop-Heavy (Work / Procurement)",
+      buying_cycle: "Research-Driven / Multiple Stakeholders",
+      discovery_confidence: "Partial Discovery",
+      buyer_pain_points: "Slow legacy observability dashboards and opaque per-host pricing surprise teams during procurement.",
+      competitor_links: "",
+      reference_urls: "",
+      brand_colors_note: "",
+      hero_direction: "bento",
+      dark_mode_support: "Both Light & Dark Modes",
+      wcag_target: "WCAG 2.2 AA",
+      reduced_motion: "Subtle Micro-Interactions (150ms, Reduced Motion Safe)",
+      copy_owner: "Hybrid (Client Drafts + Studio Messaging)",
+      content_readiness: "Partial Drafts / Existing Site",
+      core_usp: "Unified OpenTelemetry trace analytics with predictable ingest pricing.",
+      avoid_claims: "Unverified % speed claims or vague AI buzzwords",
+      site_type: "Marketing Website + Headless CMS",
+      cms_preference: "Headless (Sanity / Contentful)",
+      target_launch: "Q2 2027 (8–10 weeks)",
+      budget_tier: "Growth Retainer / $15k–$35k",
+      decision_maker: "",
+      hosting_status: "Existing Domain + DNS Access Ready",
+      custom_page_names: "",
+      priority_p0_notes: "Core marketing site, interactive pricing calculator/matrix, SOC 2 proof, and CRM lead intake.",
+      priority_p2_notes: "Interactive sandbox tour and localized EMEA microsites.",
       style: "Swiss Modern Technical",
       stack: "nextjs",
       search_keywords: "dashboard chart table accessibility",
@@ -102,6 +133,8 @@
       pricing_model: "subscription",
       checks: {
         enterprise: true,
+        has_svg_logo: true,
+        stock_allowed: true,
         has_certifications: true,
         compliance_required: true,
         bento_hero: true,
@@ -117,12 +150,107 @@
         has_newsletter: true,
         has_departments: true,
         has_categories: true,
+        feat_booking: true,
+        feat_analytics_crm: true,
+      },
+    },
+    multisite: {
+      page_id: "home",
+      sitemapPages: ["home", "about", "services", "pricing", "case_studies"],
+      customSitemapPages: ["Individual Service Detail Pages"],
+      project_name: "Northstar Cloud Ops",
+      legal_name: "Northstar Infrastructure Corp.",
+      tagline: "Mission-critical cloud migration and zero-downtime SRE retainers.",
+      existing_url: "https://northstarops.example.com",
+      industry: "b2b saas analytics",
+      business_model: "B2B Services / Agency",
+      primary_goal: "Qualified Sales Leads & Demos",
+      primary_device: "Desktop-Heavy (Work / Procurement)",
+      buying_cycle: "Research-Driven / Multiple Stakeholders",
+      discovery_confidence: "Verified Research",
+      buyer_pain_points: "CTOs hesitate to outsource production Kubernetes workloads without audited uptime proof and SLA clarity.",
+      competitor_links: "1) Rackspace (clear SLA proof, outdated visuals)\n2) Contino (strong enterprise case studies, slow navigation)",
+      reference_urls: "Linear & Vercel docs — sharp contrast, tabular metrics, crisp typography.",
+      brand_colors_note: "Deep Slate + High-Contrast Cobalt accent",
+      hero_direction: "bento",
+      dark_mode_support: "Both Light & Dark Modes",
+      wcag_target: "WCAG 2.2 AA",
+      reduced_motion: "Subtle Micro-Interactions (150ms, Reduced Motion Safe)",
+      copy_owner: "Hybrid (Client Drafts + Studio Messaging)",
+      content_readiness: "Partial Drafts / Existing Site",
+      core_usp: "Dedicated SRE pods with 99.99% contracted uptime and fixed quarterly deliverables.",
+      avoid_claims: "No buzzwords, no anonymous testimonials",
+      site_type: "Marketing Website + Headless CMS",
+      cms_preference: "Headless (Sanity / Contentful)",
+      target_launch: "10 weeks from kickoff",
+      budget_tier: "$35k–$60k Full Multi-Page Build",
+      decision_maker: "VP Engineering & Head of Marketing",
+      hosting_status: "Managed Edge Cloud (Vercel / Cloudflare / Pages)",
+      custom_page_names: "Security & SOC 2 Trust Overview",
+      priority_p0_notes: "Home, About, Services, Pricing, Case Studies + Cal.com executive booking + CRM routing.",
+      priority_p2_notes: "Careers portal integration & self-serve architecture grader.",
+      style: "Swiss Modern Technical",
+      stack: "nextjs",
+      search_keywords: "enterprise dashboard accessibility compliance",
+      evidence_note: "Audited 2025-2026 SRE retainer ledger across 48 enterprise cloud migrations.",
+      target_audience: "developers/ctos",
+      brand_tier: "enterprise",
+      years_operating: 9,
+      link_count: 6,
+      logo_count: 12,
+      step_count: 4,
+      case_count: 12,
+      review_count: 18,
+      team_size: 28,
+      faq_count: 12,
+      pricing_model: "subscription",
+      checks: {
+        enterprise: true,
+        high_competition: true,
+        has_svg_logo: true,
+        stock_allowed: true,
+        has_certifications: true,
+        compliance_required: true,
+        has_proof_stats: true,
+        has_analytics_data: true,
+        has_named_quotes: true,
+        bento_hero: true,
+        has_mockup: true,
+        mega_menu: true,
+        has_departments: true,
+        has_categories: true,
+        direct_calendar: true,
+        has_billing_toggle: true,
+        has_matrix: true,
+        has_sla: true,
+        direct_rfq_form: true,
+        has_guarantee: true,
+        has_enterprise_tier: true,
+        has_newsletter: true,
+        timeline_horizontal: true,
+        has_manifesto: true,
+        arch_layered: true,
+        workflow_phases: true,
+        multi_persona: true,
+        data_dense: true,
+        feat_booking: true,
+        feat_analytics_crm: true,
       },
     },
     agency: {
       page_id: "about",
+      sitemapPages: ["about"],
+      customSitemapPages: ["Portfolio Showcase"],
       project_name: "Atelier Nord",
+      legal_name: "Atelier Nord Partners ApS",
+      tagline: "Digital architecture for cultural institutions and category leaders.",
       industry: "creative agency design studio",
+      business_model: "B2B Services / Agency",
+      primary_goal: "Brand Credibility & Positioning",
+      primary_device: "Desktop & Mobile Balanced",
+      buying_cycle: "Consultative Call (1–4 Weeks)",
+      discovery_confidence: "Partial Discovery",
+      hero_direction: "mockup",
       style: "Editorial Minimalist Luxury",
       stack: "nextjs",
       search_keywords: "editorial typography portfolio performance",
@@ -140,6 +268,7 @@
       pricing_model: "subscription",
       checks: {
         founder_led: true,
+        has_svg_logo: true,
         has_mockup: true,
         has_manifesto: true,
         has_office_photos: true,
@@ -147,12 +276,23 @@
         direct_calendar: true,
         is_productized: true,
         has_vip_quote: true,
+        feat_booking: true,
       },
     },
     growth: {
       page_id: "services",
+      sitemapPages: ["services"],
+      customSitemapPages: ["Individual Service Detail Pages"],
       project_name: "SyncHub Automation",
+      legal_name: "SyncHub Labs Inc.",
+      tagline: "Connect product telemetry and revenue workflows in under 5 minutes.",
       industry: "productivity tool collaboration",
+      business_model: "B2B SaaS",
+      primary_goal: "Direct Self-Serve Signups / Sales",
+      primary_device: "Desktop & Mobile Balanced",
+      buying_cycle: "Fast Self-Serve / Impulse",
+      discovery_confidence: "Verified Research",
+      hero_direction: "devices",
       style: "Fresh Modern Clean",
       stack: "react",
       search_keywords: "workflow integration form speed",
@@ -169,6 +309,8 @@
       faq_count: 10,
       pricing_model: "usage_based",
       checks: {
+        has_svg_logo: true,
+        stock_allowed: true,
         has_app_mockups: true,
         cro_split: true,
         has_mockup: true,
@@ -180,12 +322,24 @@
         multi_persona: true,
         has_partners: true,
         has_categories: true,
+        feat_auth: true,
+        feat_analytics_crm: true,
       },
     },
     pricing: {
       page_id: "pricing",
+      sitemapPages: ["pricing"],
+      customSitemapPages: [],
       project_name: "VaultSec Enterprise",
+      legal_name: "VaultSec Security Technologies",
+      tagline: "Zero-trust compliance automation with audited procurement SLAs.",
       industry: "cybersecurity platform fintech",
+      business_model: "B2B SaaS",
+      primary_goal: "Qualified Sales Leads & Demos",
+      primary_device: "Desktop-Heavy (Work / Procurement)",
+      buying_cycle: "Research-Driven / Multiple Stakeholders",
+      discovery_confidence: "Verified Research",
+      hero_direction: "editorial",
       style: "Trustworthy Corporate Clean",
       stack: "shadcn",
       search_keywords: "pricing comparison table form security",
@@ -203,6 +357,7 @@
       pricing_model: "subscription",
       checks: {
         enterprise: true,
+        has_svg_logo: true,
         compliance_required: true,
         has_certifications: true,
         has_billing_toggle: true,
@@ -216,6 +371,8 @@
         mobile_drawer: true,
         has_enterprise_tier: true,
         has_categories: true,
+        feat_booking: true,
+        feat_analytics_crm: true,
       },
     },
   };
@@ -766,8 +923,8 @@
     return pick(fb);
   }
 
-  // ---------- Compiler Pipeline ----------
-  function compileAll(projectInfo, extra) {
+  // ---------- Compiler Pipeline (Single & Multi-Page) ----------
+  function compileAll(projectInfo, extra, discovery) {
     const warnings = [];
     const normalized = normalizeIntent(projectInfo.style);
     const fullQuery = `${projectInfo.industry} ${normalized} ${extra.searchKeywords || ""}`.trim();
@@ -791,17 +948,51 @@
         : [];
 
     const sectionMap = new Map(bundle.sectionArchetypes.map((s) => [s.section_id, s]));
-    const pageMeta = (bundle.pageTemplates.pages || []).find((p) => p.page_id === projectInfo.page_id);
-    const targetSections = pageMeta
-      ? pageMeta.default_section_flow.map((sid) => sectionMap.get(sid)).filter(Boolean)
-      : bundle.sectionArchetypes;
+    const pageList = bundle.pageTemplates.pages || [];
+    const selectedPageIds = discovery && Array.isArray(discovery.sitemap_pages) && discovery.sitemap_pages.length
+      ? discovery.sitemap_pages
+      : [projectInfo.page_id || "home"];
 
-    const compiledSections = targetSections.map((sec, idx) => ({
-      index: idx + 1,
-      section_id: sec.section_id,
-      section_name: sec.section_name,
-      chosen: selectArchetype(sec, projectInfo, warnings),
-    }));
+    const compiledPages = selectedPageIds.map((pid) => {
+      const pMeta = pageList.find((p) => p.page_id === pid);
+      const targetSections = pMeta
+        ? pMeta.default_section_flow.map((sid) => sectionMap.get(sid)).filter(Boolean)
+        : bundle.sectionArchetypes;
+      const scopedInfo = { ...projectInfo, page_id: pid };
+      const sections = targetSections.map((sec, idx) => ({
+        index: idx + 1,
+        section_id: sec.section_id,
+        section_name: sec.section_name,
+        chosen: selectArchetype(sec, scopedInfo, warnings),
+      }));
+      return {
+        page_id: pid,
+        page_name: pMeta ? pMeta.name : pid,
+        sections,
+      };
+    });
+
+    const primaryPageMeta = pageList.find((p) => p.page_id === projectInfo.page_id) || pageList.find((p) => p.page_id === selectedPageIds[0]);
+    const compiledSections = compiledPages.flatMap((pg) => pg.sections);
+
+    const customScopePages = [
+      ...((discovery && discovery.custom_sitemap_pages) || []),
+      ...String((discovery && discovery.custom_page_names) || "")
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean),
+    ];
+
+    const researchGaps = [];
+    if (discovery) {
+      if (!discovery.competitor_links) researchGaps.push("Competitor benchmark links & likes/dislikes not yet captured.");
+      if (!discovery.reference_urls) researchGaps.push("Visual inspiration links & first-5-second impression notes are open.");
+      if (!discovery.core_usp) researchGaps.push("Primary headline direction / core USP should be sharpened with client.");
+      if (!discovery.decision_maker) researchGaps.push("Final decision maker & sign-off authority needs confirmation.");
+      if (discovery.discovery_confidence === "Assumptions Only") researchGaps.push("Discovery inputs flagged as Assumptions Only — validate with client analytics/interviews before wireframe lock.");
+      if (projectInfo.has_brand_guidelines && !discovery.brand_colors_note) researchGaps.push("Client indicated existing brand guidelines — collect exact HEX/font files before build.");
+      if (!extra.evidenceNote) researchGaps.push("SLOP-003 Warning: Verified metrics evidence citation is blank — keep proof numbers omitted until source URL/date is provided.");
+    }
 
     const contrastChecks = [
       { label: "Text Primary / Bg", ratio: contrastRatio(tokens.text_primary, tokens.background) },
@@ -812,16 +1003,38 @@
     ];
 
     const md = [];
-    md.push("# Master Production-Grade UI/UX Blueprint");
-    md.push(`**Project:** ${projectInfo.project_name}`);
-    md.push(`**Page:** ${pageMeta ? pageMeta.name : projectInfo.page_id} (\`${projectInfo.page_id}\`)`);
+    md.push("# Master Production-Grade Client Discovery & UI/UX Blueprint");
+    md.push(`**Project:** ${projectInfo.project_name}${discovery && discovery.legal_name ? ` (${discovery.legal_name})` : ""}`);
+    if (discovery && discovery.tagline) md.push(`**Positioning:** ${discovery.tagline}`);
+    md.push(`**Sitemap Blueprint Pages (${compiledPages.length}):** ${compiledPages.map((p) => `${p.page_name} (\`${p.page_id}\`: ${p.sections.length}s)`).join(", ")}`);
+    if (customScopePages.length) md.push(`**Additional Custom Scope Pages:** ${customScopePages.join(", ")}`);
+    md.push(`**Primary Route Fallback (--page):** ${primaryPageMeta ? primaryPageMeta.name : projectInfo.page_id} (\`${projectInfo.page_id}\`)`);
     md.push(`**Style Archetype:** ${projectInfo.style}`);
     md.push(`**Industry / Category:** ${ds.category} (\`${ds.productRow.product_slug || "general"}\`)`);
-    md.push(`**Target Stack:** \`${extra.stack}\``);
+    md.push(`**Target Stack:** \`${extra.stack}\` | **CMS:** ${discovery ? discovery.cms_preference : "None"}`);
     md.push(`**Target Audience:** ${projectInfo.target_audience}`);
-    md.push(`**Sections covered:** ${compiledSections.length} sections`);
+    md.push(`**Total Compiled Sections:** ${compiledSections.length} sections across ${compiledPages.length} route(s)`);
     if (extra.evidenceNote) md.push(`**Verified Evidence Basis:** ${extra.evidenceNote}`);
+    if (discovery) md.push(`**Launch Target / Budget:** ${discovery.target_launch || "TBD"} | ${discovery.budget_tier || "TBD"} | Confidence: ${discovery.discovery_confidence}`);
     md.push("**Compliance:** WCAG 2.2 AA | Anti-Slop Gates Enabled\n");
+
+    if (discovery) {
+      md.push("---");
+      md.push("## 0. Client Strategy, Audience & Scope Summary");
+      md.push(`- **Business Model & Goal:** ${discovery.business_model} — Objective: ${discovery.primary_goal}`);
+      md.push(`- **Buyer Profile & Device:** ${projectInfo.target_audience} | ${discovery.primary_device} | ${discovery.buying_cycle}`);
+      if (discovery.buyer_pain_points) md.push(`- **Buyer Objections:** ${discovery.buyer_pain_points}`);
+      if (discovery.core_usp) md.push(`- **Core Value Proposition:** ${discovery.core_usp}`);
+      if (discovery.avoid_claims) md.push(`- **Messaging Guardrails (Avoid):** ${discovery.avoid_claims}`);
+      md.push(`- **Copy & Assets:** ${discovery.copy_owner} (${discovery.content_readiness}) | SVG Logo: ${discovery.has_svg_logo ? "Yes" : "No"} | Dark Mode: ${discovery.dark_mode_support} | Contrast: ${discovery.wcag_target}`);
+      if (discovery.priority_p0_notes) md.push(`- **P0 Launch Scope:** ${discovery.priority_p0_notes}`);
+      if (discovery.priority_p2_notes) md.push(`- **P2 Post-Launch:** ${discovery.priority_p2_notes}`);
+      if (researchGaps.length) {
+        md.push("- **Open Research Gaps:**");
+        for (const g of researchGaps) md.push(`  - [OPEN] ${g}`);
+      }
+      md.push("");
+    }
 
     md.push("---");
     md.push("## 1. Global Design Token Foundation");
@@ -847,18 +1060,23 @@
     md.push("");
 
     md.push("---");
-    md.push("## 3. Section-by-Section Blueprint\n");
-    for (const s of compiledSections) {
-      const c = s.chosen;
-      md.push(`### ${String(s.index).padStart(2, "0")}. ${s.section_name}`);
-      md.push(`**Pattern:** ${c.name} (\`${c.archetype_id}\`)`);
-      md.push(`**Rationale:** ${c.best_for}`);
-      md.push(`**Layout:** ${c.layout_structure}`);
-      md.push(`**Typography:** ${c.typography_specs}`);
-      md.push(`**Components:** ${c.key_components}`);
-      md.push(`**Responsive:** ${c.responsive_behavior}`);
-      md.push(`**A11y:** ${c.accessibility}`);
-      md.push(`**Anti-Slop:** ${c.anti_slop_rules}\n`);
+    md.push("## 3. Page-by-Page Section Blueprints\n");
+    for (const pg of compiledPages) {
+      if (compiledPages.length > 1) {
+        md.push(`### Page Route: ${pg.page_name} (\`${pg.page_id}\` — ${pg.sections.length} sections)\n`);
+      }
+      for (const s of pg.sections) {
+        const c = s.chosen;
+        md.push(`#### ${String(s.index).padStart(2, "0")}. ${s.section_name}`);
+        md.push(`**Pattern:** ${c.name} (\`${c.archetype_id}\`)`);
+        md.push(`**Rationale:** ${c.best_for}`);
+        md.push(`**Layout:** ${c.layout_structure}`);
+        md.push(`**Typography:** ${c.typography_specs}`);
+        md.push(`**Components:** ${c.key_components}`);
+        md.push(`**Responsive:** ${c.responsive_behavior}`);
+        md.push(`**A11y:** ${c.accessibility}`);
+        md.push(`**Anti-Slop:** ${c.anti_slop_rules}\n`);
+      }
     }
 
     md.push("---");
@@ -886,12 +1104,16 @@
     return {
       projectInfo,
       extra,
-      pageMeta,
+      discovery,
+      pageMeta: primaryPageMeta,
+      compiledPages,
+      compiledSections,
+      customScopePages,
+      researchGaps,
       tokens,
       contrastChecks,
       typography: { row: typoRow, headingFont, bodyFont, headingSpec },
       ds,
-      compiledSections,
       stackGuidelines,
       uxGuidelines,
       webGuidelines,
@@ -919,10 +1141,116 @@
   }
 
   function clearAndRender(container, nodes) {
-    container.replaceChildren(...nodes);
+    if (container) container.replaceChildren(...nodes);
   }
 
-  // ---------- Form Collection & Validation ----------
+  // ---------- Hero Direction & Route Sync Helpers ----------
+  const STORAGE_KEY = "slopguard_studio_draft_v2";
+  const STEP_TITLES = [
+    "Business & Buyers",
+    "Brand, Visuals & A11y",
+    "Content & Proof",
+    "Sitemap & UX Flows",
+    "Tech, Scope & Launch",
+  ];
+
+  function applyHeroDirectionToChecks(form, dir) {
+    const map = {
+      bento: { bento_hero: true, has_mockup: true, has_app_mockups: false, cro_split: false, has_3d: false },
+      mockup: { bento_hero: false, has_mockup: true, has_app_mockups: false, cro_split: false, has_3d: false },
+      devices: { bento_hero: false, has_mockup: false, has_app_mockups: true, cro_split: false, has_3d: false },
+      cro: { bento_hero: false, has_mockup: false, has_app_mockups: false, cro_split: true, has_3d: false },
+      editorial: { bento_hero: false, has_mockup: false, has_app_mockups: false, cro_split: false, has_3d: false },
+      interactive_3d: { bento_hero: false, has_mockup: false, has_app_mockups: false, cro_split: false, has_3d: true },
+    };
+    const cfg = map[dir];
+    if (!cfg) return;
+    for (const [name, checked] of Object.entries(cfg)) {
+      const cb = form.querySelector(`input[name="${name}"]`);
+      if (cb) cb.checked = checked;
+    }
+  }
+
+  function inferHeroDirectionFromChecks(form) {
+    const heroSel = form.querySelector("#hero_direction");
+    if (!heroSel) return;
+    const chk = (n) => Boolean(form.querySelector(`input[name="${n}"]`)?.checked);
+    if (chk("has_3d")) heroSel.value = "interactive_3d";
+    else if (chk("bento_hero")) heroSel.value = "bento";
+    else if (chk("has_app_mockups")) heroSel.value = "devices";
+    else if (chk("cro_split")) heroSel.value = "cro";
+    else if (chk("has_mockup")) heroSel.value = "mockup";
+    else heroSel.value = "editorial";
+  }
+
+  function getCheckedSitemapPages(form) {
+    const checked = Array.from(form.querySelectorAll('input[name="sitemap_pages"]:checked')).map((c) => c.value);
+    if (checked.length) return checked;
+    const focus = form.querySelector("#page_id")?.value || "home";
+    return [focus];
+  }
+
+  function syncRouteContext(form) {
+    const activeSet = new Set(getCheckedSitemapPages(form));
+    const selectEl = form.querySelector("#page_id");
+    if (selectEl && !activeSet.has(selectEl.value)) {
+      const first = Array.from(activeSet)[0];
+      if (first && activeSet.size === 1) selectEl.value = first;
+    }
+
+    form.querySelectorAll("details[data-route-group]").forEach((panel) => {
+      const group = panel.getAttribute("data-route-group");
+      const isMatch = activeSet.has(group);
+      panel.open = isMatch;
+      panel.classList.toggle("route-active", isMatch);
+      const tag = panel.querySelector(".route-tag");
+      if (tag) tag.hidden = !isMatch;
+    });
+
+    const noteEl = document.getElementById("route-context-note");
+    if (noteEl) {
+      const routeLabels = Array.from(activeSet).map((id) => {
+        const opt = selectEl?.querySelector(`option[value="${id}"]`);
+        return opt ? opt.textContent.trim() : id;
+      });
+      const subPagesActive = Array.from(activeSet).some((id) => !["home", "pricing"].includes(id));
+      const suffix = subPagesActive
+        ? " — Matching page-specific UX triggers are highlighted and expanded below."
+        : " — Primary flows for Home/Pricing are configured above; check any sub-pages in the Sitemap to auto-expand their UX accordions.";
+      noteEl.replaceChildren(
+        document.createTextNode(`Active Sitemap (${routeLabels.length}): `),
+        el("strong", { textContent: routeLabels.join(", ") }),
+        document.createTextNode(suffix)
+      );
+    }
+  }
+
+  // ---------- Form Collection & Session Serialization ----------
+  const BOOL_NAMES = [
+    "enterprise", "founder_led", "has_certifications", "compliance_required",
+    "high_competition", "has_press", "has_case_studies", "has_investors",
+    "bento_hero", "has_app_mockups", "cro_split", "has_mockup", "has_video",
+    "has_audio", "has_3d", "lead_header", "mega_menu", "has_portal",
+    "has_proof_stats", "has_analytics_data", "has_before_after", "has_live_data",
+    "has_named_quotes", "direct_calendar", "is_productized", "has_billing_toggle",
+    "has_matrix", "matrix_tabs", "minimal_diff", "has_addons", "has_sla",
+    "direct_rfq_form", "has_guarantee", "has_roi", "mobile_drawer",
+    "has_enterprise_tier", "has_newsletter", "has_departments", "has_categories",
+    "timeline_horizontal", "has_manifesto", "distributed_team", "culture_focus",
+    "has_office_photos", "arch_layered", "workflow_phases", "interactive_scope",
+    "has_partners", "searchable_integrations", "multi_persona", "multi_step",
+    "map_view", "has_support_route", "data_dense", "has_vip_quote",
+    "has_trending", "feed_horizontal", "feed_archive", "split_digest",
+    "remote_stipend", "salary_transparent", "parental_wellness", "accordion_jobs",
+    "interview_pipeline", "has_toc", "has_version_selector", "multi_policy",
+  ];
+
+  const EXTRA_BOOL_NAMES = [
+    "has_svg_logo", "has_brand_guidelines", "stock_allowed",
+    "multilingual_support", "rtl_required", "site_search",
+    "feat_auth", "feat_payments", "feat_booking", "feat_dashboard", "feat_analytics_crm",
+  ];
+
   function readFormState(form) {
     const fd = new FormData(form);
     const val = (name, fallback = "") => String(fd.get(name) ?? fallback).trim();
@@ -932,8 +1260,11 @@
     };
     const bool = (name) => Boolean(form.querySelector(`input[name="${name}"]`)?.checked);
 
+    const sitemapPages = getCheckedSitemapPages(form);
+    const focusRoute = val("page_id", sitemapPages[0] || "home");
+
     const projectInfo = {
-      page_id: val("page_id", "home"),
+      page_id: focusRoute,
       project_name: val("project_name", "Modern Web Platform"),
       industry: val("industry", "b2b"),
       style: val("style", "Industrial Minimalist"),
@@ -952,25 +1283,7 @@
       service_model: bool("workflow_phases") ? "consulting" : "agency",
     };
 
-    const boolNames = [
-      "enterprise", "founder_led", "has_certifications", "compliance_required",
-      "high_competition", "has_press", "has_case_studies", "has_investors",
-      "bento_hero", "has_app_mockups", "cro_split", "has_mockup", "has_video",
-      "has_audio", "has_3d", "lead_header", "mega_menu", "has_portal",
-      "has_proof_stats", "has_analytics_data", "has_before_after", "has_live_data",
-      "has_named_quotes", "direct_calendar", "is_productized", "has_billing_toggle",
-      "has_matrix", "matrix_tabs", "minimal_diff", "has_addons", "has_sla",
-      "direct_rfq_form", "has_guarantee", "has_roi", "mobile_drawer",
-      "has_enterprise_tier", "has_newsletter", "has_departments", "has_categories",
-      "timeline_horizontal", "has_manifesto", "distributed_team", "culture_focus",
-      "has_office_photos", "arch_layered", "workflow_phases", "interactive_scope",
-      "has_partners", "searchable_integrations", "multi_persona", "multi_step",
-      "map_view", "has_support_route", "data_dense", "has_vip_quote",
-      "has_trending", "feed_horizontal", "feed_archive", "split_digest",
-      "remote_stipend", "salary_transparent", "parental_wellness", "accordion_jobs",
-      "interview_pipeline", "has_toc", "has_version_selector", "multi_policy",
-    ];
-    for (const b of boolNames) {
+    for (const b of BOOL_NAMES) {
       projectInfo[b] = bool(b);
     }
 
@@ -980,58 +1293,202 @@
       evidenceNote: val("evidence_note", ""),
     };
 
-    return { projectInfo, extra };
+    const discovery = {
+      legal_name: val("legal_name", ""),
+      tagline: val("tagline", ""),
+      existing_url: val("existing_url", ""),
+      business_model: val("business_model", "B2B SaaS"),
+      primary_goal: val("primary_goal", "Qualified Sales Leads & Demos"),
+      primary_device: val("primary_device", "Desktop & Mobile Balanced"),
+      buying_cycle: val("buying_cycle", "Research-Driven / Multiple Stakeholders"),
+      discovery_confidence: val("discovery_confidence", "Partial Discovery"),
+      buyer_pain_points: val("buyer_pain_points", ""),
+      competitor_links: val("competitor_links", ""),
+      brand_colors_note: val("brand_colors_note", ""),
+      hero_direction: val("hero_direction", "bento"),
+      reference_urls: val("reference_urls", ""),
+      dark_mode_support: val("dark_mode_support", "Both Light & Dark Modes"),
+      wcag_target: val("wcag_target", "WCAG 2.2 AA"),
+      reduced_motion: val("reduced_motion", "Subtle Micro-Interactions (150ms, Reduced Motion Safe)"),
+      copy_owner: val("copy_owner", "Hybrid (Client Drafts + Studio Messaging)"),
+      content_readiness: val("content_readiness", "Partial Drafts / Existing Site"),
+      core_usp: val("core_usp", ""),
+      avoid_claims: val("avoid_claims", ""),
+      sitemap_pages: sitemapPages,
+      custom_sitemap_pages: Array.from(form.querySelectorAll('input[name="custom_sitemap_pages"]:checked')).map((c) => c.value),
+      custom_page_names: val("custom_page_names", ""),
+      site_type: val("site_type", "Marketing Website + Headless CMS"),
+      cms_preference: val("cms_preference", "Headless (Sanity / Contentful)"),
+      target_launch: val("target_launch", ""),
+      budget_tier: val("budget_tier", ""),
+      decision_maker: val("decision_maker", ""),
+      hosting_status: val("hosting_status", ""),
+      priority_p0_notes: val("priority_p0_notes", ""),
+      priority_p2_notes: val("priority_p2_notes", ""),
+    };
+    for (const eb of EXTRA_BOOL_NAMES) {
+      discovery[eb] = bool(eb);
+    }
+
+    return { projectInfo, extra, discovery };
   }
 
-  function syncRouteContext(form) {
-    const selectEl = form.querySelector("#page_id");
-    const routeId = selectEl ? selectEl.value : "home";
-    const routeLabel = selectEl && selectEl.selectedOptions && selectEl.selectedOptions[0]
-      ? selectEl.selectedOptions[0].textContent.trim()
-      : routeId;
-
-    form.querySelectorAll("details[data-route-group]").forEach((panel) => {
-      const group = panel.getAttribute("data-route-group");
-      const isMatch = group === routeId;
-      panel.open = isMatch;
-      panel.classList.toggle("route-active", isMatch);
-      const tag = panel.querySelector(".route-tag");
-      if (tag) tag.hidden = !isMatch;
+  function serializeSession(form, activeStep) {
+    const scalar = {};
+    form.querySelectorAll('input:not([type="checkbox"]):not([type="file"]), select, textarea').forEach((node) => {
+      if (node.name) scalar[node.name] = node.value;
     });
+    const checks = {};
+    [...BOOL_NAMES, ...EXTRA_BOOL_NAMES].forEach((b) => {
+      const cb = form.querySelector(`input[name="${b}"]`);
+      if (cb) checks[b] = Boolean(cb.checked);
+    });
+    const sitemap_pages = getCheckedSitemapPages(form);
+    const custom_sitemap_pages = Array.from(form.querySelectorAll('input[name="custom_sitemap_pages"]:checked')).map((c) => c.value);
+    return { version: 2, savedAt: new Date().toISOString(), activeStep, scalar, checks, sitemap_pages, custom_sitemap_pages };
+  }
 
-    const noteEl = document.getElementById("route-context-note");
-    if (noteEl) {
-      const primaryRoutes = routeId === "home" || routeId === "pricing";
-      const suffix = primaryRoutes
-        ? " — All primary triggers for this route are already surfaced in Stages 1–5 above. Expand secondary sub-page groups below only if cross-configuring."
-        : " — Matching page-specific triggers are highlighted and expanded below.";
-      noteEl.replaceChildren(
-        document.createTextNode("Active Route: "),
-        el("strong", { textContent: routeLabel }),
-        document.createTextNode(suffix)
-      );
+  function applySessionData(form, session) {
+    if (!session || typeof session !== "object") return false;
+    if (session.scalar && typeof session.scalar === "object") {
+      for (const [name, val] of Object.entries(session.scalar)) {
+        const elNode = form.querySelector(`[name="${name}"]`);
+        if (elNode) elNode.value = String(val ?? "");
+      }
     }
+    if (session.checks && typeof session.checks === "object") {
+      [...BOOL_NAMES, ...EXTRA_BOOL_NAMES].forEach((b) => {
+        const cb = form.querySelector(`input[name="${b}"]`);
+        if (cb && Object.prototype.hasOwnProperty.call(session.checks, b)) {
+          cb.checked = Boolean(session.checks[b]);
+        }
+      });
+    }
+    if (Array.isArray(session.sitemap_pages)) {
+      const set = new Set(session.sitemap_pages);
+      form.querySelectorAll('input[name="sitemap_pages"]').forEach((cb) => {
+        cb.checked = set.has(cb.value);
+      });
+    }
+    if (Array.isArray(session.custom_sitemap_pages)) {
+      const cSet = new Set(session.custom_sitemap_pages);
+      form.querySelectorAll('input[name="custom_sitemap_pages"]').forEach((cb) => {
+        cb.checked = cSet.has(cb.value);
+      });
+    }
+    syncRouteContext(form);
+    return true;
   }
 
   function applyPreset(form, key) {
     const preset = PRESETS[key];
     if (!preset) return;
+    ["legal_name", "tagline", "existing_url", "buyer_pain_points", "competitor_links", "reference_urls", "brand_colors_note", "core_usp", "avoid_claims", "custom_page_names", "priority_p0_notes", "priority_p2_notes", "target_launch", "budget_tier", "decision_maker"].forEach((k) => {
+      const n = form.querySelector(`[name="${k}"]`);
+      if (n) n.value = "";
+    });
     for (const [field, value] of Object.entries(preset)) {
-      if (field === "checks") continue;
+      if (field === "checks" || field === "sitemapPages" || field === "customSitemapPages") continue;
       const input = form.querySelector(`[name="${field}"]`);
       if (input) input.value = String(value);
     }
-    form.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
-      cb.checked = Boolean(preset.checks[cb.name]);
+    [...BOOL_NAMES, ...EXTRA_BOOL_NAMES].forEach((name) => {
+      const cb = form.querySelector(`input[name="${name}"]`);
+      if (cb) cb.checked = Boolean(preset.checks && preset.checks[name]);
     });
+    const siteSet = new Set(preset.sitemapPages || [preset.page_id || "home"]);
+    form.querySelectorAll('input[name="sitemap_pages"]').forEach((cb) => {
+      cb.checked = siteSet.has(cb.value);
+    });
+    const customSet = new Set(preset.customSitemapPages || []);
+    form.querySelectorAll('input[name="custom_sitemap_pages"]').forEach((cb) => {
+      cb.checked = customSet.has(cb.value);
+    });
+    if (!preset.hero_direction) inferHeroDirectionFromChecks(form);
     syncRouteContext(form);
   }
 
-  // ---------- Render Output Sections ----------
+  // ---------- Render Output Sections & Live Inspector ----------
+  function renderLiveInspector(res) {
+    const body = document.getElementById("live-inspector-body");
+    const readyText = document.getElementById("inspector-ready-text");
+    const statusDot = document.getElementById("inspector-status-dot");
+    if (!body) return;
+
+    if (readyText) {
+      readyText.textContent = res.researchGaps.length ? `${res.researchGaps.length} open gaps` : "0 open gaps";
+    }
+    if (statusDot) {
+      statusDot.classList.toggle("status-dot-warn", res.researchGaps.length > 0);
+    }
+
+    const spectrumHexes = [
+      res.tokens.background,
+      res.tokens.card_surface,
+      res.tokens.cta,
+      res.tokens.text_primary,
+      res.tokens.text_secondary,
+    ];
+    const stops = spectrumHexes.map((hex) => {
+      const s = el("div", { className: "spectrum-stop", "aria-hidden": "true" });
+      s.style.backgroundColor = hex;
+      return s;
+    });
+
+    const minTextContrast = Math.min(
+      res.contrastChecks[0].ratio,
+      res.contrastChecks[1].ratio,
+      res.contrastChecks[4].ratio
+    );
+    const wcagBadge = minTextContrast >= 7 ? "AAA Verified" : minTextContrast >= 4.5 ? "AA Verified" : "Review Contrast";
+
+    clearAndRender(body, [
+      el("div", { className: "inspector-block" }, [
+        el("div", { className: "inspector-label", textContent: `Palette · ${res.tokens.palette_source}` }),
+        el("div", {
+          className: "spectrum-bar",
+          role: "img",
+          "aria-label": `Derived palette tokens: ${spectrumHexes.join(", ")}`,
+        }, stops),
+      ]),
+      el("div", { className: "inspector-block" }, [
+        el("div", { className: "inspector-label", textContent: "Type & Vertical Direction" }),
+        el("p", { className: "specimen-title", textContent: res.projectInfo.project_name || "Untitled Project" }),
+        el("div", { className: "specimen-meta", textContent: `${res.typography.headingFont} / ${res.typography.bodyFont} · ${res.ds.category}` }),
+      ]),
+      el("div", { className: "inspector-block" }, [
+        el("dl", {}, [
+          el("div", { className: "inspector-kv" }, [
+            el("dt", { textContent: "Sitemap Scope" }),
+            el("dd", { textContent: `${res.compiledPages.length}p · ${res.compiledSections.length} sections` }),
+          ]),
+          el("div", { className: "inspector-kv" }, [
+            el("dt", { textContent: "Contrast Check" }),
+            el("dd", { textContent: `${minTextContrast.toFixed(1)}:1 (${wcagBadge})` }),
+          ]),
+          el("div", { className: "inspector-kv" }, [
+            el("dt", { textContent: "Primary CTA Hex" }),
+            el("dd", { textContent: res.tokens.cta }),
+          ]),
+          el("div", { className: "inspector-kv" }, [
+            el("dt", { textContent: "Stack / CMS" }),
+            el("dd", { textContent: `${res.extra.stack}` }),
+          ]),
+          el("div", { className: "inspector-kv" }, [
+            el("dt", { textContent: "Launch Window" }),
+            el("dd", { textContent: res.discovery.target_launch || "TBD" }),
+          ]),
+        ]),
+      ]),
+    ]);
+  }
+
   function renderCompiledOutput(res) {
+    renderLiveInspector(res);
     const summaryStrip = document.getElementById("summary-strip");
     const tokenPreview = document.getElementById("token-preview");
     const panelSections = document.getElementById("panel-sections");
+    const panelStrategy = document.getElementById("panel-strategy");
     const panelIntel = document.getElementById("panel-intel");
     const panelStack = document.getElementById("panel-stack");
     const panelMarkdown = document.getElementById("panel-markdown");
@@ -1039,24 +1496,24 @@
 
     clearAndRender(summaryStrip, [
       el("div", { className: "stat-card" }, [
-        el("div", { className: "stat-label", textContent: "Page Route & Flow" }),
-        el("div", { className: "stat-value", textContent: `${res.compiledSections.length} Sections` }),
-        el("div", { className: "stat-sub", textContent: `${res.pageMeta ? res.pageMeta.name : res.projectInfo.page_id} (${res.projectInfo.page_id})` }),
+        el("div", { className: "stat-label", textContent: "Compiled Sitemap" }),
+        el("div", { className: "stat-value", textContent: `${res.compiledPages.length} Page${res.compiledPages.length > 1 ? "s" : ""} · ${res.compiledSections.length} Sections` }),
+        el("div", { className: "stat-sub", textContent: `${res.compiledPages.map((p) => p.page_id).join(", ")}${res.customScopePages.length ? ` (+${res.customScopePages.length} custom)` : ""}` }),
       ]),
       el("div", { className: "stat-card" }, [
         el("div", { className: "stat-label", textContent: "Product Match" }),
         el("div", { className: "stat-value", textContent: res.ds.category }),
-        el("div", { className: "stat-sub", textContent: `Slug: ${res.ds.productRow.product_slug || "general"} | Style ID: ${res.ds.productRow.style_id || "-"}` }),
+        el("div", { className: "stat-sub", textContent: `${res.discovery.business_model} · ${res.ds.productRow.product_slug || "general"}` }),
       ]),
       el("div", { className: "stat-card" }, [
-        el("div", { className: "stat-label", textContent: "Typography Pair" }),
+        el("div", { className: "stat-label", textContent: "Typography & Modes" }),
         el("div", { className: "stat-value", textContent: `${res.typography.headingFont} / ${res.typography.bodyFont}` }),
-        el("div", { className: "stat-sub", textContent: res.typography.row["Category"] || "Modern Sans Pair" }),
+        el("div", { className: "stat-sub", textContent: `${res.discovery.dark_mode_support} · ${res.discovery.wcag_target}` }),
       ]),
       el("div", { className: "stat-card" }, [
-        el("div", { className: "stat-label", textContent: "Selected Stack & Warnings" }),
+        el("div", { className: "stat-label", textContent: "Stack & Open Gaps" }),
         el("div", { className: "stat-value", textContent: res.extra.stack }),
-        el("div", { className: "stat-sub", textContent: `${res.warnings.length} fallback warnings` }),
+        el("div", { className: "stat-sub", textContent: `${res.warnings.length} fallbacks · ${res.researchGaps.length} open gaps` }),
       ]),
     ]);
 
@@ -1094,28 +1551,106 @@
       el("div", { className: "contrast-row" }, badges),
     ]);
 
-    // Tab 1: Section Blueprint
-    const secCards = res.compiledSections.map((s) => {
-      const c = s.chosen;
-      return el("article", { className: "blueprint-card" }, [
-        el("div", { className: "blueprint-card-head" }, [
-          el("h3", { className: "blueprint-card-title", textContent: `${String(s.index).padStart(2, "0")}. ${s.section_name} — ${c.name}` }),
-          el("span", { className: "id-chip", textContent: c.archetype_id }),
-        ]),
-        el("dl", { className: "spec-dl" }, [
-          el("dt", { textContent: "Rationale" }), el("dd", { textContent: c.best_for }),
-          el("dt", { textContent: "Layout" }), el("dd", { textContent: c.layout_structure }),
-          el("dt", { textContent: "Typography" }), el("dd", { textContent: c.typography_specs }),
-          el("dt", { textContent: "Components" }), el("dd", { textContent: c.key_components }),
-          el("dt", { textContent: "Responsive" }), el("dd", { textContent: c.responsive_behavior }),
-          el("dt", { textContent: "Accessibility" }), el("dd", { textContent: c.accessibility }),
-          el("dt", { textContent: "Anti-Slop" }), el("dd", { textContent: c.anti_slop_rules }),
-        ]),
+    // Tab 1: Scannable 2-Column Section Blueprints
+    const sectionNodes = [];
+    const showPageHeaders = res.compiledPages.length > 1;
+    const specCell = (label, value) =>
+      el("div", { className: "spec-cell" }, [
+        el("dt", { textContent: label }),
+        el("dd", { textContent: value }),
       ]);
-    });
-    clearAndRender(panelSections, [el("div", { className: "blueprint-list" }, secCards)]);
 
-    // Tab 2: Design System & Reasoning
+    for (const pg of res.compiledPages) {
+      if (showPageHeaders) {
+        sectionNodes.push(
+          el("div", { className: "page-group-header" }, [
+            el("h3", { className: "page-group-title", textContent: `${pg.page_name} (${pg.page_id})` }),
+            el("span", { className: "id-chip", textContent: `${pg.sections.length} sections` }),
+          ])
+        );
+      }
+      sectionNodes.push(
+        el("div", { className: "blueprint-list" }, pg.sections.map((s) => {
+          const c = s.chosen;
+          return el("article", { className: "blueprint-card" }, [
+            el("div", { className: "blueprint-card-head" }, [
+              el("h3", { className: "blueprint-card-title", textContent: `${String(s.index).padStart(2, "0")} · ${s.section_name} — ${c.name}` }),
+              el("span", { className: "id-chip", textContent: c.archetype_id }),
+            ]),
+            el("dl", { className: "spec-grid" }, [
+              specCell("Rationale", c.best_for),
+              specCell("Layout Structure", c.layout_structure),
+              specCell("Typography", c.typography_specs),
+              specCell("Key Components", c.key_components),
+              specCell("Responsive & Accessibility", `${c.responsive_behavior} | A11y: ${c.accessibility}`),
+              specCell("Anti-Slop Guardrail", c.anti_slop_rules),
+            ]),
+          ]);
+        }))
+      );
+    }
+    clearAndRender(panelSections, sectionNodes);
+
+    // Tab 2: Consolidated Client & UX Strategy Brief
+    const d = res.discovery;
+    const strategyCards = [
+      el("div", { className: "intel-card" }, [
+        el("h3", { textContent: "01. Business Identity & Positioning" }),
+        el("ul", { className: "kv-list" }, [
+          el("li", {}, [el("strong", { textContent: "Brand / Legal: " }), `${res.projectInfo.project_name}${d.legal_name ? ` (${d.legal_name})` : ""}`]),
+          el("li", {}, [el("strong", { textContent: "Tagline: " }), d.tagline || "[Open — Draft during messaging phase]"]),
+          el("li", {}, [el("strong", { textContent: "Model & Objective: " }), `${d.business_model} · ${d.primary_goal}`]),
+          el("li", {}, [el("strong", { textContent: "Competitor Benchmarks: " }), d.competitor_links || "[Open — Request 3 competitor links]"]),
+        ]),
+      ]),
+      el("div", { className: "intel-card" }, [
+        el("h3", { textContent: "02. Target Audience, Behavior & Objections" }),
+        el("ul", { className: "kv-list" }, [
+          el("li", {}, [el("strong", { textContent: "Primary Buyer: " }), res.projectInfo.target_audience]),
+          el("li", {}, [el("strong", { textContent: "Device & Decision Cycle: " }), `${d.primary_device} | ${d.buying_cycle}`]),
+          el("li", {}, [el("strong", { textContent: "Pain Points & Friction: " }), d.buyer_pain_points || "[Open — Interview top objections]"]),
+          el("li", {}, [el("strong", { textContent: "Research Confidence: " }), d.discovery_confidence]),
+        ]),
+      ]),
+      el("div", { className: "intel-card" }, [
+        el("h3", { textContent: "03. Creative Assets, Visuals & Accessibility" }),
+        el("ul", { className: "kv-list" }, [
+          el("li", {}, [el("strong", { textContent: "Brand Kit / SVG / Stock: " }), `SVG Logo: ${d.has_svg_logo ? "Yes" : "Needed"} · Brand Guide: ${d.has_brand_guidelines ? "Existing" : "Fresh Palette"} · Stock: ${d.stock_allowed ? "Allowed" : "Avoid"}`]),
+          el("li", {}, [el("strong", { textContent: "Existing Hex / Font Notes: " }), d.brand_colors_note || "Derived cleanly from WCAG palette engine"]),
+          el("li", {}, [el("strong", { textContent: "Hero Framing Intent: " }), `${d.hero_direction} · Modes: ${d.dark_mode_support}`]),
+          el("li", {}, [el("strong", { textContent: "Accessibility & Motion: " }), `${d.wcag_target} · ${d.reduced_motion}`]),
+        ]),
+      ]),
+      el("div", { className: "intel-card" }, [
+        el("h3", { textContent: "04. Content Ownership & Verified Evidence (SLOP-003)" }),
+        el("ul", { className: "kv-list" }, [
+          el("li", {}, [el("strong", { textContent: "Copy & Readiness: " }), `${d.copy_owner} (${d.content_readiness})`]),
+          el("li", {}, [el("strong", { textContent: "Core USP / Headline: " }), d.core_usp || "[Open — Define hero H1 claim]"]),
+          el("li", {}, [el("strong", { textContent: "Avoid Claims: " }), d.avoid_claims || "Standard anti-slop ban on unverified statistics"]),
+          el("li", {}, [el("strong", { textContent: "Verified Evidence Citation: " }), res.extra.evidenceNote || "[OPEN GAP — Add source URL/date before showing KPIs]"]),
+        ]),
+      ]),
+      el("div", { className: "intel-card" }, [
+        el("h3", { textContent: "05. Consolidated Project Sitemap" }),
+        el("ul", { className: "kv-list" }, [
+          el("li", {}, [el("strong", { textContent: `Compiled Blueprint Routes (${res.compiledPages.length}): ` }), res.compiledPages.map((p) => `${p.page_name} [${p.sections.length}s]`).join(" · ")]),
+          el("li", {}, [el("strong", { textContent: "Custom / Scope-Only Pages: " }), res.customScopePages.length ? res.customScopePages.join(" · ") : "None requested"]),
+          el("li", {}, [el("strong", { textContent: "Localization & IA: " }), `${res.projectInfo.link_count} nav links · Mega Menu: ${res.projectInfo.mega_menu ? "Yes" : "No"} · Multilingual: ${d.multilingual_support ? "Yes" : "No"} · RTL: ${d.rtl_required ? "Yes" : "No"}`]),
+        ]),
+      ]),
+      el("div", { className: "intel-card" }, [
+        el("h3", { textContent: "06. Scope Priorities, Delivery & Open Research Gaps" }),
+        el("ul", { className: "kv-list" }, [
+          el("li", {}, [el("strong", { textContent: "Site Type & CMS: " }), `${d.site_type} (${d.cms_preference}) · Hosting: ${d.hosting_status}`]),
+          el("li", {}, [el("strong", { textContent: "Launch / Budget / Approver: " }), `${d.target_launch || "TBD"} · ${d.budget_tier || "TBD"} · Approver: ${d.decision_maker || "Unconfirmed"}`]),
+          el("li", {}, [el("strong", { textContent: "P0 Launch Scope: " }), d.priority_p0_notes || "Core selected sitemap pages"]),
+          el("li", {}, [el("strong", { textContent: "Open Research Gaps: " }), res.researchGaps.length ? res.researchGaps.join(" | ") : "All discovery fields documented"]),
+        ]),
+      ]),
+    ];
+    clearAndRender(panelStrategy, [el("div", { className: "intel-grid" }, strategyCards)]);
+
+    // Tab 3: Design System & Reasoning
     const intelCards = [
       el("div", { className: "intel-card" }, [
         el("h3", { textContent: "UI Reasoning & Product FKs" }),
@@ -1161,22 +1696,37 @@
     ];
     clearAndRender(panelIntel, [el("div", { className: "intel-grid" }, intelCards)]);
 
-    // Tab 3: Stack, UX & Perf
+    // Tab 4: Stack, UX & Perf
     const ruleCard = (title, items, isStack) =>
       el("div", { className: "blueprint-card" }, [
         el("h3", { className: "blueprint-card-title", textContent: title }),
         el("ul", { className: "kv-list mt-3" }, items.map((r) => {
           const name = isStack ? r.Guideline : r.Issue;
-          const good = isStack ? r.Do : r.Do;
-          const bad = isStack ? r["Don't"] : r["Don't"];
           return el("li", {}, [
             el("strong", { textContent: `[${r.Severity || "INFO"}] ${name}: ` }),
-            `Do: ${good} | Don't: ${bad}`,
+            `Do: ${r.Do} | Don't: ${r["Don't"]}`,
           ]);
         })),
       ]);
 
+    const featureFlags = [
+      d.feat_auth ? "User Auth & Roles" : null,
+      d.feat_payments ? "Payment / Checkout" : null,
+      d.feat_booking ? "Calendar / Booking" : null,
+      d.feat_dashboard ? "Authenticated Dashboard" : null,
+      d.feat_analytics_crm ? "CRM + Analytics" : null,
+      d.site_search ? "Site Search" : null,
+      d.multilingual_support ? "Multilingual" : null,
+    ].filter(Boolean);
+
     const stackCards = [
+      el("div", { className: "blueprint-card" }, [
+        el("h3", { className: "blueprint-card-title", textContent: "Requested Functional Integrations & Architecture" }),
+        el("p", {
+          className: "fieldset-help mt-3",
+          textContent: `Architecture: ${d.site_type} | CMS: ${d.cms_preference} | Hosting: ${d.hosting_status || "TBD"} | Capabilities: ${featureFlags.length ? featureFlags.join(", ") : "Static Marketing Scope Only"}`,
+        }),
+      ]),
       ruleCard(`Stack Guidelines (${res.extra.stack})`, res.stackGuidelines, true),
       ruleCard("UX & Accessibility Guidelines", res.uxGuidelines, false),
       ruleCard("Web Interface Rules", res.webGuidelines, false),
@@ -1186,10 +1736,10 @@
     }
     clearAndRender(panelStack, [el("div", { className: "blueprint-list" }, stackCards)]);
 
-    // Tab 4: Full Markdown Prompt
+    // Tab 5: Full Markdown Prompt
     clearAndRender(panelMarkdown, [el("pre", { className: "code-block", textContent: res.markdown })]);
 
-    // Tab 5: Input JSON & Exact Python/CLI Equivalents
+    // Tab 6: Input JSON & Exact Python/CLI Equivalents
     const cliSnippet = [
       "# 1. Generate Design System & Stack Guidance",
       `python skills/ui-ux-pro-max/scripts/search.py "${res.projectInfo.industry} ${res.projectInfo.style}" --design-system -p "${res.projectInfo.project_name}" -f markdown`,
@@ -1212,24 +1762,78 @@
           el("h3", { className: "blueprint-card-title", textContent: "Canonical project_info JSON Input" }),
           el("pre", { className: "code-block mt-3", textContent: JSON.stringify(res.projectInfo, null, 2) }),
         ]),
+        el("div", { className: "blueprint-card" }, [
+          el("h3", { className: "blueprint-card-title", textContent: "Full Client Discovery & Sitemap JSON" }),
+          el("pre", { className: "code-block mt-3", textContent: JSON.stringify(res.discovery, null, 2) }),
+        ]),
       ]),
     ]);
   }
 
-  // ---------- Accessible Tabs + Form Validation ----------
+  // ---------- Progressive View Transitions + Accessible Tabs + Validation + Wizard ----------
+  let activeViewTransition = null;
+
+  function runViewTransition(type, updateFn, onDone) {
+    const reduced = typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced || typeof document.startViewTransition !== "function") {
+      updateFn();
+      if (onDone) onDone();
+      return;
+    }
+
+    if (activeViewTransition && typeof activeViewTransition.skipTransition === "function") {
+      try { activeViewTransition.skipTransition(); } catch { /* ignore */ }
+    }
+
+    const root = document.documentElement;
+    if (type) root.setAttribute("data-vt", type);
+
+    let vt;
+    try {
+      vt = document.startViewTransition({ update: updateFn, types: type ? [type] : [] });
+    } catch {
+      try {
+        vt = document.startViewTransition(updateFn);
+      } catch {
+        root.removeAttribute("data-vt");
+        updateFn();
+        if (onDone) onDone();
+        return;
+      }
+    }
+
+    activeViewTransition = vt;
+    if (onDone && vt.updateCallbackDone) {
+      vt.updateCallbackDone.then(() => onDone()).catch(() => {});
+    }
+    if (vt.finished) {
+      vt.finished.finally(() => {
+        if (activeViewTransition === vt) {
+          activeViewTransition = null;
+          root.removeAttribute("data-vt");
+        }
+      });
+    } else {
+      root.removeAttribute("data-vt");
+    }
+  }
+
   function setupTabs() {
     const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
     const panels = new Map(tabs.map((t) => [t.id, document.querySelector(`[aria-labelledby="${t.id}"]`)]));
 
     function activate(tab, focusTab = false) {
-      for (const t of tabs) {
-        const selected = t === tab;
-        t.setAttribute("aria-selected", selected ? "true" : "false");
-        t.setAttribute("tabindex", selected ? "0" : "-1");
-        const panel = panels.get(t.id);
-        if (panel) panel.hidden = !selected;
-      }
-      if (focusTab) tab.focus();
+      runViewTransition("panel", () => {
+        for (const t of tabs) {
+          const selected = t === tab;
+          t.setAttribute("aria-selected", selected ? "true" : "false");
+          t.setAttribute("tabindex", selected ? "0" : "-1");
+          const panel = panels.get(t.id);
+          if (panel) panel.hidden = !selected;
+        }
+      }, () => {
+        if (focusTab) tab.focus();
+      });
     }
 
     tabs.forEach((tab, idx) => {
@@ -1249,7 +1853,7 @@
     });
   }
 
-  function setupValidation(form) {
+  function setupValidation(form, goToStep) {
     const controls = Array.from(form.querySelectorAll("input, select, textarea"));
     const syncField = (input) => {
       const errorId = input.getAttribute("data-error");
@@ -1278,6 +1882,10 @@
         if (!syncField(c) && !firstBad) firstBad = c;
       }
       if (firstBad) {
+        const ownerStep = firstBad.closest(".wizard-step");
+        if (ownerStep && goToStep) {
+          goToStep(Number(ownerStep.getAttribute("data-step") || 1));
+        }
         firstBad.focus();
         return false;
       }
@@ -1313,20 +1921,185 @@
 
     const form = document.getElementById("blueprint-form");
     const statusEl = document.getElementById("compile-status");
-    const validateAll = setupValidation(form);
-    setupTabs();
-    syncRouteContext(form);
-    form.querySelector("#page_id")?.addEventListener("change", () => syncRouteContext(form));
+    const draftEl = document.getElementById("draft-status");
+    const stepPills = Array.from(document.querySelectorAll(".step-pill[data-wizard-step]"));
+    const stepPanels = Array.from(form.querySelectorAll(".wizard-step[data-step]"));
+    const prevBtn = document.getElementById("wizard-prev-btn");
+    const nextBtn = document.getElementById("wizard-next-btn");
+    const stepLabel = document.getElementById("wizard-step-label");
 
+    let activeStep = 1;
+
+    const saveDraft = () => {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(serializeSession(form, activeStep)));
+        if (draftEl) draftEl.textContent = "Draft saved locally in browser.";
+      } catch {
+        // Ignore restricted storage on sandboxed file:// origins
+      }
+    };
+
+    const setActiveStep = (nextStep, opts = {}) => {
+      const targetStep = Math.max(1, Math.min(5, Number(nextStep) || 1));
+      const { animate = true, focusControl = false } = opts;
+      const shouldAnimate = animate && targetStep !== activeStep;
+      const direction = targetStep >= activeStep ? "forward" : "backward";
+
+      const applyStepDom = () => {
+        activeStep = targetStep;
+        stepPanels.forEach((sec) => {
+          sec.hidden = Number(sec.getAttribute("data-step")) !== activeStep;
+        });
+        stepPills.forEach((btn) => {
+          const isCurrent = Number(btn.getAttribute("data-wizard-step")) === activeStep;
+          if (isCurrent) btn.setAttribute("aria-current", "step");
+          else btn.removeAttribute("aria-current");
+        });
+        if (stepLabel) stepLabel.textContent = `Step 0${activeStep} of 05 · ${STEP_TITLES[activeStep - 1]}`;
+        if (prevBtn) prevBtn.disabled = activeStep === 1;
+        if (nextBtn) nextBtn.textContent = activeStep === 5 ? "Jump to Compile" : "Next Step";
+        saveDraft();
+      };
+
+      const finishFocus = () => {
+        if (focusControl && prevBtn && prevBtn.disabled) {
+          const stepOneBtn = document.querySelector('.step-pill[data-wizard-step="1"]');
+          stepOneBtn?.focus({ preventScroll: true });
+        }
+      };
+
+      if (shouldAnimate) {
+        runViewTransition(direction, applyStepDom, finishFocus);
+      } else {
+        applyStepDom();
+        finishFocus();
+      }
+    };
+
+    const validateAll = setupValidation(form, (s) => setActiveStep(s, { animate: false }));
+    setupTabs();
+
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && parsed.version === 2) {
+          applySessionData(form, parsed);
+          if (parsed.activeStep) activeStep = Number(parsed.activeStep) || 1;
+          if (draftEl) draftEl.textContent = "Restored saved local draft.";
+        }
+      }
+    } catch {
+      // Fall back to HTML defaults silently
+    }
+
+    setActiveStep(activeStep, { animate: false });
+    syncRouteContext(form);
+
+    stepPills.forEach((btn) => {
+      btn.addEventListener("click", () => setActiveStep(btn.getAttribute("data-wizard-step"), { animate: true }));
+    });
+    prevBtn?.addEventListener("click", () => {
+      if (activeStep > 1) setActiveStep(activeStep - 1, { animate: true, focusControl: true });
+    });
+    nextBtn?.addEventListener("click", () => {
+      if (activeStep < 5) {
+        setActiveStep(activeStep + 1, { animate: true });
+      } else {
+        document.getElementById("compile-btn")?.focus();
+      }
+    });
+
+    const heroDirEl = form.querySelector("#hero_direction");
+    heroDirEl?.addEventListener("change", () => {
+      applyHeroDirectionToChecks(form, heroDirEl.value);
+      saveDraft();
+    });
+    ["bento_hero", "has_app_mockups", "cro_split", "has_mockup", "has_3d"].forEach((name) => {
+      form.querySelector(`input[name="${name}"]`)?.addEventListener("change", () => {
+        inferHeroDirectionFromChecks(form);
+        saveDraft();
+      });
+    });
+
+    const pageIdEl = form.querySelector("#page_id");
+    pageIdEl?.addEventListener("change", () => {
+      const checked = Array.from(form.querySelectorAll('input[name="sitemap_pages"]:checked'));
+      if (checked.length <= 1) {
+        form.querySelectorAll('input[name="sitemap_pages"]').forEach((cb) => {
+          cb.checked = cb.value === pageIdEl.value;
+        });
+      } else {
+        const target = form.querySelector(`input[name="sitemap_pages"][value="${pageIdEl.value}"]`);
+        if (target) target.checked = true;
+      }
+      syncRouteContext(form);
+      saveDraft();
+    });
+
+    form.querySelectorAll('input[name="sitemap_pages"]').forEach((cb) => {
+      cb.addEventListener("change", () => {
+        const remaining = form.querySelectorAll('input[name="sitemap_pages"]:checked');
+        if (!remaining.length) cb.checked = true;
+        syncRouteContext(form);
+        saveDraft();
+      });
+    });
+
+    let liveTimer = null;
     const runCompile = (scrollToOutput) => {
-      const { projectInfo, extra } = readFormState(form);
-      lastCompiled = compileAll(projectInfo, extra);
+      const { projectInfo, extra, discovery } = readFormState(form);
+      lastCompiled = compileAll(projectInfo, extra, discovery);
       renderCompiledOutput(lastCompiled);
-      statusEl.textContent = `Compiled ${lastCompiled.compiledSections.length} sections for "${projectInfo.project_name}" (${projectInfo.page_id}) — 0 errors.`;
+      statusEl.textContent = `Compiled ${lastCompiled.compiledSections.length} sections across ${lastCompiled.compiledPages.length} page(s) for "${projectInfo.project_name}" (${projectInfo.page_id}) — 0 errors.`;
       if (scrollToOutput) {
         document.getElementById("compiled-output")?.scrollIntoView({ behavior: "smooth" });
       }
     };
+
+    const scheduleLiveCompile = () => {
+      if (liveTimer) clearTimeout(liveTimer);
+      liveTimer = setTimeout(() => {
+        runCompile(false);
+      }, 120);
+    };
+
+    const setPressedPreset = (activeKey) => {
+      document.querySelectorAll("[data-preset]").forEach((b) => {
+        b.setAttribute("aria-pressed", b.getAttribute("data-preset") === activeKey ? "true" : "false");
+      });
+    };
+
+    document.getElementById("sitemap-core-btn")?.addEventListener("click", () => {
+      const core = new Set(["home", "about", "services", "pricing", "contact"]);
+      form.querySelectorAll('input[name="sitemap_pages"]').forEach((cb) => { cb.checked = core.has(cb.value); });
+      if (pageIdEl) pageIdEl.value = "home";
+      syncRouteContext(form);
+      saveDraft();
+      runCompile(false);
+    });
+    document.getElementById("sitemap-all-btn")?.addEventListener("click", () => {
+      form.querySelectorAll('input[name="sitemap_pages"]').forEach((cb) => { cb.checked = true; });
+      syncRouteContext(form);
+      saveDraft();
+      runCompile(false);
+    });
+    document.getElementById("sitemap-single-btn")?.addEventListener("click", () => {
+      const focus = pageIdEl?.value || "home";
+      form.querySelectorAll('input[name="sitemap_pages"]').forEach((cb) => { cb.checked = cb.value === focus; });
+      syncRouteContext(form);
+      saveDraft();
+      runCompile(false);
+    });
+
+    form.addEventListener("input", () => {
+      saveDraft();
+      scheduleLiveCompile();
+    });
+    form.addEventListener("change", () => {
+      saveDraft();
+      runCompile(false);
+    });
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -1339,29 +2112,68 @@
 
     document.querySelectorAll("[data-preset]").forEach((btn) => {
       btn.addEventListener("click", () => {
-        applyPreset(form, btn.getAttribute("data-preset"));
+        const key = btn.getAttribute("data-preset");
+        applyPreset(form, key);
+        setPressedPreset(key);
+        saveDraft();
         runCompile(false);
         statusEl.textContent = `Loaded preset "${btn.textContent.trim()}" and recompiled bottom output.`;
       });
     });
 
-    document.getElementById("reset-btn").addEventListener("click", () => {
+    document.getElementById("reset-btn")?.addEventListener("click", () => {
+      try { localStorage.removeItem(STORAGE_KEY); } catch { /* noop */ }
       applyPreset(form, "enterprise");
+      setPressedPreset("enterprise");
+      setActiveStep(1);
       runCompile(false);
       statusEl.textContent = "Reset to B2B Enterprise defaults and recompiled.";
     });
 
+    document.getElementById("export-session-btn")?.addEventListener("click", () => {
+      const payload = serializeSession(form, activeStep);
+      const slug = (form.querySelector("#project_name")?.value || "discovery").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${slug}-discovery-session.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      if (draftEl) draftEl.textContent = `Exported ${a.download}.`;
+    });
+
+    const importInput = document.getElementById("import-session-input");
+    document.getElementById("import-session-btn")?.addEventListener("click", () => importInput?.click());
+    importInput?.addEventListener("change", async () => {
+      const file = importInput.files && importInput.files[0];
+      if (!file) return;
+      try {
+        const data = JSON.parse(await file.text());
+        if (!applySessionData(form, data)) throw new Error("Unrecognized session JSON format");
+        setActiveStep(data.activeStep || 1);
+        runCompile(false);
+        if (draftEl) draftEl.textContent = `Loaded session from "${file.name}".`;
+      } catch (err) {
+        statusEl.textContent = `Session load error: ${err.message}`;
+      } finally {
+        importInput.value = "";
+      }
+    });
+
     const themeBtn = document.getElementById("theme-toggle");
     themeBtn.addEventListener("click", () => {
-      const isDark = document.documentElement.classList.toggle("dark");
-      themeBtn.setAttribute("aria-pressed", isDark ? "true" : "false");
-      themeBtn.textContent = isDark ? "Light Mode" : "Dark Mode";
+      runViewTransition("theme", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        themeBtn.setAttribute("aria-pressed", isDark ? "true" : "false");
+        themeBtn.textContent = isDark ? "Light Mode" : "Dark Mode";
+      });
     });
 
     document.getElementById("copy-md-btn").addEventListener("click", async () => {
       if (!lastCompiled) return;
       await navigator.clipboard.writeText(lastCompiled.markdown);
-      statusEl.textContent = "Copied full Markdown blueprint to clipboard.";
+      statusEl.textContent = "Copied full Markdown master brief to clipboard.";
     });
 
     document.getElementById("copy-json-btn").addEventListener("click", async () => {
@@ -1373,11 +2185,12 @@
     document.getElementById("download-md-btn").addEventListener("click", () => {
       if (!lastCompiled) return;
       const slug = (lastCompiled.projectInfo.project_name || "blueprint").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const scopeTag = lastCompiled.compiledPages.length > 1 ? `${lastCompiled.compiledPages.length}pages` : lastCompiled.projectInfo.page_id;
       const blob = new Blob([lastCompiled.markdown], { type: "text/markdown;charset=utf-8" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `${slug}-${lastCompiled.projectInfo.page_id}-blueprint.md`;
+      a.download = `${slug}-${scopeTag}-blueprint.md`;
       a.click();
       URL.revokeObjectURL(url);
       statusEl.textContent = `Downloaded ${a.download}.`;

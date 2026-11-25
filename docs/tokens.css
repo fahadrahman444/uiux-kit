@@ -1,72 +1,84 @@
 :root {
   color-scheme: light;
 
+  /* Warm Drafting Paper & Deep Ink Palette */
+  --surface-page: #F7F6F3;
   --surface-base: #FFFFFF;
-  --surface-raised: #F8FAFC;
-  --surface-subtle: #F1F5F9;
-  --surface-inverse: #0F172A;
+  --surface-raised: #F2EFE9;
+  --surface-subtle: #EAE6DD;
+  --surface-inverse: #1F1B16;
 
-  --text-primary: #0F172A;
-  --text-secondary: #475569;
-  --text-inverse: #F8FAFC;
-  --text-inverse-secondary: #CBD5E1;
+  --text-primary: #1F1B16;
+  --text-secondary: #574F45;
+  --text-muted: #6B6257;
+  --text-inverse: #F7F6F3;
+  --text-inverse-secondary: #D4CEC3;
 
-  --border-subtle: #E2E8F0;
-  --border-strong: #94A3B8;
+  --border-subtle: #E4E0D8;
+  --border-strong: #877D70;
 
-  --color-action-primary: #2563EB;
-  --color-action-primary-hover: #1D4ED8;
+  /* Single Disciplined Cobalt Ink Accent */
+  --color-action-primary: #1E40AF;
+  --color-action-primary-hover: #1E3A8A;
   --color-action-primary-text: #FFFFFF;
-  --color-action-accent-text: #1D4ED8;
-  --color-action-accent-surface: #EFF6FF;
-  --color-action-accent-border: #BFDBFE;
-  --color-focus-ring: #1D4ED8;
+  --color-action-accent-text: #1E40AF;
+  --color-action-accent-surface: #EEF2FF;
+  --color-action-accent-border: #C7D2FE;
+  --color-focus-ring: #1E40AF;
 
+  /* Semantic Status (toned to sit inside paper ramp) */
   --color-success: #047857;
   --color-success-text: #065F46;
   --color-success-surface: #ECFDF5;
-  --color-success-border: #10B981;
+  --color-success-border: #6EE7B7;
 
   --color-danger: #DC2626;
-  --color-danger-text: #B91C1C;
+  --color-danger-text: #991B1B;
   --color-danger-surface: #FEF2F2;
   --color-danger-border: #FCA5A5;
 
   --color-warning-text: #92400E;
   --color-warning-surface: #FFFBEB;
   --color-warning-border: #FCD34D;
+
+  --shadow-card: 0 1px 2px rgba(31, 27, 22, 0.04);
+  --shadow-floating: 0 8px 24px rgba(31, 27, 22, 0.06);
 }
 
 .dark {
   color-scheme: dark;
 
-  --surface-base: #09090B;
-  --surface-raised: #0F172A;
-  --surface-subtle: #1E293B;
-  --surface-inverse: #0F172A;
+  /* Graphite Studio Pro Palette */
+  --surface-page: #141415;
+  --surface-base: #19191B;
+  --surface-raised: #232326;
+  --surface-subtle: #2C2C30;
+  --surface-inverse: #0F0F10;
 
-  --text-primary: #F8FAFC;
-  --text-secondary: #CBD5E1;
-  --text-inverse: #F8FAFC;
-  --text-inverse-secondary: #CBD5E1;
+  --text-primary: #EDEDED;
+  --text-secondary: #B3B3B9;
+  --text-muted: #9A9AA1;
+  --text-inverse: #141415;
+  --text-inverse-secondary: #52525B;
 
-  --border-subtle: #1E293B;
-  --border-strong: #475569;
+  --border-subtle: #2B2B30;
+  --border-strong: #76767F;
 
-  --color-action-primary: #2563EB;
-  --color-action-primary-hover: #1D4ED8;
-  --color-action-primary-text: #FFFFFF;
+  /* High-Contrast Off-White Primary Actions + Quiet Blue Selection Ink */
+  --color-action-primary: #EDEDED;
+  --color-action-primary-hover: #FFFFFF;
+  --color-action-primary-text: #141415;
   --color-action-accent-text: #93C5FD;
   --color-action-accent-surface: #172554;
-  --color-action-accent-border: #1E40AF;
+  --color-action-accent-border: #2563EB;
   --color-focus-ring: #60A5FA;
 
-  --color-success: #047857;
+  --color-success: #059669;
   --color-success-text: #6EE7B7;
   --color-success-surface: #052E16;
   --color-success-border: #10B981;
 
-  --color-danger: #DC2626;
+  --color-danger: #EF4444;
   --color-danger-text: #FCA5A5;
   --color-danger-surface: #450A0A;
   --color-danger-border: #991B1B;
@@ -74,4 +86,7 @@
   --color-warning-text: #FCD34D;
   --color-warning-surface: #451A03;
   --color-warning-border: #B45309;
+
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03);
+  --shadow-floating: 0 1px 0 rgba(255, 255, 255, 0.06);
 }
