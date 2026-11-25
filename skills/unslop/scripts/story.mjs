@@ -28,15 +28,6 @@ async function browserKit() {
   process.exit(1);
 }
 
-if (!play) {
-  try {
-    execFileSync("ffmpeg", ["-version"], { stdio: "ignore" });
-  } catch {
-    console.error("ffmpeg is not installed. Install it to render the video, for example `brew install ffmpeg`.");
-    process.exit(1);
-  }
-}
-
 const file = resolve(input);
 const root = dirname(file);
 const html = readFileSync(file, "utf8");
@@ -67,6 +58,14 @@ const [frameX, frameY, frameWidth] = frame.map(Number);
 if (frame.length !== 3 || frame.some((value) => !Number.isFinite(Number(value))) || frameWidth <= 0) {
   console.error(`unslop-frame must be three numbers, like "0 0 960", with a width above 0 — got "${frameRaw}"`);
   process.exit(1);
+}
+if (!play) {
+  try {
+    execFileSync("ffmpeg", ["-version"], { stdio: "ignore" });
+  } catch {
+    console.error("ffmpeg is not installed. Install it to render the video, for example `brew install ffmpeg`.");
+    process.exit(1);
+  }
 }
 const count = (pattern) => html.match(pattern)?.length ?? 0;
 const warn = (text) => console.warn(`warning: ${text}`);

@@ -22,16 +22,19 @@ export const BottomTabBar: React.FC<BottomTabBarProps> = ({ tabs }) => {
         {tabs.map((tab) => (
           <button
             key={tab.id}
+            type="button"
             onClick={tab.onClick}
             aria-label={tab.label}
             aria-current={tab.isActive ? "page" : undefined}
-            className={`min-h-[44px] min-w-[44px] flex flex-col items-center justify-center gap-1 rounded-md text-xs font-medium transition-colors ${
+            className={`min-h-[44px] min-w-[44px] px-2 flex flex-col items-center justify-center gap-1 rounded-md text-xs font-medium transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 forced-colors:focus-visible:outline-[Highlight] ${
               tab.isActive
                 ? "text-blue-600 dark:text-blue-400"
-                : "text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+                : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
             }`}
           >
-            <div className="h-5 w-5">{tab.icon}</div>
+            <span aria-hidden="true" className="h-5 w-5 inline-flex items-center justify-center">
+              {tab.icon}
+            </span>
             <span>{tab.label}</span>
           </button>
         ))}

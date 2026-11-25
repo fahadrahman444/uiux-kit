@@ -34,6 +34,7 @@ export interface PatternSplitHeroProps {
     icon?: IconType;
     text: string;
   }>;
+  mediaSlot?: React.ReactNode;
 }
 
 // 2. Bento Grid

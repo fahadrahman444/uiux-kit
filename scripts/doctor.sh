@@ -22,7 +22,9 @@ check_tool() {
     fi
 }
 
-echo -e "\n${BOLD}Frontend Environment & Tooling:${RESET}"
+echo -e "\n${BOLD}Frontend & Audit Runtime Tooling:${RESET}"
+check_tool "Python 3" "python3"
+check_tool "Python" "python"
 check_tool "Node.js" "node"
 check_tool "npm / npx" "npm"
 check_tool "Git" "git"

@@ -3,7 +3,7 @@ import type { PatternStepperProps } from "./types";
 
 export const PatternStepper: React.FC<PatternStepperProps> = ({
   id = "roadmap",
-  badge = "PROCESS",
+  badge = "Process",
   title,
   description,
   steps,
@@ -13,7 +13,7 @@ export const PatternStepper: React.FC<PatternStepperProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-12">
           {badge && (
-            <div className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">
+            <div className="text-xs font-mono font-semibold text-blue-600 dark:text-blue-400 mb-2">
               {badge}
             </div>
           )}
@@ -39,7 +39,7 @@ export const PatternStepper: React.FC<PatternStepperProps> = ({
                     {step.step}
                   </span>
                   {step.duration && (
-                    <span className="text-[11px] font-mono text-slate-400">
+                    <span className="text-xs font-mono text-slate-600 dark:text-slate-400">
                       {step.duration}
                     </span>
                   )}
@@ -55,10 +55,10 @@ export const PatternStepper: React.FC<PatternStepperProps> = ({
 
               {step.deliverables && step.deliverables.length > 0 && (
                 <div className="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800/60">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Deliverables</span>
+                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Deliverables</span>
                   <div className="flex flex-wrap gap-1 mt-2">
                     {step.deliverables.map((d, dIdx) => (
-                      <span key={dIdx} className="text-[11px] px-2 py-0.5 rounded bg-slate-200/50 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                      <span key={dIdx} className="text-xs px-2 py-0.5 rounded bg-slate-200/50 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
                         {d}
                       </span>
                     ))}

@@ -3,7 +3,7 @@ import type { PatternSocialProofProps } from "./types";
 
 export const PatternSocialProof: React.FC<PatternSocialProofProps> = ({
   id = "social-proof",
-  badge = "TRACK RECORD",
+  badge = "Track record",
   title,
   metrics,
   clientLogos,
@@ -14,7 +14,7 @@ export const PatternSocialProof: React.FC<PatternSocialProofProps> = ({
         {(badge || title) && (
           <div className="text-center max-w-xl mx-auto mb-10">
             {badge && (
-              <div className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">
+              <div className="text-xs font-mono font-semibold text-blue-600 dark:text-blue-400 mb-2">
                 {badge}
               </div>
             )}
@@ -39,7 +39,7 @@ export const PatternSocialProof: React.FC<PatternSocialProofProps> = ({
                 {metric.label}
               </div>
               {metric.growth && (
-                <div className="mt-2 text-[11px] font-mono font-medium text-emerald-600 dark:text-emerald-400">
+                <div className="mt-2 text-xs font-mono font-medium text-emerald-700 dark:text-emerald-400">
                   {metric.growth}
                 </div>
               )}
@@ -48,9 +48,9 @@ export const PatternSocialProof: React.FC<PatternSocialProofProps> = ({
         </div>
 
         {clientLogos && clientLogos.length > 0 && (
-          <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-center gap-8 opacity-75">
+          <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-center gap-8">
             {clientLogos.map((client, idx) => (
-              <span key={idx} className="text-sm font-semibold text-slate-400 dark:text-slate-500 tracking-wider uppercase font-mono">
+              <span key={idx} className="text-sm font-semibold text-slate-600 dark:text-slate-400 tracking-wider font-mono">
                 {client.name}
               </span>
             ))}

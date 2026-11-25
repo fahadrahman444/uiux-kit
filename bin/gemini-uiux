@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Gemini UI/UX Kit CLI - Deterministic Design System & Accessibility Tool
+# SlopGuard / Gemini UI/UX Kit CLI - Deterministic Design System & Accessibility Tool
 set -e
 
 SOURCE="${BASH_SOURCE[0]}"
@@ -9,11 +9,12 @@ while [ -h "$SOURCE" ]; do
   [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
 done
 KIT_DIR="$(cd -P "$(dirname "$SOURCE")/.." && pwd)"
-VERSION=$(cat "${KIT_DIR}/VERSION" 2>/dev/null || echo "1.0.0")
+VERSION=$(tr -d '\r\n' < "${KIT_DIR}/VERSION" 2>/dev/null || echo "1.6.1")
 
 GREEN="\033[0;32m"
 CYAN="\033[0;36m"
 YELLOW="\033[0;33m"
+RED="\033[0;31m"
 BOLD="\033[1m"
 RESET="\033[0m"
 
@@ -22,72 +23,203 @@ show_help() {
     echo -e "Universal Design System, Accessibility (A11y), and Anti-Slop UI Engine."
     echo ""
     echo -e "${BOLD}Usage:${RESET}"
-    echo -e "  slopguard <command> [arguments]  (alias: gemini-uiux)"
+    echo -e "  slopguard <command> [arguments]  (legacy alias: gemini-uiux)"
     echo ""
     echo -e "${BOLD}Commands:${RESET}"
-    echo -e "  ${GREEN}init${RESET}        Bootstrap design tokens, standards, and templates in project"
-    echo -e "  ${GREEN}audit${RESET}       Run automated check for tap targets, WCAG compliance & blur lag"
-    echo -e "  ${GREEN}doctor${RESET}      Verify frontend UI dependencies and environment"
-    echo -e "  ${GREEN}component${RESET}   List or copy accessible component templates"
-    echo -e "  ${GREEN}version${RESET}     Show current version"
-    echo -e "  ${GREEN}help${RESET}        Display this help message"
+    echo -e "  ${GREEN}init${RESET} [--force]                           Bootstrap .design/ tokens, rules, and .designrc.json"
+    echo -e "  ${GREEN}audit${RESET} [path] [--ci] [--strict] [--out F] Run static anti-slop, token & WCAG audit"
+    echo -e "  ${GREEN}doctor${RESET}                                   Verify frontend & Python dependencies"
+    echo -e "  ${GREEN}component${RESET} list | add <Name> [flags]      List or inject accessible component blueprints"
+    echo -e "                                           Flags: --dry-run, --diff, --force"
+    echo -e "  ${GREEN}upgrade${RESET} [--dry-run]                      Migrate .designrc.json and rules to v${VERSION}"
+    echo -e "  ${GREEN}version${RESET} (-v, --version)                  Show installed CLI, token, and rules versions"
+    echo -e "  ${GREEN}help${RESET} (-h, --help)                        Display this help message"
     echo ""
 }
 
-COMMAND="$1"
+COMMAND="${1:-}"
 shift || true
 
 case "$COMMAND" in
     init)
-        echo -e "${CYAN}==> Bootstrapping Gemini UI/UX Design System in $(pwd)...${RESET}"
+        FORCE=0
+        for arg in "$@"; do
+            [ "$arg" = "--force" ] && FORCE=1
+        done
+        echo -e "${CYAN}==> Bootstrapping SlopGuard Design System in $(pwd)...${RESET}"
         mkdir -p .design/tokens .design/rules .design/audits
-        
-        if [ ! -f ".design/DESIGN_SYSTEM.md" ]; then
+
+        if [ ! -f ".design/DESIGN_SYSTEM.md" ] || [ "$FORCE" -eq 1 ]; then
             cp "${KIT_DIR}/templates/DESIGN_SYSTEM.md" .design/DESIGN_SYSTEM.md 2>/dev/null || touch .design/DESIGN_SYSTEM.md
             echo -e "${GREEN}✓ Created .design/DESIGN_SYSTEM.md${RESET}"
         fi
-        
+
+        if [ ! -f ".design/tokens/tokens.css" ] || [ "$FORCE" -eq 1 ]; then
+            cat > .design/tokens/tokens.css <<'EOF'
+:root {
+  --surface-base: #FFFFFF;
+  --surface-raised: #F8FAFC;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --border-subtle: #E2E8F0;
+  --color-action-primary: #2563EB;
+  --color-focus-ring: #0047FF;
+}
+EOF
+            echo -e "${GREEN}✓ Created .design/tokens/tokens.css${RESET}"
+        fi
+
+        if [ ! -f ".designrc.json" ] || [ "$FORCE" -eq 1 ]; then
+            cat > .designrc.json <<'EOF'
+{
+  "aesthetic": "swiss-modern",
+  "tokenOutputs": [
+    { "format": "css/variables", "path": "./.design/tokens/tokens.css" }
+  ],
+  "componentsDir": "./src/components/ui",
+  "rules": {
+    "TOKEN-002": "warn",
+    "SLOP-004": "warn"
+  }
+}
+EOF
+            echo -e "${GREEN}✓ Created .designrc.json${RESET}"
+        fi
+
         cp -r "${KIT_DIR}/rules/"* .design/rules/ 2>/dev/null || true
         echo -e "${GREEN}✓ Synced UI/UX rules to .design/rules/${RESET}"
         echo -e "${GREEN}✓ Initialized project design workspace!${RESET}"
         ;;
     audit)
-        "${KIT_DIR}/scripts/audit-ui.sh" "${1:-.}" "$2"
+        if [ $# -eq 0 ]; then
+            "${KIT_DIR}/scripts/audit-ui.sh" "."
+        else
+            "${KIT_DIR}/scripts/audit-ui.sh" "$@"
+        fi
         ;;
     doctor)
         "${KIT_DIR}/scripts/doctor.sh"
         ;;
     component)
-        SUB_CMD="$1"
-        COMP_NAME="$2"
+        SUB_CMD="${1:-}"
+        shift || true
         if [ "$SUB_CMD" = "list" ] || [ -z "$SUB_CMD" ]; then
             echo -e "${CYAN}Available Component Templates:${RESET}"
-            find "${KIT_DIR}/components" -type f \( -name "*.tsx" -o -name "*.jsx" \) | while read -r comp; do
+            find "${KIT_DIR}/components" -type f \( -name "*.tsx" -o -name "*.jsx" -o -name "*.ts" \) | sort | while read -r comp; do
                 basename "$comp"
             done
-        elif [ "$SUB_CMD" = "add" ] && [ -n "$COMP_NAME" ]; then
-            TARGET_FILE=$(find "${KIT_DIR}/components" -type f -name "*${COMP_NAME}*" | head -n 1)
-            if [ -n "$TARGET_FILE" ]; then
-                mkdir -p ./src/components/ui 2>/dev/null || mkdir -p ./components/ui
-                DEST="./src/components/ui/$(basename "$TARGET_FILE")"
-                [ ! -d "./src" ] && DEST="./components/ui/$(basename "$TARGET_FILE")"
-                cp "$TARGET_FILE" "$DEST"
-                echo -e "${GREEN}✓ Injected component to ${DEST}${RESET}"
-            else
-                echo -e "${YELLOW}Component not found matching: ${COMP_NAME}${RESET}"
+        elif [ "$SUB_CMD" = "add" ]; then
+            COMP_NAME=""
+            DRY_RUN=0
+            SHOW_DIFF=0
+            FORCE=0
+            for arg in "$@"; do
+                case "$arg" in
+                    --dry-run) DRY_RUN=1 ;;
+                    --diff) SHOW_DIFF=1 ;;
+                    --force) FORCE=1 ;;
+                    -*) echo -e "${RED}Unknown flag: $arg${RESET}" >&2; exit 1 ;;
+                    *) [ -z "$COMP_NAME" ] && COMP_NAME="$arg" ;;
+                esac
+            done
+            if [ -z "$COMP_NAME" ]; then
+                echo "Usage: slopguard component add <component_name> [--dry-run] [--diff] [--force]" >&2
+                exit 1
             fi
+            TARGET_FILE=$(find "${KIT_DIR}/components" -type f -name "*${COMP_NAME}*" | sort | head -n 1)
+            if [ -z "$TARGET_FILE" ]; then
+                echo -e "${YELLOW}Component not found matching: ${COMP_NAME}${RESET}" >&2
+                exit 1
+            fi
+            DEST_DIR="./src/components/ui"
+            [ ! -d "./src" ] && DEST_DIR="./components/ui"
+            DEST="${DEST_DIR}/$(basename "$TARGET_FILE")"
+
+            if [ "$SHOW_DIFF" -eq 1 ]; then
+                if [ -f "$DEST" ]; then
+                    diff -u "$DEST" "$TARGET_FILE" || true
+                else
+                    diff -u /dev/null "$TARGET_FILE" || true
+                fi
+            fi
+
+            if [ -f "$DEST" ] && [ "$FORCE" -ne 1 ]; then
+                echo -e "${YELLOW}Refusing to overwrite existing file ${DEST} without --force.${RESET}" >&2
+                exit 1
+            fi
+
+            if [ "$DRY_RUN" -eq 1 ]; then
+                echo -e "${CYAN}[dry-run] Would copy ${TARGET_FILE} -> ${DEST}${RESET}"
+                exit 0
+            fi
+
+            mkdir -p "$DEST_DIR"
+            cp "$TARGET_FILE" "$DEST"
+            echo -e "${GREEN}✓ Injected component to ${DEST}${RESET}"
+
+            # Copy sibling local module dependencies (e.g., ./types or ./useDialogA11y) if referenced
+            SRC_DIR=$(dirname "$TARGET_FILE")
+            for dep in $(grep -oE 'from "\./[A-Za-z0-9_-]+"' "$TARGET_FILE" 2>/dev/null | sed -E 's/from "\.\/([^"]+)"/\1/'); do
+                DEP_FILE=""
+                for ext in .ts .tsx .js .jsx; do
+                    [ -f "${SRC_DIR}/${dep}${ext}" ] && DEP_FILE="${SRC_DIR}/${dep}${ext}" && break
+                done
+                if [ -n "$DEP_FILE" ] && [ ! -f "${DEST_DIR}/$(basename "$DEP_FILE")" ]; then
+                    cp "$DEP_FILE" "${DEST_DIR}/$(basename "$DEP_FILE")"
+                    echo -e "${GREEN}✓ Injected dependency ${DEST_DIR}/$(basename "$DEP_FILE")${RESET}"
+                fi
+            done
         else
-            echo "Usage: gemini-uiux component [list | add <component_name>]"
+            echo "Usage: slopguard component [list | add <component_name> [--dry-run] [--diff] [--force]]" >&2
+            exit 1
         fi
         ;;
+    upgrade)
+        DRY_RUN=0
+        for arg in "$@"; do
+            [ "$arg" = "--dry-run" ] && DRY_RUN=1
+        done
+        PYTHON_BIN=""
+        for cand in python3 python py; do
+            if command -v "$cand" >/dev/null 2>&1 && "$cand" -c "import sys" >/dev/null 2>&1; then
+                PYTHON_BIN="$cand"
+                break
+            fi
+        done
+        if [ -z "$PYTHON_BIN" ]; then
+            echo -e "${RED}Python 3 is required for upgrade.${RESET}" >&2
+            exit 1
+        fi
+        if [ "$DRY_RUN" -eq 1 ]; then
+            echo -e "${CYAN}[dry-run] Would sync .design/rules/ and migrate deprecated rule aliases in .designrc.json to v${VERSION}${RESET}"
+            exit 0
+        fi
+        mkdir -p .design/rules
+        cp -r "${KIT_DIR}/rules/"* .design/rules/ 2>/dev/null || true
+        if [ -f ".designrc.json" ]; then
+            "$PYTHON_BIN" - <<'PY'
+import json
+from pathlib import Path
+p = Path(".designrc.json")
+cfg = json.loads(p.read_text(encoding="utf-8"))
+rules = cfg.get("rules", {})
+if "SLOP-007" in rules:
+    rules["PERF-001"] = rules.pop("SLOP-007")
+    cfg["rules"] = rules
+    p.write_text(json.dumps(cfg, indent=2) + "\n", encoding="utf-8")
+    print("Migrated deprecated SLOP-007 -> PERF-001 in .designrc.json")
+PY
+        fi
+        echo -e "${GREEN}✓ Upgraded workspace rules and config to v${VERSION}${RESET}"
+        ;;
     version|-v|--version)
-        echo "slopguard version ${VERSION} (alias: gemini-uiux)"
+        echo "slopguard@${VERSION} | tokens@1 | rules@1 (alias: gemini-uiux)"
         ;;
     help|--help|-h|"")
         show_help
         ;;
     *)
-        echo -e "Unknown command: $COMMAND"
+        echo -e "Unknown command: $COMMAND" >&2
         show_help
         exit 1
         ;;

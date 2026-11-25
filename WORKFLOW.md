@@ -117,33 +117,42 @@ Located in `skills/`:
 ### 2.4 Production Component Blueprints & API Contracts
 
 ```typescript
-// Component Blueprint Contract: PatternSplitHero.tsx
+// Component Blueprint Contract: PatternSplitHero.tsx (components/patterns/types.ts)
+export interface HeroStat {
+  value: string;
+  label: string;
+  sublabel?: string;
+}
+
 export interface PatternSplitHeroProps {
-  eyebrow?: string;
-  title: string;
-  description: string;
+  id?: string;
+  badge?: string;
+  title: React.ReactNode;
+  subhead: string;
   primaryCta: {
     label: string;
-    href: string;
-    onClick?: () => Promise<void> | void;
+    href?: string;
+    onClick?: () => void;
+    variant?: 'primary' | 'secondary' | 'outline';
   };
   secondaryCta?: {
     label: string;
-    href: string;
+    href?: string;
+    onClick?: () => void;
+    variant?: 'primary' | 'secondary' | 'outline';
   };
-  metrics: Array<{
-    value: string;
-    label: string;
-    delta?: string;
-    sentiment?: 'positive' | 'neutral' | 'negative';
+  proofCard: {
+    title?: string;
+    liveStatus?: string;
+    stats: HeroStat[];
+    techChips?: string[];
+    footnote?: string;
+  };
+  trustBadges?: Array<{
+    icon?: React.ComponentType<{ className?: string }>;
+    text: string;
   }>;
-  proofLogos?: Array<{
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-  }>;
-  mediaSlot: React.ReactNode;
+  mediaSlot?: React.ReactNode;
 }
 ```
 

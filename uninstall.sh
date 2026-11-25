@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-# Gemini UI/UX Kit - Uninstaller
+# SlopGuard / Gemini UI/UX Kit - Uninstaller
 set -e
 
 INSTALL_DIR="${HOME}/.gemini/uiux-kit"
-BIN_LINK="${HOME}/.local/bin/gemini-uiux"
 
-echo "==> Uninstalling Gemini UI/UX Kit..."
-rm -f "$BIN_LINK"
+echo "==> Uninstalling SlopGuard (Gemini UI/UX Kit)..."
+rm -f "${HOME}/.local/bin/slopguard" "${HOME}/.local/bin/gemini-uiux"
 rm -rf "$INSTALL_DIR"
 
-echo "✓ Gemini UI/UX Kit successfully removed."
+echo "✓ SlopGuard (Gemini UI/UX Kit) successfully removed."

@@ -15,7 +15,7 @@ The kit enforces **mobile ergonomics**, **WCAG 2.2 AA accessibility**, **physics
 
 * **[WORKFLOW.md](WORKFLOW.md):** The hardened 7-phase operational engineering workflow & operating model (v1.6.1). Includes the 12 timeless design approaches, three-tier token architecture, single-source-of-truth rule catalog, and waiver governance.
 * **[TEST_CASES.md](TEST_CASES.md):** Production test suite & verification matrix (6 functional suites, 14-state interactive matrix, and manual Screen Reader smoke test scripts).
-* **[AUDIT_REPORT.md](AUDIT_REPORT.md):** Automated UI/UX quality and accessibility audit report with a verified **100/100 Anti-Slop Score** and **10/10 Definition of Done Gates Passed** (`Exit 0`, Production Ready).
+* **[AUDIT_REPORT.md](AUDIT_REPORT.md):** Automated static component audit (`100/100`, `Exit 0`) and UI/UX Pro Max dataset/prompt audit (`93.3/100`, `0` critical errors).
 
 ---
 

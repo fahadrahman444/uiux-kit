@@ -11,7 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Shellcheck CLI and Scripts
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Shell syntax & environment check
         run: |
-          chmod +x bin/gemini-uiux scripts/*.sh install.sh uninstall.sh
+          chmod +x bin/slopguard bin/gemini-uiux scripts/*.sh scripts/*.py install.sh uninstall.sh
+          bash -n bin/slopguard bin/gemini-uiux scripts/*.sh install.sh uninstall.sh
+          if command -v shellcheck >/dev/null 2>&1; then
+            shellcheck bin/slopguard bin/gemini-uiux scripts/*.sh install.sh uninstall.sh
+          fi
           bash scripts/doctor.sh
+          bash bin/slopguard version
+      - name: Run Python dataset & prompt system audit
+        run: python3 skills/ui-ux-pro-max/scripts/system_audit.py
+      - name: Run SlopGuard component library audit
+        run: bash bin/slopguard audit components --ci --strict
