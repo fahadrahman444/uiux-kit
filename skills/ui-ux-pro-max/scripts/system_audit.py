@@ -207,12 +207,17 @@ def audit_page_templates():
 def audit_foreign_keys():
     p("\n[AUDIT 5] Cross-Dataset Foreign Key Integrity")
 
-    styles = {row.get("Style Category", "").strip().lower() for row in read_csv(DATA_DIR / "styles.csv")}
-    landing_patterns = {row.get("Pattern Name", "").strip().lower() for row in read_csv(DATA_DIR / "landing.csv")}
+    styles_rows = read_csv(DATA_DIR / "styles.csv")
+    styles = {row.get("Style Category", "").strip().lower() for row in styles_rows}
+    style_ids = {int(row["STT"]) for row in styles_rows if row.get("STT", "").isdigit()}
+    landing_rows = read_csv(DATA_DIR / "landing.csv")
+    landing_patterns = {row.get("Pattern Name", "").strip().lower() for row in landing_rows}
+    landing_ids = {int(row["No"]) for row in landing_rows if row.get("No", "").isdigit()}
     products = read_csv(DATA_DIR / "products.csv")
 
     style_unresolved = []
     landing_compound = 0
+    fk_id_errors = []
     for i, row in enumerate(products, 2):
         ps = row.get("Primary Style Recommendation", "").strip().lower()
         if ps:
@@ -222,19 +227,45 @@ def audit_foreign_keys():
         lp = row.get("Landing Page Pattern", "").strip().lower()
         if lp and lp not in landing_patterns:
             landing_compound += 1
+        sid_raw = row.get("style_id", "").strip()
+        lid_raw = row.get("landing_id", "").strip()
+        if not sid_raw.isdigit() or int(sid_raw) not in style_ids:
+            fk_id_errors.append(f"row {i}: invalid style_id={sid_raw!r}")
+        if not lid_raw.isdigit() or int(lid_raw) not in landing_ids:
+            fk_id_errors.append(f"row {i}: invalid landing_id={lid_raw!r}")
 
-    p(f"  Unresolved style FKs: {len(style_unresolved)} | Non-exact compound landing labels: {landing_compound}/{len(products)}")
+    mapping_path = DATA_DIR / "product-type-mapping.json"
+    if not mapping_path.exists():
+        fk_id_errors.append("product-type-mapping.json missing")
+    else:
+        with open(mapping_path, encoding="utf-8") as f:
+            mapping = json.load(f)
+        with open(DATA_DIR / "section-archetypes.json", encoding="utf-8") as f:
+            valid_sections = {s["section_id"] for s in json.load(f)}
+        for slug, entry in mapping.items():
+            if not all(sid in style_ids for sid in entry.get("style_ids", [])):
+                fk_id_errors.append(f"mapping {slug}: invalid style_ids")
+            if entry.get("landing_pattern_id") not in landing_ids:
+                fk_id_errors.append(f"mapping {slug}: invalid landing_pattern_id")
+            bad_secs = [s for s in entry.get("recommended_sections", []) if s not in valid_sections]
+            if bad_secs:
+                fk_id_errors.append(f"mapping {slug}: invalid sections {bad_secs}")
+
+    p(f"  Unresolved style FKs: {len(style_unresolved)} | Non-exact landing labels: {landing_compound}/{len(products)} | FK ID errors: {len(fk_id_errors)}")
     if style_unresolved:
-        issues_warning.append(f"products.csv style FKs unresolved ({len(style_unresolved)}): {style_unresolved[:3]}")
+        issues_critical.append(f"products.csv style FKs unresolved ({len(style_unresolved)}): {style_unresolved[:3]}")
     else:
         passes.append(f"products.csv style FKs: all {len(products)} product rows resolve to styles.csv")
 
-    if landing_compound > 0:
-        issues_warning.append(
-            f"products.csv landing labels: {landing_compound}/{len(products)} use descriptive compound labels outside landing.csv"
-        )
+    if landing_compound > 0 or fk_id_errors:
+        if landing_compound > 0:
+            issues_critical.append(
+                f"products.csv landing labels: {landing_compound}/{len(products)} use non-canonical labels outside landing.csv"
+            )
+        for err in fk_id_errors[:5]:
+            issues_critical.append(f"FK integrity error: {err}")
     else:
-        passes.append("products.csv landing FKs: all references resolve strictly to landing.csv")
+        passes.append(f"products.csv & mapping JSON FKs: all {len(products)} rows resolve strictly to styles.csv and landing.csv")
 
 
 # =========================================================
@@ -318,8 +349,10 @@ def audit_components():
         "navigation/ResponsiveHeader.tsx",
         "overlays/BottomSheet.tsx",
         "overlays/ModalDialog.tsx",
+        "overlays/useDialogA11y.ts",
         "patterns/index.ts",
         "patterns/types.ts",
+        "patterns/CtaButton.tsx",
         "patterns/PatternBentoGrid.tsx",
         "patterns/PatternComparison.tsx",
         "patterns/PatternCtaBand.tsx",
@@ -328,6 +361,10 @@ def audit_components():
         "patterns/PatternSplitHero.tsx",
         "patterns/PatternStepper.tsx",
         "patterns/PatternTieredPricing.tsx",
+        "patterns/PatternDataTable.tsx",
+        "patterns/PatternFormEngine.tsx",
+        "patterns/PatternAppShell.tsx",
+        "patterns/PatternChartRow.tsx",
     ]
     missing = [rel for rel in expected if not (COMPONENTS_DIR / rel).exists()]
     for m in missing:
@@ -360,16 +397,26 @@ def audit_anti_slop():
         for r in reasoning
         if "neumorphism" in r.get("Style_Priority", "").lower()
     ]
+    products_rows = read_csv(DATA_DIR / "products.csv")
+    banned_products = [
+        r.get("Product Type", "?")
+        for r in products_rows
+        if "neumorphism" in (r.get("Primary Style Recommendation", "") + " " + r.get("Secondary Styles", "")).lower()
+        or r.get("style_id", "").strip() == "2"
+    ]
 
-    p(f"  Total archetypes: {total} | Weak anti-slop rules: {len(weak_rules)} | Banned Neumorphism recs: {len(banned_rec)}")
+    p(f"  Total archetypes: {total} | Weak anti-slop rules: {len(weak_rules)} | Banned Neumorphism recs: reasoning={len(banned_rec)}, products={len(banned_products)}")
     if not weak_rules:
         passes.append(f"Anti-slop: all {total} archetypes have substantive anti_slop_rules")
     else:
         issues_warning.append(f"Anti-slop weak coverage in {len(weak_rules)} archetypes: {weak_rules[:5]}")
-    if banned_rec:
-        issues_critical.append(f"ui-reasoning.csv recommends prohibited Neumorphism in: {banned_rec}")
+    if banned_rec or banned_products:
+        if banned_rec:
+            issues_critical.append(f"ui-reasoning.csv recommends prohibited Neumorphism in: {banned_rec}")
+        if banned_products:
+            issues_critical.append(f"products.csv recommends prohibited Neumorphism in: {banned_products}")
     else:
-        passes.append("ui-reasoning.csv: zero prohibited Neumorphism recommendations")
+        passes.append("ui-reasoning.csv & products.csv: zero prohibited Neumorphism recommendations")
 
 
 # =========================================================
@@ -504,7 +551,9 @@ def print_report():
             p(f"  [CRIT] {c}")
 
     p("\n--- VERDICT ---")
-    if len(issues_critical) == 0 and score >= 90:
+    if len(issues_critical) == 0 and len(issues_warning) == 0 and score >= 100.0:
+        p("  PRODUCTION READY (100/100 — zero warnings)")
+    elif len(issues_critical) == 0 and score >= 90:
         p("  PRODUCTION READY (with qualifications noted in warnings)")
     elif len(issues_critical) == 0:
         p("  NEAR-PRODUCTION: Resolve warnings before external deployment")

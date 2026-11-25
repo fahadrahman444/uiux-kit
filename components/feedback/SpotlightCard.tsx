@@ -18,7 +18,7 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   children,
   className = "",
   contentClassName = "",
-  spotlightColor = "rgba(59, 130, 246, 0.12)", // default subtle blue glow
+  spotlightColor = "var(--spotlight-default)",
   spotlightRadius = 350,
   interactive = false,
   ...props
@@ -42,9 +42,9 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 transition-all duration-200 ${
+      className={`relative overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-base)] transition-all duration-200 ${
         interactive
-          ? "hover:border-blue-500/50 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+          ? "hover:border-[var(--color-action-primary)] hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[var(--color-focus-ring)]"
           : ""
       } ${className}`}
       {...props}

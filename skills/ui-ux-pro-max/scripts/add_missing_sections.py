@@ -47,12 +47,12 @@ NEW_SECTIONS = [
                 "keywords": "stats, big-numbers, proof, metrics, achievements, credibility",
                 "best_for": "Agencies with compelling quantitative credibility: years in business, clients served, revenue generated.",
                 "selection_triggers": {"has_proof_stats": True, "style": "bold"},
-                "layout_structure": "Row of 3-4 oversized stat anchors (text-5xl font-black) with descriptor beneath, divider lines between, full-width centered container.",
-                "typography_specs": "Stat numeral: text-5xl sm:text-6xl font-extrabold text-[var(--color-primary)]. Label: text-sm font-mono uppercase tracking-wider.",
+                "layout_structure": "Row of 3-4 oversized stat anchors with descriptor beneath, divider lines between, full-width centered container with cell padding constrained so 7-character values ($142.8M) never overflow.",
+                "typography_specs": "Stat numeral: clamp(1.75rem, 1.2rem + 2vw, 3rem) font-bold tabular-nums tracking-tight text-[var(--color-primary)] (use Body/Mono sans for multi-char KPIs if pairing with a high-contrast Didone serif). Label: text-sm font-mono uppercase tracking-wider.",
                 "key_components": "Animated count-up on scroll-enter, verified data footnote, bottom differentiator sentence.",
-                "responsive_behavior": "2x2 grid on mobile, horizontal row on desktop.",
+                "responsive_behavior": "2x2 grid on mobile, horizontal row on desktop without cell-border overflow.",
                 "accessibility": "aria-label on each stat container reading the full statement.",
-                "anti_slop_rules": "All numbers must be specific and verifiable; no round unqualified numbers."
+                "anti_slop_rules": "All numbers must be specific and mathematically consistent across sample totals (no fabricated decimals like 96.2% of 47); mark placeholder benchmarks clearly if awaiting live telemetry."
             },
             {
                 "archetype_id": "wcu-04",
@@ -105,12 +105,12 @@ NEW_SECTIONS = [
                 "keywords": "counter, animated-numbers, count-up, achievements, stats-row",
                 "best_for": "Standard agencies wanting clean high-impact numerical proof: clients served, revenue generated, years active, success rate.",
                 "selection_triggers": {"stat_count": "3-4", "style": "clean"},
-                "layout_structure": "Full-width centered row of 3-4 stat blocks separated by subtle vertical dividers; each: giant counter numeral plus suffix plus descriptor label.",
-                "typography_specs": "Counter: text-5xl sm:text-6xl font-extrabold text-[var(--color-primary)]. Label: text-sm font-mono uppercase tracking-widest.",
+                "layout_structure": "Full-width high-contrast surface band (visually distinct from Why Choose Us card grids) with 3-4 compact metric blocks separated by hairline vertical dividers.",
+                "typography_specs": "Counter: clamp(1.75rem, 1.2rem + 2vw, 3rem) font-bold tabular-nums tracking-tight text-[var(--color-primary)]. Label: text-xs font-mono uppercase tracking-widest.",
                 "key_components": "Intersection Observer scroll-trigger, count-up animation via requestAnimationFrame, verified data footnote.",
-                "responsive_behavior": "2x2 grid on mobile, horizontal row on desktop with consistent spacing.",
+                "responsive_behavior": "2x2 grid on mobile, horizontal row on desktop with consistent spacing and zero numeric overflow.",
                 "accessibility": "aria-label on each stat cell stating the full fact. Animation pauses if prefers-reduced-motion.",
-                "anti_slop_rules": "Every stat must be specific and defensible; no unqualified round numbers. Add month/year qualifier."
+                "anti_slop_rules": "Every stat must be specific, defensible, and mathematically consistent; add month/year qualifier and avoid repeating identical Why Choose Us metrics."
             },
             {
                 "archetype_id": "res-02",

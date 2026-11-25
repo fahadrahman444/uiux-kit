@@ -1,0 +1,1995 @@
+{
+  "saas-general": {
+    "product_type": "SaaS (General)",
+    "style_ids": [
+      3
+    ],
+    "primary_style": "Glassmorphism + Flat Design",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "why_choose_us",
+      "pricing",
+      "pricing_comparison_matrix",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "micro-saas": {
+    "product_type": "Micro SaaS",
+    "style_ids": [
+      12
+    ],
+    "primary_style": "Flat Design + Vibrant & Block",
+    "landing_pattern_id": 4,
+    "landing_pattern": "Minimal Single Column",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "why_choose_us",
+      "pricing",
+      "pricing_comparison_matrix",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "e-commerce": {
+    "product_type": "E-commerce",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "e-commerce-luxury": {
+    "product_type": "E-commerce Luxury",
+    "style_ids": [
+      14
+    ],
+    "primary_style": "Liquid Glass + Glassmorphism",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "service-landing-page": {
+    "product_type": "Service Landing Page",
+    "style_ids": [
+      20
+    ],
+    "primary_style": "Hero-Centric + Trust & Authority",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "b2b-service": {
+    "product_type": "B2B Service",
+    "style_ids": [
+      26
+    ],
+    "primary_style": "Trust & Authority + Minimal",
+    "landing_pattern_id": 25,
+    "landing_pattern": "Enterprise Gateway",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "financial-dashboard": {
+    "product_type": "Financial Dashboard",
+    "style_ids": [
+      7
+    ],
+    "primary_style": "Dark Mode (OLED) + Data-Dense",
+    "landing_pattern_id": 3,
+    "landing_pattern": "Product Demo + Features",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "analytics-dashboard": {
+    "product_type": "Analytics Dashboard",
+    "style_ids": [
+      28
+    ],
+    "primary_style": "Data-Dense + Heat Map & Heatmap",
+    "landing_pattern_id": 3,
+    "landing_pattern": "Product Demo + Features",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "healthcare-app": {
+    "product_type": "Healthcare App",
+    "style_ids": [
+      8
+    ],
+    "primary_style": "Accessible & Ethical",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "educational-app": {
+    "product_type": "Educational App",
+    "style_ids": [
+      9
+    ],
+    "primary_style": "Claymorphism + Micro-interactions",
+    "landing_pattern_id": 10,
+    "landing_pattern": "Scroll-Triggered Storytelling",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "creative-agency": {
+    "product_type": "Creative Agency",
+    "style_ids": [
+      4
+    ],
+    "primary_style": "Brutalism + Motion-Driven",
+    "landing_pattern_id": 10,
+    "landing_pattern": "Scroll-Triggered Storytelling",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "about",
+      "portfolio",
+      "case_study_filter_hub",
+      "testimonials",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "portfolio-personal": {
+    "product_type": "Portfolio/Personal",
+    "style_ids": [
+      15
+    ],
+    "primary_style": "Motion-Driven + Minimalism",
+    "landing_pattern_id": 26,
+    "landing_pattern": "Portfolio Grid",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "about",
+      "portfolio",
+      "case_study_filter_hub",
+      "testimonials",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "gaming": {
+    "product_type": "Gaming",
+    "style_ids": [
+      5
+    ],
+    "primary_style": "3D & Hyperrealism + Retro-Futurism",
+    "landing_pattern_id": 17,
+    "landing_pattern": "Immersive/Interactive Experience",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "government-public-service": {
+    "product_type": "Government/Public Service",
+    "style_ids": [
+      8
+    ],
+    "primary_style": "Accessible & Ethical + Minimalism",
+    "landing_pattern_id": 4,
+    "landing_pattern": "Minimal Single Column",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "fintech-crypto": {
+    "product_type": "Fintech/Crypto",
+    "style_ids": [
+      3
+    ],
+    "primary_style": "Glassmorphism + Dark Mode (OLED)",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "social-media-app": {
+    "product_type": "Social Media App",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Motion-Driven",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "productivity-tool": {
+    "product_type": "Productivity Tool",
+    "style_ids": [
+      12
+    ],
+    "primary_style": "Flat Design + Micro-interactions",
+    "landing_pattern_id": 3,
+    "landing_pattern": "Product Demo + Features",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "design-system-component-library": {
+    "product_type": "Design System/Component Library",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + Accessible & Ethical",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "ai-chatbot-platform": {
+    "product_type": "AI/Chatbot Platform",
+    "style_ids": [
+      43
+    ],
+    "primary_style": "AI-Native UI + Minimalism",
+    "landing_pattern_id": 30,
+    "landing_pattern": "AI-Driven Dynamic Landing",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "nft-web3-platform": {
+    "product_type": "NFT/Web3 Platform",
+    "style_ids": [
+      41
+    ],
+    "primary_style": "Cyberpunk UI + Glassmorphism",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "creator-economy-platform": {
+    "product_type": "Creator Economy Platform",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Bento Box Grid",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "sustainability-esg-platform": {
+    "product_type": "Sustainability/ESG Platform",
+    "style_ids": [
+      42
+    ],
+    "primary_style": "Organic Biophilic + Minimalism",
+    "landing_pattern_id": 25,
+    "landing_pattern": "Enterprise Gateway",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "remote-work-collaboration-tool": {
+    "product_type": "Remote Work/Collaboration Tool",
+    "style_ids": [
+      19
+    ],
+    "primary_style": "Soft UI Evolution + Minimalism",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "mental-health-app": {
+    "product_type": "Mental Health App",
+    "style_ids": [
+      8
+    ],
+    "primary_style": "Accessible & Ethical",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "pet-tech-app": {
+    "product_type": "Pet Tech App",
+    "style_ids": [
+      9
+    ],
+    "primary_style": "Claymorphism + Vibrant & Block-based",
+    "landing_pattern_id": 10,
+    "landing_pattern": "Scroll-Triggered Storytelling",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "smart-home-iot-dashboard": {
+    "product_type": "Smart Home/IoT Dashboard",
+    "style_ids": [
+      3
+    ],
+    "primary_style": "Glassmorphism + Dark Mode (OLED)",
+    "landing_pattern_id": 3,
+    "landing_pattern": "Product Demo + Features",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "ev-charging-ecosystem": {
+    "product_type": "EV/Charging Ecosystem",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + Aurora UI",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "subscription-box-service": {
+    "product_type": "Subscription Box Service",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Motion-Driven",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "why_choose_us",
+      "pricing",
+      "pricing_comparison_matrix",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "podcast-platform": {
+    "product_type": "Podcast Platform",
+    "style_ids": [
+      7
+    ],
+    "primary_style": "Dark Mode (OLED) + Minimalism",
+    "landing_pattern_id": 10,
+    "landing_pattern": "Scroll-Triggered Storytelling",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "dating-app": {
+    "product_type": "Dating App",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Motion-Driven",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "micro-credentials-badges-platform": {
+    "product_type": "Micro-Credentials/Badges Platform",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + Flat Design",
+    "landing_pattern_id": 25,
+    "landing_pattern": "Enterprise Gateway",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "knowledge-base-documentation": {
+    "product_type": "Knowledge Base/Documentation",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + Accessible & Ethical",
+    "landing_pattern_id": 16,
+    "landing_pattern": "FAQ/Documentation Landing",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "service_architecture",
+      "service_tech_stack",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "hyperlocal-services": {
+    "product_type": "Hyperlocal Services",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + Vibrant & Block-based",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "beauty-spa-wellness-service": {
+    "product_type": "Beauty/Spa/Wellness Service",
+    "style_ids": [
+      19
+    ],
+    "primary_style": "Soft UI Evolution + Accessible & Ethical",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "luxury-premium-brand": {
+    "product_type": "Luxury/Premium Brand",
+    "style_ids": [
+      14
+    ],
+    "primary_style": "Liquid Glass + Glassmorphism",
+    "landing_pattern_id": 10,
+    "landing_pattern": "Scroll-Triggered Storytelling",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "restaurant-food-service": {
+    "product_type": "Restaurant/Food Service",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Motion-Driven",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "fitness-gym-app": {
+    "product_type": "Fitness/Gym App",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Dark Mode (OLED)",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "real-estate-property": {
+    "product_type": "Real Estate/Property",
+    "style_ids": [
+      3
+    ],
+    "primary_style": "Glassmorphism + Minimalism",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "travel-tourism-agency": {
+    "product_type": "Travel/Tourism Agency",
+    "style_ids": [
+      10
+    ],
+    "primary_style": "Aurora UI + Motion-Driven",
+    "landing_pattern_id": 10,
+    "landing_pattern": "Scroll-Triggered Storytelling",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "about",
+      "portfolio",
+      "case_study_filter_hub",
+      "testimonials",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "hotel-hospitality": {
+    "product_type": "Hotel/Hospitality",
+    "style_ids": [
+      14
+    ],
+    "primary_style": "Liquid Glass + Minimalism",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "wedding-event-planning": {
+    "product_type": "Wedding/Event Planning",
+    "style_ids": [
+      19
+    ],
+    "primary_style": "Soft UI Evolution + Aurora UI",
+    "landing_pattern_id": 18,
+    "landing_pattern": "Event/Conference Landing",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "legal-services": {
+    "product_type": "Legal Services",
+    "style_ids": [
+      26
+    ],
+    "primary_style": "Trust & Authority + Minimalism",
+    "landing_pattern_id": 25,
+    "landing_pattern": "Enterprise Gateway",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "insurance-platform": {
+    "product_type": "Insurance Platform",
+    "style_ids": [
+      26
+    ],
+    "primary_style": "Trust & Authority + Flat Design",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "banking-traditional-finance": {
+    "product_type": "Banking/Traditional Finance",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + Accessible & Ethical",
+    "landing_pattern_id": 25,
+    "landing_pattern": "Enterprise Gateway",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "online-course-e-learning": {
+    "product_type": "Online Course/E-learning",
+    "style_ids": [
+      9
+    ],
+    "primary_style": "Claymorphism + Vibrant & Block-based",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "non-profit-charity": {
+    "product_type": "Non-profit/Charity",
+    "style_ids": [
+      8
+    ],
+    "primary_style": "Accessible & Ethical + Organic Biophilic",
+    "landing_pattern_id": 10,
+    "landing_pattern": "Scroll-Triggered Storytelling",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "music-streaming": {
+    "product_type": "Music Streaming",
+    "style_ids": [
+      7
+    ],
+    "primary_style": "Dark Mode (OLED) + Vibrant & Block-based",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "video-streaming-ott": {
+    "product_type": "Video Streaming/OTT",
+    "style_ids": [
+      7
+    ],
+    "primary_style": "Dark Mode (OLED) + Motion-Driven",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "job-board-recruitment": {
+    "product_type": "Job Board/Recruitment",
+    "style_ids": [
+      12
+    ],
+    "primary_style": "Flat Design + Minimalism",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "marketplace-p2p": {
+    "product_type": "Marketplace (P2P)",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Flat Design",
+    "landing_pattern_id": 22,
+    "landing_pattern": "Marketplace / Directory",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "logistics-delivery": {
+    "product_type": "Logistics/Delivery",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + Flat Design",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "agriculture-farm-tech": {
+    "product_type": "Agriculture/Farm Tech",
+    "style_ids": [
+      42
+    ],
+    "primary_style": "Organic Biophilic + Flat Design",
+    "landing_pattern_id": 25,
+    "landing_pattern": "Enterprise Gateway",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "construction-architecture": {
+    "product_type": "Construction/Architecture",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + 3D & Hyperrealism",
+    "landing_pattern_id": 26,
+    "landing_pattern": "Portfolio Grid",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "about",
+      "portfolio",
+      "case_study_filter_hub",
+      "testimonials",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "automotive-car-dealership": {
+    "product_type": "Automotive/Car Dealership",
+    "style_ids": [
+      15
+    ],
+    "primary_style": "Motion-Driven + 3D & Hyperrealism",
+    "landing_pattern_id": 29,
+    "landing_pattern": "Interactive 3D Configurator",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "photography-studio": {
+    "product_type": "Photography Studio",
+    "style_ids": [
+      15
+    ],
+    "primary_style": "Motion-Driven + Minimalism",
+    "landing_pattern_id": 26,
+    "landing_pattern": "Portfolio Grid",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "about",
+      "portfolio",
+      "case_study_filter_hub",
+      "testimonials",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "coworking-space": {
+    "product_type": "Coworking Space",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Glassmorphism",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "cleaning-service": {
+    "product_type": "Cleaning Service",
+    "style_ids": [
+      19
+    ],
+    "primary_style": "Soft UI Evolution + Flat Design",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "home-services-plumber-electrician": {
+    "product_type": "Home Services (Plumber/Electrician)",
+    "style_ids": [
+      12
+    ],
+    "primary_style": "Flat Design + Trust & Authority",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "childcare-daycare": {
+    "product_type": "Childcare/Daycare",
+    "style_ids": [
+      9
+    ],
+    "primary_style": "Claymorphism + Vibrant & Block-based",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "senior-care-elderly": {
+    "product_type": "Senior Care/Elderly",
+    "style_ids": [
+      8
+    ],
+    "primary_style": "Accessible & Ethical + Soft UI Evolution",
+    "landing_pattern_id": 25,
+    "landing_pattern": "Enterprise Gateway",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "medical-clinic": {
+    "product_type": "Medical Clinic",
+    "style_ids": [
+      8
+    ],
+    "primary_style": "Accessible & Ethical + Minimalism",
+    "landing_pattern_id": 25,
+    "landing_pattern": "Enterprise Gateway",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "pharmacy-drug-store": {
+    "product_type": "Pharmacy/Drug Store",
+    "style_ids": [
+      12
+    ],
+    "primary_style": "Flat Design + Accessible & Ethical",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "dental-practice": {
+    "product_type": "Dental Practice",
+    "style_ids": [
+      19
+    ],
+    "primary_style": "Soft UI Evolution + Minimalism",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "veterinary-clinic": {
+    "product_type": "Veterinary Clinic",
+    "style_ids": [
+      9
+    ],
+    "primary_style": "Claymorphism + Accessible & Ethical",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "florist-plant-shop": {
+    "product_type": "Florist/Plant Shop",
+    "style_ids": [
+      42
+    ],
+    "primary_style": "Organic Biophilic + Vibrant & Block-based",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "bakery-cafe": {
+    "product_type": "Bakery/Cafe",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Soft UI Evolution",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "coffee-shop": {
+    "product_type": "Coffee Shop",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + Organic Biophilic",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "brewery-winery": {
+    "product_type": "Brewery/Winery",
+    "style_ids": [
+      15
+    ],
+    "primary_style": "Motion-Driven + Storytelling-Driven",
+    "landing_pattern_id": 10,
+    "landing_pattern": "Scroll-Triggered Storytelling",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "airline": {
+    "product_type": "Airline",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + Glassmorphism",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "news-media-platform": {
+    "product_type": "News/Media Platform",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + Flat Design",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "magazine-blog": {
+    "product_type": "Magazine/Blog",
+    "style_ids": [
+      50
+    ],
+    "primary_style": "Swiss Modernism 2.0 + Motion-Driven",
+    "landing_pattern_id": 23,
+    "landing_pattern": "Newsletter / Content First",
+    "recommended_sections": [
+      "navbar",
+      "blog_featured_editorial",
+      "blog_topic_filter_feed",
+      "blog_newsletter_capture",
+      "footer"
+    ]
+  },
+  "freelancer-platform": {
+    "product_type": "Freelancer Platform",
+    "style_ids": [
+      12
+    ],
+    "primary_style": "Flat Design + Minimalism",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "consulting-firm": {
+    "product_type": "Consulting Firm",
+    "style_ids": [
+      26
+    ],
+    "primary_style": "Trust & Authority + Minimalism",
+    "landing_pattern_id": 25,
+    "landing_pattern": "Enterprise Gateway",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "marketing-agency": {
+    "product_type": "Marketing Agency",
+    "style_ids": [
+      4
+    ],
+    "primary_style": "Brutalism + Motion-Driven",
+    "landing_pattern_id": 10,
+    "landing_pattern": "Scroll-Triggered Storytelling",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "about",
+      "portfolio",
+      "case_study_filter_hub",
+      "testimonials",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "event-management": {
+    "product_type": "Event Management",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Motion-Driven",
+    "landing_pattern_id": 18,
+    "landing_pattern": "Event/Conference Landing",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "conference-webinar-platform": {
+    "product_type": "Conference/Webinar Platform",
+    "style_ids": [
+      3
+    ],
+    "primary_style": "Glassmorphism + Minimalism",
+    "landing_pattern_id": 24,
+    "landing_pattern": "Webinar Registration",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "membership-community": {
+    "product_type": "Membership/Community",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Soft UI Evolution",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "newsletter-platform": {
+    "product_type": "Newsletter Platform",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + Flat Design",
+    "landing_pattern_id": 23,
+    "landing_pattern": "Newsletter / Content First",
+    "recommended_sections": [
+      "navbar",
+      "blog_featured_editorial",
+      "blog_topic_filter_feed",
+      "blog_newsletter_capture",
+      "footer"
+    ]
+  },
+  "digital-products-downloads": {
+    "product_type": "Digital Products/Downloads",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Motion-Driven",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "church-religious-organization": {
+    "product_type": "Church/Religious Organization",
+    "style_ids": [
+      8
+    ],
+    "primary_style": "Accessible & Ethical + Soft UI Evolution",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "sports-team-club": {
+    "product_type": "Sports Team/Club",
+    "style_ids": [
+      6
+    ],
+    "primary_style": "Vibrant & Block-based + Motion-Driven",
+    "landing_pattern_id": 1,
+    "landing_pattern": "Hero + Features + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "museum-gallery": {
+    "product_type": "Museum/Gallery",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism + Motion-Driven",
+    "landing_pattern_id": 10,
+    "landing_pattern": "Scroll-Triggered Storytelling",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "theater-cinema": {
+    "product_type": "Theater/Cinema",
+    "style_ids": [
+      7
+    ],
+    "primary_style": "Dark Mode (OLED) + Motion-Driven",
+    "landing_pattern_id": 5,
+    "landing_pattern": "Funnel (3-Step Conversion)",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "language-learning-app": {
+    "product_type": "Language Learning App",
+    "style_ids": [
+      9
+    ],
+    "primary_style": "Claymorphism + Vibrant & Block-based",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "coding-bootcamp": {
+    "product_type": "Coding Bootcamp",
+    "style_ids": [
+      7
+    ],
+    "primary_style": "Dark Mode (OLED) + Minimalism",
+    "landing_pattern_id": 2,
+    "landing_pattern": "Hero + Testimonials + CTA",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "cybersecurity-platform": {
+    "product_type": "Cybersecurity Platform",
+    "style_ids": [
+      41
+    ],
+    "primary_style": "Cyberpunk UI + Dark Mode (OLED)",
+    "landing_pattern_id": 25,
+    "landing_pattern": "Enterprise Gateway",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "developer-tool-ide": {
+    "product_type": "Developer Tool / IDE",
+    "style_ids": [
+      7
+    ],
+    "primary_style": "Dark Mode (OLED) + Minimalism",
+    "landing_pattern_id": 16,
+    "landing_pattern": "FAQ/Documentation Landing",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "service_architecture",
+      "service_tech_stack",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "biotech-life-sciences": {
+    "product_type": "Biotech / Life Sciences",
+    "style_ids": [
+      3
+    ],
+    "primary_style": "Glassmorphism + Clean Science",
+    "landing_pattern_id": 10,
+    "landing_pattern": "Scroll-Triggered Storytelling",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "space-tech-aerospace": {
+    "product_type": "Space Tech / Aerospace",
+    "style_ids": [
+      51
+    ],
+    "primary_style": "Holographic / HUD + Dark Mode",
+    "landing_pattern_id": 17,
+    "landing_pattern": "Immersive/Interactive Experience",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "architecture-interior": {
+    "product_type": "Architecture / Interior",
+    "style_ids": [
+      47
+    ],
+    "primary_style": "Exaggerated Minimalism + High Imagery",
+    "landing_pattern_id": 26,
+    "landing_pattern": "Portfolio Grid",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "about",
+      "portfolio",
+      "case_study_filter_hub",
+      "testimonials",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "quantum-computing-interface": {
+    "product_type": "Quantum Computing Interface",
+    "style_ids": [
+      51
+    ],
+    "primary_style": "Holographic / HUD + Dark Mode",
+    "landing_pattern_id": 17,
+    "landing_pattern": "Immersive/Interactive Experience",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "biohacking-longevity-app": {
+    "product_type": "Biohacking / Longevity App",
+    "style_ids": [
+      58
+    ],
+    "primary_style": "Biomimetic / Organic 2.0",
+    "landing_pattern_id": 3,
+    "landing_pattern": "Product Demo + Features",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "autonomous-drone-fleet-manager": {
+    "product_type": "Autonomous Drone Fleet Manager",
+    "style_ids": [
+      51
+    ],
+    "primary_style": "HUD / Sci-Fi FUI",
+    "landing_pattern_id": 3,
+    "landing_pattern": "Product Demo + Features",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "generative-art-platform": {
+    "product_type": "Generative Art Platform",
+    "style_ids": [
+      1
+    ],
+    "primary_style": "Minimalism (Frame) + Gen Z Chaos",
+    "landing_pattern_id": 28,
+    "landing_pattern": "Bento Grid Showcase",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "spatial-computing-os-app": {
+    "product_type": "Spatial Computing OS / App",
+    "style_ids": [
+      55
+    ],
+    "primary_style": "Spatial UI (VisionOS)",
+    "landing_pattern_id": 17,
+    "landing_pattern": "Immersive/Interactive Experience",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "sustainable-energy-climate-tech": {
+    "product_type": "Sustainable Energy / Climate Tech",
+    "style_ids": [
+      42
+    ],
+    "primary_style": "Organic Biophilic + E-Ink / Paper",
+    "landing_pattern_id": 3,
+    "landing_pattern": "Product Demo + Features",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "services",
+      "how_we_work",
+      "results_metrics",
+      "testimonials",
+      "faq",
+      "final_cta",
+      "footer"
+    ]
+  }
+}

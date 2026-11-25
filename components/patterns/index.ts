@@ -1,4 +1,5 @@
 export * from "./types";
+export * from "./CtaButton";
 export * from "./PatternSplitHero";
 export * from "./PatternBentoGrid";
 export * from "./PatternComparison";
@@ -7,3 +8,7 @@ export * from "./PatternStepper";
 export * from "./PatternSocialProof";
 export * from "./PatternTieredPricing";
 export * from "./PatternCtaBand";
+export * from "./PatternDataTable";
+export * from "./PatternFormEngine";
+export * from "./PatternAppShell";
+export * from "./PatternChartRow";

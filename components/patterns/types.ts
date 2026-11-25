@@ -124,6 +124,7 @@ export interface PatternSocialProofProps {
   badge?: string;
   title?: string;
   metrics: SocialMetric[];
+  footnote?: string;
   clientLogos?: Array<{ name: string; logoUrl?: string }>;
 }
 
@@ -154,4 +155,123 @@ export interface PatternCtaBandProps {
   primaryCta: CtaAction;
   secondaryCta?: CtaAction;
   guaranteeNote?: string;
+}
+
+// 9. Enterprise Data Table
+export interface DataTableColumn {
+  key: string;
+  label: string;
+  sortable?: boolean;
+  numeric?: boolean;
+}
+
+export interface DataTableRow {
+  id: string;
+  cells: Record<string, string | number>;
+  status?: "healthy" | "warning" | "critical";
+}
+
+export interface PatternDataTableProps {
+  id?: string;
+  badge?: string;
+  title: string;
+  description?: string;
+  caption?: string;
+  columns: DataTableColumn[];
+  rows: DataTableRow[];
+  searchable?: boolean;
+  searchPlaceholder?: string;
+  emptyMessage?: string;
+  rowActionLabel?: string;
+  onRowAction?: (row: DataTableRow) => void;
+}
+
+// 10. Enterprise Form Engine
+export interface FormFieldConfig {
+  name: string;
+  label: string;
+  type?: "text" | "email" | "tel" | "textarea" | "select";
+  required?: boolean;
+  autoComplete?: string;
+  placeholder?: string;
+  helperText?: string;
+  defaultValue?: string;
+  minLength?: number;
+  options?: Array<{ label: string; value: string }>;
+}
+
+export interface FormTelemetryEvent {
+  event: string;
+  durationMs: number;
+  valid: boolean;
+  errorCount: number;
+}
+
+export interface PatternFormEngineProps {
+  id?: string;
+  badge?: string;
+  title: string;
+  description?: string;
+  fields: FormFieldConfig[];
+  submitLabel?: string;
+  action?: string;
+  method?: "POST" | "GET";
+  minSubmitMs?: number;
+  honeypotFieldName?: string;
+  successMessage?: string;
+  onSubmitData?: (values: Record<string, string>) => Promise<void> | void;
+  onTelemetry?: (event: FormTelemetryEvent) => void;
+}
+
+// 11. Enterprise App Shell
+export interface AppShellNavItem {
+  id: string;
+  label: string;
+  href: string;
+  active?: boolean;
+  badge?: string;
+}
+
+export interface AppShellNotification {
+  id: string;
+  title: string;
+  time: string;
+  unread?: boolean;
+}
+
+export interface PatternAppShellProps {
+  brandName: string;
+  brandMark?: React.ReactNode;
+  navItems: AppShellNavItem[];
+  breadcrumbs?: Array<{ label: string; href?: string }>;
+  user?: { name: string; role: string; initials: string };
+  notifications?: AppShellNotification[];
+  headerActions?: React.ReactNode;
+  onNavigate?: (item: AppShellNavItem) => void;
+  children: React.ReactNode;
+}
+
+// 12. Enterprise Chart Row
+export interface ChartPoint {
+  label: string;
+  value: number;
+}
+
+export interface ChartSeriesCard {
+  id: string;
+  title: string;
+  metricValue: string;
+  deltaLabel: string;
+  deltaTone?: "positive" | "negative" | "neutral";
+  dateRange: string;
+  points: ChartPoint[];
+}
+
+export interface PatternChartRowProps {
+  id?: string;
+  badge?: string;
+  title: string;
+  description?: string;
+  sourceNote: string;
+  charts: ChartSeriesCard[];
 }

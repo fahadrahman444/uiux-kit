@@ -80,10 +80,10 @@
           "style": "minimalist"
         },
         "layout_structure": "Top corner logo and top corner minimal menu trigger ('MENU' / 2-line icon); opens full-viewport modal overlay.",
-        "typography_specs": "Overlay links: text-4xl sm:text-6xl font-light tracking-tight hover:italic transition-all.",
+        "typography_specs": "Overlay links: text-4xl sm:text-6xl font-normal (avoid font-light on high-contrast serifs) tracking-tight hover:italic transition-[color,transform].",
         "key_components": "Minimal trigger, full-page overlay with social links and office locations in bottom grid.",
         "responsive_behavior": "Unified interaction across desktop and mobile.",
-        "accessibility": "Focus trapped inside modal when open, body scroll locked, aria-modal='true'.",
+        "accessibility": "Focus trapped inside modal when open, body scroll locked, aria-modal='true'. On anchor link click, transfer focus to the destination section/heading after closing the dialog, and set scroll-margin-top on anchored sections for sticky headers.",
         "anti_slop_rules": "Maintain quick dismiss button; never hide close button off-screen."
       },
       {
@@ -137,7 +137,7 @@
           "brand_tier": "premium"
         },
         "layout_structure": "Centered single column max-w-4xl mx-auto py-24 sm:py-32 text-center flex flex-col items-center.",
-        "typography_specs": "H1: text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08]. Subhead: text-lg sm:text-xl max-w-2xl mt-6.",
+        "typography_specs": "H1: clamp(2.5rem, 1.5rem + 3.6vw, 4.5rem) font-bold (600-700 for high-contrast Didone serifs like Bodoni Moda; avoid 800-900 weights and tighter than -0.015em tracking so hyphens/punctuation stay crisp) leading-[1.08]. Subhead: text-lg sm:text-xl max-w-2xl mt-6.",
         "key_components": "Category eyebrow tag, massive H1, centered dual CTA buttons, client logo strip below.",
         "responsive_behavior": "Dynamic fluid typography using clamp() or responsive Tailwind steps (`text-4xl sm:text-6xl lg:text-7xl`).",
         "accessibility": "High contrast ratio (min 7:1 for hero typography on dark or light background).",
@@ -507,7 +507,7 @@
           "service_count": "4-8"
         },
         "layout_structure": "Vertical list of services separated by 1px borders; hovering any item causes a smooth floating preview thumbnail to follow the cursor.",
-        "typography_specs": "Service title: text-3xl sm:text-5xl font-light hover:translate-x-3 transition-transform.",
+        "typography_specs": "Service title: text-3xl sm:text-5xl font-normal sm:font-medium hover:translate-x-3 transition-[color,transform].",
         "key_components": "Cursor-tracking floating image container (fixed pointer-events-none), service number index, category tag.",
         "responsive_behavior": "Floating hover image disabled on touch screens; thumbnail appears statically beneath item title.",
         "accessibility": "Full keyboard focus highlights row and displays thumbnail natively.",
@@ -656,12 +656,12 @@
           "has_proof_stats": true,
           "style": "bold"
         },
-        "layout_structure": "Row of 3-4 oversized stat anchors (text-5xl font-black) with descriptor beneath, divider lines between, full-width centered container.",
-        "typography_specs": "Stat numeral: text-5xl sm:text-6xl font-extrabold text-[var(--color-primary)]. Label: text-sm font-mono uppercase tracking-wider.",
+        "layout_structure": "Row of 3-4 oversized stat anchors with descriptor beneath, divider lines between, full-width centered container with cell padding constrained so 7-character values ($142.8M) never overflow.",
+        "typography_specs": "Stat numeral: clamp(1.75rem, 1.2rem + 2vw, 3rem) font-bold tabular-nums tracking-tight text-[var(--color-primary)] (use Body/Mono sans for multi-char KPIs if pairing with a high-contrast Didone serif). Label: text-sm font-mono uppercase tracking-wider.",
         "key_components": "Animated count-up on scroll-enter, verified data footnote, bottom differentiator sentence.",
-        "responsive_behavior": "2x2 grid on mobile, horizontal row on desktop.",
+        "responsive_behavior": "2x2 grid on mobile, horizontal row on desktop without cell-border overflow.",
         "accessibility": "aria-label on each stat container reading the full statement.",
-        "anti_slop_rules": "All numbers must be specific and verifiable; no round unqualified numbers."
+        "anti_slop_rules": "All numbers must be specific and mathematically consistent across sample totals (no fabricated decimals like 96.2% of 47); mark placeholder benchmarks clearly if awaiting live telemetry."
       },
       {
         "archetype_id": "wcu-04",
@@ -777,11 +777,11 @@
           "copy_length": "short"
         },
         "layout_structure": "4-column grid dominated by giant oversized `01`, `02`, `03`, `04` numerals anchored above minimal titles.",
-        "typography_specs": "Numeral: text-6xl sm:text-7xl font-extrabold text-[var(--border-subtle)] hover:text-primary transition-colors.",
+        "typography_specs": "Numeral: text-5xl sm:text-6xl font-bold text-[var(--text-muted)] opacity-45 group-hover:opacity-100 group-hover:text-[var(--color-primary)] transition-colors.",
         "key_components": "Oversized typography numerals, micro-tag pill, bold title, concise summary.",
         "responsive_behavior": "Numerals scale down gracefully using responsive font sizing.",
         "accessibility": "Numerals marked aria-hidden='true' if redundant to semantic list index.",
-        "anti_slop_rules": "Keep numerals legible; do not use unreadable decorative scripts."
+        "anti_slop_rules": "Keep numerals legible; never use 1px hairline border tokens (--border-subtle) as text color or unreadable decorative scripts."
       },
       {
         "archetype_id": "hww-05",
@@ -1039,7 +1039,7 @@
           "brand_tier": "luxury"
         },
         "layout_structure": "Clean horizontal typography rows (Year, Client Name, Service, Award Badge); hovering row shows floating project thumbnail.",
-        "typography_specs": "Client Name: text-2xl sm:text-4xl font-light hover:italic transition-all.",
+        "typography_specs": "Client Name: text-2xl sm:text-4xl font-normal sm:font-medium hover:italic transition-colors.",
         "key_components": "Floating pointer-following image preview, award badge (`Site of the Day`), arrow icon.",
         "responsive_behavior": "Thumbnail renders inline beneath text on mobile viewports.",
         "accessibility": "Standard HTML table or list markup with full keyboard accessibility.",
@@ -1194,12 +1194,12 @@
           "stat_count": "3-4",
           "style": "clean"
         },
-        "layout_structure": "Full-width centered row of 3-4 stat blocks separated by subtle vertical dividers; each: giant counter numeral plus suffix plus descriptor label.",
-        "typography_specs": "Counter: text-5xl sm:text-6xl font-extrabold text-[var(--color-primary)]. Label: text-sm font-mono uppercase tracking-widest.",
+        "layout_structure": "Full-width high-contrast surface band (visually distinct from Why Choose Us card grids) with 3-4 compact metric blocks separated by hairline vertical dividers.",
+        "typography_specs": "Counter: clamp(1.75rem, 1.2rem + 2vw, 3rem) font-bold tabular-nums tracking-tight text-[var(--color-primary)]. Label: text-xs font-mono uppercase tracking-widest.",
         "key_components": "Intersection Observer scroll-trigger, count-up animation via requestAnimationFrame, verified data footnote.",
-        "responsive_behavior": "2x2 grid on mobile, horizontal row on desktop with consistent spacing.",
+        "responsive_behavior": "2x2 grid on mobile, horizontal row on desktop with consistent spacing and zero numeric overflow.",
         "accessibility": "aria-label on each stat cell stating the full fact. Animation pauses if prefers-reduced-motion.",
-        "anti_slop_rules": "Every stat must be specific and defensible; no unqualified round numbers. Add month/year qualifier."
+        "anti_slop_rules": "Every stat must be specific, defensible, and mathematically consistent; add month/year qualifier and avoid repeating identical Why Choose Us metrics."
       },
       {
         "archetype_id": "res-02",
@@ -1504,7 +1504,7 @@
         "typography_specs": "Question trigger: text-base sm:text-lg font-semibold text-[var(--text-primary)]. Answer: text-sm sm:text-base leading-relaxed text-[var(--text-secondary)].",
         "key_components": "Expanding container, plus/minus or rotating chevron icon, smooth height transition.",
         "responsive_behavior": "Full width with 16px horizontal screen padding on mobile.",
-        "accessibility": "<button aria-expanded='false' aria-controls='faq-answer-1'>, keyboard Enter/Space toggles.",
+        "accessibility": "<button aria-expanded='false' aria-controls='faq-answer-1'>, keyboard Enter/Space toggles. Collapsed panels must set inert (or visibility: hidden) alongside aria-hidden='true' so closed descendants cannot receive focus.",
         "anti_slop_rules": "No sudden jarring height jumps; use CSS grid 0fr -> 1fr transition."
       },
       {
@@ -1622,9 +1622,9 @@
         "layout_structure": "Left column explains what happens on the call (Agenda, Who you will meet, Deliverables); Right column embeds an inline Cal.com / Calendly booking widget.",
         "typography_specs": "Agenda items: text-sm font-semibold. Call duration badge: text-xs font-mono.",
         "key_components": "Agenda bullet list, host avatar & bio, responsive iframe/widget container with loading state.",
-        "responsive_behavior": "Stacks vertically on mobile with booking widget on bottom.",
+        "responsive_behavior": "Stacks vertically on mobile with booking widget on bottom; embedded widget/iframe must auto-resize height on mobile (never lock to a rigid desktop pixel height that clips the submit button or forces nested scrollbars) and keep <select> labels concise so options never truncate.",
         "accessibility": "Iframe has descriptive title='Book a discovery call on Cal.com'.",
-        "anti_slop_rules": "Do not embed broken widgets without a direct link fallback."
+        "anti_slop_rules": "Do not embed broken widgets without a direct link fallback; never simulate fake 'Confirmation sent' emails or hardcoded .ics timestamps—either wire a real Cal.com/Calendly embed or API, or label local demo mode clearly and compute dynamic .ics dates/times."
       },
       {
         "archetype_id": "cta-03",
@@ -1725,7 +1725,7 @@
         "typography_specs": "Giant wordmark: text-[12vw] font-black uppercase tracking-tighter leading-none text-[var(--border-subtle)].",
         "key_components": "Massive SVG or font wordmark, time zone clocks ('London 14:32 • New York 09:32'), minimal legal row.",
         "responsive_behavior": "Viewport-width typography (`12vw`) scales smoothly without horizontal overflow.",
-        "accessibility": "Giant wordmark marked aria-hidden='true' if redundant to brand text.",
+        "accessibility": "Giant wordmark marked aria-hidden='true' if redundant to brand text. Every footer and social link must maintain >= 24x24px hit area (WCAG 2.5.8; >= 44px on touch) via padding/min-block-size—never let short links like 'X' shrink below 24px.",
         "anti_slop_rules": "Ensure overflow-hidden on container to prevent horizontal scrollbar bugs."
       },
       {

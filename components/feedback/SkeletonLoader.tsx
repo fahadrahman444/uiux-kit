@@ -8,7 +8,7 @@ export const SkeletonLoader: React.FC<SkeletonProps> = ({ className = "h-4 w-ful
   return (
     <div
       aria-hidden="true"
-      className={`animate-pulse motion-reduce:animate-none rounded-md bg-slate-200 dark:bg-slate-800 ${className}`}
+      className={`animate-pulse motion-reduce:animate-none rounded-md bg-[var(--surface-subtle)] ${className}`}
     />
   );
 };

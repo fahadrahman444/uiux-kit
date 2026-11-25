@@ -12,7 +12,7 @@ interface CtaButtonProps {
  */
 export const CtaButton: React.FC<CtaButtonProps> = ({ cta, className }) => {
   const focusClasses =
-    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 forced-colors:focus-visible:outline-[Highlight]";
+    "min-h-[44px] min-w-[44px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus-ring)] forced-colors:focus-visible:outline-[Highlight]";
 
   if (cta.href) {
     return (

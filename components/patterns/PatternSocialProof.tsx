@@ -6,20 +6,21 @@ export const PatternSocialProof: React.FC<PatternSocialProofProps> = ({
   badge = "Track record",
   title,
   metrics,
+  footnote,
   clientLogos,
 }) => {
   return (
-    <section id={id} className="py-14 sm:py-20 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+    <section id={id} className="scroll-mt-20 py-14 sm:py-20 border-b border-[var(--border-subtle)] bg-[var(--surface-raised)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {(badge || title) && (
           <div className="text-center max-w-xl mx-auto mb-10">
             {badge && (
-              <div className="text-xs font-mono font-semibold text-blue-600 dark:text-blue-400 mb-2">
+              <div className="text-xs font-mono font-semibold text-[var(--color-action-accent-text)] mb-2">
                 {badge}
               </div>
             )}
             {title && (
-              <h2 className="text-xl sm:text-3xl font-bold text-slate-900 dark:text-white">
+              <h2 className="text-xl sm:text-3xl font-bold text-[var(--text-primary)]">
                 {title}
               </h2>
             )}
@@ -30,16 +31,16 @@ export const PatternSocialProof: React.FC<PatternSocialProofProps> = ({
           {metrics.map((metric, idx) => (
             <div
               key={idx}
-              className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-6 text-center shadow-xs"
+              className="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-base)] p-5 sm:p-6 text-center shadow-xs"
             >
-              <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-mono">
+              <div className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] font-mono tabular-nums">
                 {metric.value}
               </div>
-              <div className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 mt-1">
+              <div className="text-xs sm:text-sm font-semibold text-[var(--text-secondary)] mt-1">
                 {metric.label}
               </div>
               {metric.growth && (
-                <div className="mt-2 text-xs font-mono font-medium text-emerald-700 dark:text-emerald-400">
+                <div className="mt-2 text-xs font-mono font-medium text-[var(--color-success-text)]">
                   {metric.growth}
                 </div>
               )}
@@ -47,10 +48,16 @@ export const PatternSocialProof: React.FC<PatternSocialProofProps> = ({
           ))}
         </div>
 
+        {footnote && (
+          <p className="mt-4 text-center text-xs text-[var(--text-secondary)]">
+            {footnote}
+          </p>
+        )}
+
         {clientLogos && clientLogos.length > 0 && (
-          <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-center gap-8">
+          <div className="mt-12 pt-8 border-t border-[var(--border-subtle)] flex flex-wrap items-center justify-center gap-8">
             {clientLogos.map((client, idx) => (
-              <span key={idx} className="text-sm font-semibold text-slate-600 dark:text-slate-400 tracking-wider font-mono">
+              <span key={idx} className="text-sm font-semibold text-[var(--text-secondary)] tracking-wider font-mono">
                 {client.name}
               </span>
             ))}

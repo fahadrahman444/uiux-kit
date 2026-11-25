@@ -1,0 +1,36 @@
+{
+  "name": "@slopguard/uiux",
+  "version": "1.6.1",
+  "private": true,
+  "description": "SlopGuard / Gemini UI/UX Kit — design system tokens, accessible React components, static AST audit engine, and Playwright/Axe verification suite.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config apps/demo/vite.config.ts",
+    "build": "vite build --config apps/demo/vite.config.ts",
+    "preview": "vite preview --config apps/demo/vite.config.ts",
+    "typecheck": "tsc -p apps/demo/tsconfig.json --noEmit",
+    "audit:static": "python scripts/audit_engine.py components apps/demo/src docs --ci --strict",
+    "audit:system": "python skills/ui-ux-pro-max/scripts/system_audit.py",
+    "eval:golden": "python skills/ui-ux-pro-max/scripts/eval_golden_set.py",
+    "test:unit": "python -m unittest discover -s tests -p \"test_*.py\" -v",
+    "test:e2e": "node tests/e2e.spec.mjs",
+    "test:studio": "node tests/studio.spec.mjs",
+    "test": "npm run typecheck && npm run audit:system && npm run audit:static && npm run eval:golden && npm run test:unit && npm run test:e2e && npm run test:studio"
+  },
+  "dependencies": {
+    "framer-motion": "^12.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "playwright": "^1.50.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0"
+  }
+}

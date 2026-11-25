@@ -1,9 +1,10 @@
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, type HTMLMotionProps } from "framer-motion";
 
-interface ActionButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ActionButtonProps extends Omit<HTMLMotionProps<"button">, "children"> {
   loading?: boolean;
   variant?: "primary" | "secondary" | "danger";
+  disabled?: boolean;
   children: React.ReactNode;
 }
 
@@ -37,9 +38,12 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
   };
 
   const variantStyles = {
-    primary: "bg-blue-600 hover:bg-blue-700 text-white focus-visible:outline-blue-600",
-    secondary: "bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 focus-visible:outline-slate-500",
-    danger: "bg-rose-600 hover:bg-rose-700 text-white focus-visible:outline-rose-600",
+    primary:
+      "bg-[var(--color-action-primary)] hover:bg-[var(--color-action-primary-hover)] text-[var(--color-action-primary-text)] focus-visible:outline-[var(--color-focus-ring)]",
+    secondary:
+      "bg-[var(--surface-subtle)] text-[var(--text-primary)] hover:bg-[var(--border-subtle)] border border-[var(--border-strong)] focus-visible:outline-[var(--color-focus-ring)]",
+    danger:
+      "bg-[var(--color-danger)] hover:bg-[var(--color-danger-hover)] text-[var(--color-action-primary-text)] focus-visible:outline-[var(--color-danger)]",
   };
 
   return (
@@ -49,7 +53,7 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
       onKeyDown={handleKeyDown}
       aria-disabled={isInactive || undefined}
       aria-busy={loading || undefined}
-      className={`relative inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-5 py-2.5 rounded-lg font-medium text-sm transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 forced-colors:focus-visible:outline-[Highlight] focus-visible:ring-2 focus-visible:ring-offset-2 aria-[disabled=true]:opacity-50 aria-[disabled=true]:cursor-not-allowed ${variantStyles[variant]} ${className}`}
+      className={`relative inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-5 py-2.5 rounded-lg font-medium text-sm transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 forced-colors:focus-visible:outline-[Highlight] aria-[disabled=true]:opacity-50 aria-[disabled=true]:cursor-not-allowed ${variantStyles[variant]} ${className}`}
       {...props}
     >
       <span className="inline-flex items-center gap-2">

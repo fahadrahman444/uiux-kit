@@ -3,8 +3,8 @@
 All components and generated interfaces must satisfy Web Content Accessibility Guidelines (WCAG) 2.1 Level AA.
 
 ## 1. Keyboard Navigability & Focus Management
-- **Focus Rings:** Never strip default focus styles without replacing them. Use clear, high-contrast focus rings:
-  `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500`
+- **Focus Rings:** Never strip default focus styles without replacing them. Use genuine CSS `outline` with a Windows Forced Colors Mode fallback:
+  `focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus-ring)] forced-colors:focus-visible:outline-[Highlight]`
 - **Tab Sequence:** Natural, logical tab order following visual hierarchy.
 - **Modal Dialog Focus Traps:**
   - When a dialog or sheet opens, trap focus within the overlay.

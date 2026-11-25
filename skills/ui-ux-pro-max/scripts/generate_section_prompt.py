@@ -726,6 +726,19 @@ def generate_master_prompt(project_info: dict) -> str:
 
     typo_res = search(typo_query, "typography", 1)
     typo_row = typo_res.get("results", [{}])[0] if typo_res.get("results") else {}
+    heading_font = typo_row.get("Heading Font", "Space Grotesk")
+    body_font = typo_row.get("Body Font", "Inter")
+    high_contrast_serifs = {
+        "bodoni moda", "libre bodoni", "playfair display", "cormorant garamond", "instrument serif"
+    }
+    if heading_font.lower() in high_contrast_serifs:
+        heading_spec = (
+            f"`{heading_font}` — 600–700 weight max, tracking >= -0.015em "
+            "(avoid 800/900 or 300 hairlines so hyphens, '+' signs, and serifs stay crisp; "
+            "use body/mono `tabular-nums` for compact KPI numerals)"
+        )
+    else:
+        heading_spec = f"`{heading_font}` — Bold (600–700), tracking-tight"
 
     p = []
     p.append("# Master Production-Grade UI/UX Blueprint")
@@ -743,9 +756,9 @@ def generate_master_prompt(project_info: dict) -> str:
     p.append(f"- **Primary Action:** `{tokens['cta']}` (text `{tokens['cta_text']}`) — dual-ring focus")
     p.append(f"- **Text Primary:** `{tokens['text_primary']}`")
     p.append(f"- **Text Secondary:** `{tokens['text_secondary']}`")
-    p.append(f"- **Border Subtle:** `{tokens['border_subtle']}` (1px solid)")
-    p.append(f"- **Heading Font:** `{typo_row.get('Heading Font', 'Space Grotesk')}` — Bold, tracking-tight")
-    p.append(f"- **Body Font:** `{typo_row.get('Body Font', 'Inter')}` — 400/500, leading-relaxed")
+    p.append(f"- **Border Subtle:** `{tokens['border_subtle']}` (1px solid — borders/dividers only, never body/numeral text)")
+    p.append(f"- **Heading Font:** {heading_spec}")
+    p.append(f"- **Body Font:** `{body_font}` — 400/500, leading-relaxed")
     p.append("- **Mono / Chips:** `JetBrains Mono` or `ui-monospace`")
     p.append("- **Motion:** 150–200ms `cubic-bezier(0.16,1,0.3,1)`, compositor-only (`transform`, `opacity`)")
     p.append("- **Anti-Slop:** Zero gradient blobs · Zero emoji icons · Zero rainbow borders\n")
@@ -777,13 +790,20 @@ def generate_master_prompt(project_info: dict) -> str:
     p.append("6. `loading` — Animated SVG spinner + `aria-busy='true'` + label preserved")
     p.append("7. `error` — `aria-invalid='true'` + `aria-describedby` pointing to inline error\n")
 
+    p.append("---")
+    p.append("## 4. Production Engineering & Audit Guardrails")
+    p.append("1. **CSS Tokens & SVGs (`TOKEN-001`):** Define `:root` custom properties in `tokens.css` (or `:root` block only) and reference `var(--...)` / `currentColor` everywhere else—never hardcode raw hexes in hover rules, modal themes, or inline SVG `stroke`/`fill` attributes.")
+    p.append("2. **Target Size & Sticky-Header Focus (`A11Y-001`, `2.4.11`):** Every interactive link/button (including footer, social, and inline links) MUST maintain `>= 24x24px` hit box (`>= 44x44px` on touch). Add `scroll-margin-top` to anchored sections and transfer focus to the destination section/heading after closing modal/drawer navigation.")
+    p.append("3. **Accordion & Backdrop Discipline (`PERF-001`):** Collapsed `0fr` accordion panels must set `inert` or `visibility: hidden` alongside `aria-hidden='true'`. Never apply `backdrop-filter: blur(...)` to an animated `opacity` `<dialog>::backdrop`.")
+    p.append("4. **Embedded Widgets & Real Data (`SLOP-003`):** Never freeze `<iframe>` scheduler heights on mobile (auto-resize height or render inline) and never simulate fake `'Confirmation sent'` emails or hardcoded `.ics` timestamps. Keep displayed numbers mathematically consistent, replace generic placeholder social URLs, and reserve `fetchpriority='high'` strictly for above-the-fold LCP media.\n")
+
     # Sync module-level list for backwards compatibility without leaking across calls
     fallback_warnings.clear()
     fallback_warnings.extend(local_warnings)
 
     if local_warnings:
         p.append("---")
-        p.append("## 4. Generator Warnings")
+        p.append("## 5. Generator Warnings")
         for w in local_warnings:
             p.append(f"- {w}")
 
