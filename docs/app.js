@@ -1134,7 +1134,7 @@
     const ruleCard = (title, items, isStack) =>
       el("div", { className: "blueprint-card" }, [
         el("h3", { className: "blueprint-card-title", textContent: title }),
-        el("ul", { className: "kv-list", style: "margin-top: 0.75rem;" }, items.map((r) => {
+        el("ul", { className: "kv-list mt-3" }, items.map((r) => {
           const name = isStack ? r.Guideline : r.Issue;
           const good = isStack ? r.Do : r.Do;
           const bad = isStack ? r["Don't"] : r["Don't"];
@@ -1175,11 +1175,11 @@
       el("div", { className: "blueprint-list" }, [
         el("div", { className: "blueprint-card" }, [
           el("h3", { className: "blueprint-card-title", textContent: "CLI / Verification Commands" }),
-          el("pre", { className: "code-block", style: "margin-top:0.75rem;", textContent: cliSnippet }),
+          el("pre", { className: "code-block mt-3", textContent: cliSnippet }),
         ]),
         el("div", { className: "blueprint-card" }, [
           el("h3", { className: "blueprint-card-title", textContent: "Canonical project_info JSON Input" }),
-          el("pre", { className: "code-block", style: "margin-top:0.75rem;", textContent: JSON.stringify(res.projectInfo, null, 2) }),
+          el("pre", { className: "code-block mt-3", textContent: JSON.stringify(res.projectInfo, null, 2) }),
         ]),
       ]),
     ]);
@@ -1256,6 +1256,16 @@
 
   async function loadBundle() {
     if (window.__SLOPGUARD_KIT_BUNDLE__) return window.__SLOPGUARD_KIT_BUNDLE__;
+    if (window.location.protocol === "file:") {
+      await new Promise((resolve, reject) => {
+        const s = document.createElement("script");
+        s.src = "./data/kit-bundle.js";
+        s.onload = resolve;
+        s.onerror = () => reject(new Error("Failed to load local kit-bundle.js"));
+        document.head.appendChild(s);
+      });
+      if (window.__SLOPGUARD_KIT_BUNDLE__) return window.__SLOPGUARD_KIT_BUNDLE__;
+    }
     const res = await fetch("./data/kit-bundle.json");
     if (!res.ok) throw new Error("Failed to load kit-bundle.json");
     return res.json();

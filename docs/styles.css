@@ -6,6 +6,19 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 body {
@@ -86,13 +99,22 @@ body {
   }
 }
 
-/* Sticky Header */
+/* Sticky Header (desktop/tablet; static on small mobile to avoid 2-row obscuration) */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 30;
   background-color: var(--surface-base);
   border-bottom: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 639px) {
+  html {
+    scroll-padding-top: 1rem;
+  }
+  .site-header {
+    position: static;
+  }
 }
 
 .header-inner {

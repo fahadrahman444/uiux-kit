@@ -77,6 +77,7 @@ test("Vanilla Studio works over HTTP (GitHub Pages mode) and passes WCAG 2.2 AA 
   page.on("pageerror", (e) => errors.push(e.message));
 
   await page.goto(baseUrl, { waitUntil: "networkidle" });
+  await page.waitForSelector("#panel-sections .blueprint-card");
   assert.deepEqual(errors, [], `Runtime page errors: ${errors.join("; ")}`);
 
   // Axe scan Light
