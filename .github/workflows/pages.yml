@@ -33,6 +33,8 @@ jobs:
       - name: Rebuild static kit bundle
         run: python3 scripts/build_studio_bundle.py
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
