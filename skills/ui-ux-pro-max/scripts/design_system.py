@@ -59,30 +59,36 @@ class DesignSystemGenerator:
         return results
 
     def _find_reasoning_rule(self, category: str) -> dict:
-        """Find matching reasoning rule for a category."""
+        """Find matching reasoning rule for a category using word boundaries."""
         category_lower = category.lower().strip()
         if not category_lower or category_lower == "general":
             return {}
 
         # Try exact match first
         for rule in self.reasoning_data:
-            if rule.get("UI_Category", "").lower() == category_lower:
+            if rule.get("UI_Category", "").lower().strip() == category_lower:
                 return rule
 
-        # Try partial match
+        # Try phrase match on word boundaries
+        for rule in self.reasoning_data:
+            ui_cat = rule.get("UI_Category", "").lower().strip()
+            if ui_cat and re.search(rf"(?<![a-z0-9]){re.escape(ui_cat)}(?![a-z0-9])", category_lower):
+                return rule
+
+        # Try meaningful token overlap (avoid generic words and short fragments like 'e' or 'app')
+        generic = {"app", "tool", "platform", "service", "services", "system", "hub", "portal", "web", "page", "store", "shop", "client"}
+        cat_tokens = set(re.findall(r"[a-z0-9]{3,}", category_lower)) - generic
+        best_rule = {}
+        best_hits = 0
         for rule in self.reasoning_data:
             ui_cat = rule.get("UI_Category", "").lower()
-            if ui_cat and (ui_cat in category_lower or category_lower in ui_cat):
-                return rule
+            rule_tokens = set(re.findall(r"[a-z0-9]{3,}", ui_cat)) - generic
+            hits = len(cat_tokens & rule_tokens)
+            if hits > best_hits:
+                best_hits = hits
+                best_rule = rule
 
-        # Try keyword match
-        for rule in self.reasoning_data:
-            ui_cat = rule.get("UI_Category", "").lower()
-            keywords = ui_cat.replace("/", " ").replace("-", " ").split()
-            if any(kw in category_lower for kw in keywords):
-                return rule
-
-        return {}
+        return best_rule
 
     def _apply_reasoning(self, category: str, search_results: dict) -> dict:
         """Apply reasoning rules to search results."""
@@ -126,11 +132,18 @@ class DesignSystemGenerator:
         if not priority_keywords:
             return results[0]
 
-        # First: try exact style name match
+        # First: try exact style name match, then substring match
         for priority in priority_keywords:
             priority_lower = priority.lower().strip()
             for result in results:
-                style_name = result.get("Style Category", "").lower()
+                style_name = result.get("Style Category", "").lower().strip()
+                if priority_lower and style_name == priority_lower:
+                    return result
+
+        for priority in priority_keywords:
+            priority_lower = priority.lower().strip()
+            for result in results:
+                style_name = result.get("Style Category", "").lower().strip()
                 if priority_lower and style_name and (priority_lower in style_name or style_name in priority_lower):
                     return result
 
@@ -236,10 +249,10 @@ class DesignSystemGenerator:
 
 
 # ============ OUTPUT FORMATTERS ============
-BOX_WIDTH = 90  # Wider box for more content
+BOX_WIDTH = 90  # Total line width including leading and trailing '|'
 
 def format_ascii_box(design_system: dict) -> str:
-    """Format design system as ASCII box with emojis (MCP-style)."""
+    """Format design system as a fixed-width ASCII box."""
     project = design_system.get("project_name", "PROJECT")
     pattern = design_system.get("pattern", {})
     style = design_system.get("style", {})
@@ -248,104 +261,104 @@ def format_ascii_box(design_system: dict) -> str:
     effects = design_system.get("key_effects", "")
     anti_patterns = design_system.get("anti_patterns", "")
 
-    def wrap_text(text: str, prefix: str, width: int) -> list:
-        """Wrap long text into multiple lines."""
+    inner_w = BOX_WIDTH - 2
+    border = "+" + "-" * inner_w + "+"
+    blank = "|" + " " * inner_w + "|"
+
+    def emit_wrapped(lines: list, text: str, prefix: str = "|  "):
+        """Wrap text cleanly so every line fits exact BOX_WIDTH."""
         if not text:
-            return []
-        words = text.split()
-        lines = []
-        current_line = prefix
+            return
+        max_body = inner_w - (len(prefix) - 1) - 1
+        words = str(text).split()
+        if not words:
+            return
+        cur = ""
         for word in words:
-            if len(current_line) + len(word) + 1 <= width - 2:
-                current_line += (" " if current_line != prefix else "") + word
+            while len(word) > max_body:
+                if cur:
+                    lines.append((prefix + cur).ljust(BOX_WIDTH - 1) + "|")
+                    cur = ""
+                chunk, word = word[:max_body], word[max_body:]
+                lines.append((prefix + chunk).ljust(BOX_WIDTH - 1) + "|")
+            if not cur:
+                cur = word
+            elif len(cur) + 1 + len(word) <= max_body:
+                cur += " " + word
             else:
-                if current_line != prefix:
-                    lines.append(current_line)
-                current_line = prefix + word
-        if current_line != prefix:
-            lines.append(current_line)
-        return lines
+                lines.append((prefix + cur).ljust(BOX_WIDTH - 1) + "|")
+                cur = word
+        if cur:
+            lines.append((prefix + cur).ljust(BOX_WIDTH - 1) + "|")
 
-    # Build sections from pattern
-    sections = pattern.get("sections", "").split(">")
-    sections = [s.strip() for s in sections if s.strip()]
+    sections = [s.strip() for s in pattern.get("sections", "").split(">") if s.strip()]
 
-    # Build output lines
     lines = []
-    w = BOX_WIDTH - 1
-
     lines.append("Advisory keyword matches; missing domains use defaults. Implementation remains unverified.")
-    lines.append("+" + "-" * w + "+")
-    lines.append(f"|  TARGET: {project} - RECOMMENDED DESIGN SYSTEM".ljust(BOX_WIDTH) + "|")
-    lines.append("+" + "-" * w + "+")
-    lines.append("|" + " " * BOX_WIDTH + "|")
+    lines.append(border)
+    emit_wrapped(lines, f"TARGET: {project} - RECOMMENDED DESIGN SYSTEM", "|  ")
+    lines.append(border)
+    lines.append(blank)
 
     # Pattern section
-    lines.append(f"|  PATTERN: {pattern.get('name', '')}".ljust(BOX_WIDTH) + "|")
+    emit_wrapped(lines, f"PATTERN: {pattern.get('name', '')}", "|  ")
     if pattern.get('conversion'):
-        lines.append(f"|     Conversion: {pattern.get('conversion', '')}".ljust(BOX_WIDTH) + "|")
+        emit_wrapped(lines, f"Conversion: {pattern.get('conversion', '')}", "|     ")
     if pattern.get('cta_placement'):
-        lines.append(f"|     CTA: {pattern.get('cta_placement', '')}".ljust(BOX_WIDTH) + "|")
-    lines.append("|     Sections:".ljust(BOX_WIDTH) + "|")
+        emit_wrapped(lines, f"CTA: {pattern.get('cta_placement', '')}", "|     ")
+    emit_wrapped(lines, "Sections:", "|     ")
     for i, section in enumerate(sections, 1):
-        lines.append(f"|       {i}. {section}".ljust(BOX_WIDTH) + "|")
-    lines.append("|" + " " * BOX_WIDTH + "|")
+        emit_wrapped(lines, f"{i}. {section}", "|       ")
+    lines.append(blank)
 
     # Style section
-    lines.append(f"|  STYLE: {style.get('name', '')}".ljust(BOX_WIDTH) + "|")
+    emit_wrapped(lines, f"STYLE: {style.get('name', '')}", "|  ")
     if style.get("keywords"):
-        for line in wrap_text(f"Keywords: {style.get('keywords', '')}", "|     ", BOX_WIDTH):
-            lines.append(line.ljust(BOX_WIDTH) + "|")
+        emit_wrapped(lines, f"Keywords: {style.get('keywords', '')}", "|     ")
     if style.get("best_for"):
-        for line in wrap_text(f"Best For: {style.get('best_for', '')}", "|     ", BOX_WIDTH):
-            lines.append(line.ljust(BOX_WIDTH) + "|")
+        emit_wrapped(lines, f"Best For: {style.get('best_for', '')}", "|     ")
     if style.get("performance") or style.get("accessibility"):
         perf_a11y = f"Performance: {style.get('performance', '')} | Accessibility: {style.get('accessibility', '')}"
-        lines.append(f"|     {perf_a11y}".ljust(BOX_WIDTH) + "|")
-    lines.append("|" + " " * BOX_WIDTH + "|")
+        emit_wrapped(lines, perf_a11y, "|     ")
+    lines.append(blank)
 
     # Colors section
-    lines.append("|  COLORS:".ljust(BOX_WIDTH) + "|")
-    lines.append(f"|     Primary:    {colors.get('primary', '')}".ljust(BOX_WIDTH) + "|")
-    lines.append(f"|     Secondary:  {colors.get('secondary', '')}".ljust(BOX_WIDTH) + "|")
-    lines.append(f"|     CTA:        {colors.get('cta', '')}".ljust(BOX_WIDTH) + "|")
-    lines.append(f"|     Background: {colors.get('background', '')}".ljust(BOX_WIDTH) + "|")
-    lines.append(f"|     Text:       {colors.get('text', '')}".ljust(BOX_WIDTH) + "|")
+    emit_wrapped(lines, "COLORS:", "|  ")
+    emit_wrapped(lines, f"Primary:    {colors.get('primary', '')}", "|     ")
+    emit_wrapped(lines, f"Secondary:  {colors.get('secondary', '')}", "|     ")
+    emit_wrapped(lines, f"CTA:        {colors.get('cta', '')}", "|     ")
+    emit_wrapped(lines, f"Background: {colors.get('background', '')}", "|     ")
+    emit_wrapped(lines, f"Text:       {colors.get('text', '')}", "|     ")
     if colors.get("notes"):
-        for line in wrap_text(f"Notes: {colors.get('notes', '')}", "|     ", BOX_WIDTH):
-            lines.append(line.ljust(BOX_WIDTH) + "|")
-    lines.append("|" + " " * BOX_WIDTH + "|")
+        emit_wrapped(lines, f"Notes: {colors.get('notes', '')}", "|     ")
+    lines.append(blank)
 
     # Typography section
-    lines.append(f"|  TYPOGRAPHY: {typography.get('heading', '')} / {typography.get('body', '')}".ljust(BOX_WIDTH) + "|")
+    emit_wrapped(lines, f"TYPOGRAPHY: {typography.get('heading', '')} / {typography.get('body', '')}", "|  ")
     if typography.get("mood"):
-        for line in wrap_text(f"Mood: {typography.get('mood', '')}", "|     ", BOX_WIDTH):
-            lines.append(line.ljust(BOX_WIDTH) + "|")
+        emit_wrapped(lines, f"Mood: {typography.get('mood', '')}", "|     ")
     if typography.get("best_for"):
-        for line in wrap_text(f"Best For: {typography.get('best_for', '')}", "|     ", BOX_WIDTH):
-            lines.append(line.ljust(BOX_WIDTH) + "|")
+        emit_wrapped(lines, f"Best For: {typography.get('best_for', '')}", "|     ")
     if typography.get("google_fonts_url"):
-        lines.append(f"|     Google Fonts: {typography.get('google_fonts_url', '')}".ljust(BOX_WIDTH) + "|")
+        emit_wrapped(lines, f"Google Fonts: {typography.get('google_fonts_url', '')}", "|     ")
     if typography.get("css_import"):
-        lines.append(f"|     CSS Import: {typography.get('css_import', '')[:70]}...".ljust(BOX_WIDTH) + "|")
-    lines.append("|" + " " * BOX_WIDTH + "|")
+        emit_wrapped(lines, f"CSS Import: {typography.get('css_import', '')}", "|     ")
+    lines.append(blank)
 
     # Key Effects section
     if effects:
-        lines.append("|  KEY EFFECTS:".ljust(BOX_WIDTH) + "|")
-        for line in wrap_text(effects, "|     ", BOX_WIDTH):
-            lines.append(line.ljust(BOX_WIDTH) + "|")
-        lines.append("|" + " " * BOX_WIDTH + "|")
+        emit_wrapped(lines, "KEY EFFECTS:", "|  ")
+        emit_wrapped(lines, effects, "|     ")
+        lines.append(blank)
 
     # Anti-patterns section
     if anti_patterns:
-        lines.append("|  AVOID (Anti-patterns):".ljust(BOX_WIDTH) + "|")
-        for line in wrap_text(anti_patterns, "|     ", BOX_WIDTH):
-            lines.append(line.ljust(BOX_WIDTH) + "|")
-        lines.append("|" + " " * BOX_WIDTH + "|")
+        emit_wrapped(lines, "AVOID (Anti-patterns):", "|  ")
+        emit_wrapped(lines, anti_patterns, "|     ")
+        lines.append(blank)
 
     # Pre-Delivery Checklist section
-    lines.append("|  PRE-DELIVERY CHECKLIST:".ljust(BOX_WIDTH) + "|")
+    emit_wrapped(lines, "PRE-DELIVERY CHECKLIST:", "|  ")
     checklist_items = [
         "[ ] No emojis as icons (use SVG: Heroicons/Lucide)",
         "[ ] cursor-pointer on all clickable elements",
@@ -356,10 +369,10 @@ def format_ascii_box(design_system: dict) -> str:
         "[ ] Responsive: 375px, 768px, 1024px, 1440px"
     ]
     for item in checklist_items:
-        lines.append(f"|     {item}".ljust(BOX_WIDTH) + "|")
-    lines.append("|" + " " * BOX_WIDTH + "|")
+        emit_wrapped(lines, item, "|     ")
+    lines.append(blank)
 
-    lines.append("+" + "-" * w + "+")
+    lines.append(border)
 
     return "\n".join(lines)
 

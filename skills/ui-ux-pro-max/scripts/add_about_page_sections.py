@@ -17,7 +17,7 @@ import json
 import csv
 from pathlib import Path
 
-DATA_DIR = Path("D:/gemini/gemini-uiux-kit/skills/ui-ux-pro-max/data")
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 ABOUT_SECTIONS = [
     {

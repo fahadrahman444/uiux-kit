@@ -53,6 +53,8 @@ if __name__ == "__main__":
     parser.add_argument("--format", "-f", choices=["ascii", "markdown"], default="ascii", help="Output format for design system")
 
     args = parser.parse_args()
+    if not 1 <= args.max_results <= 25:
+        parser.error("--max-results must be between 1 and 25")
 
     # Design system takes priority
     if args.design_system:

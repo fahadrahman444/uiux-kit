@@ -2,8 +2,8 @@
 
 > **Project:** UI/UX Pro Max Engine  
 > **Repository:** `D:\gemini\gemini-uiux-kit\`  
-> **Current Milestone:** 6 of 8 Core Pages Complete (75% Complete)  
-> **Current Scale:** 37 Sections · 163 Archetypes · 0 Critical Audit Errors  
+> **Current Milestone:** 9 of 9 Core Pages Complete (100% Complete)  
+> **Current Scale:** 40 Sections · 173 Archetypes · 0 Critical Audit Errors  
 > **Compliance Standard:** WCAG 2.2 AA / AAA · Anti-Slop Rubric (SLOP-001 to SLOP-006)
 
 ---
@@ -54,8 +54,8 @@ flowchart TD
 | **04. Services & Solutions** | `/services` | 13 | 11 new | ✅ **Complete** | [services_page_prompt.md](file:///D:/gemini/services_page_prompt.md) |
 | **05. Case Studies Hub** | `/case-studies` | 8 | 8 new | ✅ **Complete** | [case_studies_page_prompt.md](file:///D:/gemini/case_studies_page_prompt.md) |
 | **06. Blog & Resources** | `/blog` | 6 | 8 new | ✅ **Complete** | [blog_page_prompt.md](file:///D:/gemini/blog_page_prompt.md) |
-| **07. Careers & Jobs** | `/careers` | 7 | 7 new | ⏳ **Pending** | *Scheduled Phase 1 below* |
-| **08. Legal & Compliance** | `/legal` | 3 | 3 new | ⏳ **Pending** | *Scheduled Phase 2 below* |
+| **07. Careers & Jobs** | `/careers` | 7 | 7 new | ✅ **Complete** | [add_careers_page_sections.py](file:///D:/gemini/gemini-uiux-kit/skills/ui-ux-pro-max/scripts/add_careers_page_sections.py) |
+| **08. Legal & Compliance** | `/legal` | 3 | 3 new | ✅ **Complete** | [add_legal_page_sections.py](file:///D:/gemini/gemini-uiux-kit/skills/ui-ux-pro-max/scripts/add_legal_page_sections.py) |
 
 ---
 

@@ -2813,5 +2813,176 @@
         "anti_slop_rules": "Specify exact sending frequency and topic scope so users know what they are subscribing to."
       }
     ]
+  },
+  {
+    "section_id": "careers_perks",
+    "section_name": "Compensation Philosophy & Benefits",
+    "archetypes": [
+      {
+        "archetype_id": "perk-01",
+        "name": "4-Column High-Trust Benefits Grid",
+        "keywords": "benefits, perks, compensation, equity, healthcare, time-off, careers",
+        "best_for": "Companies presenting structured benefits across compensation, health, workspace, and time off.",
+        "selection_triggers": {
+          "has_perks": true,
+          "style": "clean"
+        },
+        "layout_structure": "4-column grid (grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto py-14). Categorized cards: Compensation & Equity, Health & Family, Workspace Stipends, Time Off & Sabbaticals.",
+        "typography_specs": "Category header: text-xs font-mono uppercase tracking-wider text-[var(--primary)]. Benefit title: text-base font-bold. Detail: text-sm text-[var(--text-secondary)].",
+        "key_components": "24x24 precision SVG icon, categorized benefit heading, concrete numeric policy items, transparent footnote.",
+        "responsive_behavior": "1 column mobile, 2 columns tablet, 4 columns desktop.",
+        "accessibility": "Each benefit card uses <article> with <h3> headings and explicit list markup <ul>.",
+        "anti_slop_rules": "Zero generic 'ping-pong and free snacks' clichés; publish actual numeric benefits and eligibility dates."
+      },
+      {
+        "archetype_id": "perk-02",
+        "name": "Compensation Philosophy Manifesto",
+        "keywords": "salary-transparency, compensation-bands, equity-formula, pay-equity",
+        "best_for": "Organizations differentiating on transparent salary formulas, geographic tiers, and annual equity refreshers.",
+        "selection_triggers": {
+          "salary_transparent": true
+        },
+        "layout_structure": "2-column split (grid-cols-1 lg:grid-cols-12 gap-10 max-w-6xl mx-auto py-14). Left (5 cols): Compensation philosophy statement and pay equity pledge. Right (7 cols): Band formula breakdown table and level progression.",
+        "typography_specs": "Formula readout: text-lg font-mono font-semibold text-[var(--text-primary)]. Band row: text-sm tabular-nums.",
+        "key_components": "Salary formula equation block, level progression table, equity refresher schedule badge.",
+        "responsive_behavior": "Stacks vertically on mobile; table scrolls horizontally with sticky role column.",
+        "accessibility": "Semantic <table> with <th scope='col'> and <th scope='row'>; high-contrast tabular numerals.",
+        "anti_slop_rules": "Never say 'competitive salary' without posting band ranges and leveling methodology."
+      },
+      {
+        "archetype_id": "perk-03",
+        "name": "Remote-First Stipend Matrix",
+        "keywords": "remote-stipend, home-office, learning-budget, coworking, distributed",
+        "best_for": "Remote-first companies detailing home office setup budgets, learning stipends, and coworking allowances.",
+        "selection_triggers": {
+          "remote_stipend": true
+        },
+        "layout_structure": "3-column card grid with bold annual stipend totals anchored at top of each card ($2,000 Home Office, $1,500 Learning, $350/mo Coworking).",
+        "typography_specs": "Stipend figure: text-3xl font-mono font-extrabold text-[var(--primary)] tabular-nums. Title: text-lg font-bold.",
+        "key_components": "Monospaced dollar figure, reimbursement rule chip, eligible expenses list.",
+        "responsive_behavior": "1 column mobile, 3 columns desktop with equal card height.",
+        "accessibility": "Figures paired with descriptive text labels; contrast >= 4.5:1 across light and dark modes.",
+        "anti_slop_rules": "State exact annual vs. one-time cadence and approval constraints transparently."
+      },
+      {
+        "archetype_id": "perk-04",
+        "name": "Parental & Wellness Commitment Banner",
+        "keywords": "parental-leave, wellness, mental-health, recharge, sabbatical",
+        "best_for": "People-first companies highlighting paid parental leave, mental health stipends, and company-wide recharge weeks.",
+        "selection_triggers": {
+          "parental_wellness": true
+        },
+        "layout_structure": "Full-width elevated card (max-w-5xl mx-auto rounded-2xl border border-[var(--border-subtle)] p-8 sm:p-10) split into 3 horizontal pillars with subtle vertical dividers.",
+        "typography_specs": "Metric anchor: text-2xl sm:text-3xl font-bold font-mono. Policy summary: text-sm text-[var(--text-secondary)].",
+        "key_components": "16-week paid leave block, mental health coverage badge, annual company recharge calendar.",
+        "responsive_behavior": "Dividers switch from vertical to horizontal on mobile stack.",
+        "accessibility": "Semantic <section> with aria-label='Parental Leave and Wellness Commitments'.",
+        "anti_slop_rules": "Avoid vague 'unlimited PTO' claims without stating minimum encouraged days off."
+      }
+    ]
+  },
+  {
+    "section_id": "careers_jobs",
+    "section_name": "Open Requisitions & Hiring Pipeline",
+    "archetypes": [
+      {
+        "archetype_id": "jobs-01",
+        "name": "Department Filterable Requisition Board",
+        "keywords": "job-board, open-roles, department-filter, hiring, requisitions",
+        "best_for": "Growing teams with 5+ open roles across Engineering, Product, Design, and Go-To-Market.",
+        "selection_triggers": {
+          "has_open_roles": true,
+          "style": "filterable"
+        },
+        "layout_structure": "Sticky department tab bar (All, Engineering, Product, Design, Go-To-Market) above stacked full-width job rows showing role title, location/remote tag, salary range, and 'Apply ->' button.",
+        "typography_specs": "Role title: text-lg font-semibold. Metadata (Location, Salary Range): text-xs font-mono text-[var(--text-secondary)].",
+        "key_components": "Accessible tab filter, live role counter, salary band badge, 44px Apply button, zero-roles fallback alert.",
+        "responsive_behavior": "Filter pills scroll horizontally on mobile; job rows stack metadata cleanly under role title.",
+        "accessibility": "role='tablist' filter bar, aria-live='polite' result count, descriptive link labels ('Apply for Senior Frontend Engineer').",
+        "anti_slop_rules": "Display location eligibility and salary band on every role row; zero 'rockstar/ninja' titles."
+      },
+      {
+        "archetype_id": "jobs-02",
+        "name": "Single Requisition Expandable Accordion",
+        "keywords": "job-accordion, role-details, inline-apply, expandable-jobs",
+        "best_for": "Lean teams wanting candidates to inspect role mission, responsibilities, and apply inline without page hops.",
+        "selection_triggers": {
+          "accordion_jobs": true
+        },
+        "layout_structure": "Centered max-w-4xl mx-auto py-12 space-y-3. Each accordion header shows title, team, and location; expanding reveals role mission, 3 core responsibilities, qualifications, and inline application form.",
+        "typography_specs": "Role trigger: text-lg font-semibold. Section label: text-xs font-mono uppercase.",
+        "key_components": "Accordion trigger with aria-expanded and aria-controls, structured bullet lists, inline CV/link upload form.",
+        "responsive_behavior": "Full width on mobile with >= 44px touch targets and generous field spacing.",
+        "accessibility": "Keyboard Enter/Space toggle, explicit <label> on inline application fields, focus-visible dual ring.",
+        "anti_slop_rules": "Keep qualification bullets realistic (3-5 essentials); no 20-requirement wishlists."
+      },
+      {
+        "archetype_id": "jobs-03",
+        "name": "Interview Pipeline & Transparent Process Stepper",
+        "keywords": "interview-process, hiring-pipeline, timeline, candidate-experience",
+        "best_for": "Teams reducing candidate anxiety by documenting exact interview stages, durations, and decision timelines.",
+        "selection_triggers": {
+          "interview_pipeline": true
+        },
+        "layout_structure": "4-step horizontal stepper on desktop (grid-cols-4 gap-6) covering Recruiter Sync (30m), Technical Deep Dive (60m), Paid Work Sample or Pairing (2h), and Final Offer.",
+        "typography_specs": "Step badge: text-xs font-mono font-bold text-[var(--primary)]. Duration chip: text-xs font-mono. Stage title: text-base font-bold.",
+        "key_components": "Sequential stage cards, time commitment badges, preparation guide note, candidate SLA ('Decision within 48h').",
+        "responsive_behavior": "Collapses to numbered vertical timeline on mobile.",
+        "accessibility": "Ordered list <ol> preserving chronological step sequence.",
+        "anti_slop_rules": "Never omit expected turnaround times or ask for unpaid multi-day take-home projects."
+      }
+    ]
+  },
+  {
+    "section_id": "legal_doc",
+    "section_name": "Structured Legal & Compliance Documentation",
+    "archetypes": [
+      {
+        "archetype_id": "leg-01",
+        "name": "Sticky Table of Contents & Prose Split",
+        "keywords": "legal, privacy-policy, terms-of-service, toc, gdpr, compliance",
+        "best_for": "Audit-grade Privacy Policies, Terms of Service, and Security Docs requiring scannable long-form legibility.",
+        "selection_triggers": {
+          "has_toc": true,
+          "style": "editorial/legal"
+        },
+        "layout_structure": "2-column container (grid-cols-1 lg:grid-cols-12 gap-10 max-w-6xl mx-auto py-16). Left (3 cols): Sticky scroll-spy Table of Contents tracking active anchor sections. Right (9 cols): Prose container constrained to max-w-prose (65ch) with generous vertical spacing.",
+        "typography_specs": "H1: text-3xl sm:text-4xl font-bold tracking-tight. Section H2: text-xl font-semibold mt-10 mb-3. Body: text-base leading-relaxed (1.65) text-[var(--text-secondary)].",
+        "key_components": "Sticky TOC nav with active anchor highlight, effective date stamp, plain-English callout boxes, anchored section headings.",
+        "responsive_behavior": "Sticky sidebar collapses into a collapsible 'Jump to section' select/accordion above content on mobile.",
+        "accessibility": "Landmark <nav aria-label='Table of contents'> with aria-current='location' on active section and scroll-margin-top for sticky headers.",
+        "anti_slop_rules": "Never render unstyled 10,000-word walls of tiny gray text; enforce >= 4.5:1 contrast and 65ch max measure."
+      },
+      {
+        "archetype_id": "leg-02",
+        "name": "Tabbed Policy Multi-Doc Hub",
+        "keywords": "policy-hub, terms, privacy, dpa, subprocessors, acceptable-use",
+        "best_for": "SaaS and enterprise platforms hosting Terms, Privacy Policy, Sub-processors List, AUP, and DPA in one hub.",
+        "selection_triggers": {
+          "multi_policy": true
+        },
+        "layout_structure": "Top segmented tab navigation switching cleanly across Terms of Service, Privacy Policy, Sub-processors, Acceptable Use, and DPA, paired with structured tables for sub-processors and retention schedules.",
+        "typography_specs": "Tab button: text-sm font-semibold min-h-[44px]. Table metadata: text-xs font-mono.",
+        "key_components": "Accessible policy tabs, sub-processor table (Vendor, Purpose, Region), contact DPO card.",
+        "responsive_behavior": "Horizontal snap-scroll tab bar on mobile; sub-processor table wraps in horizontal scroll region.",
+        "accessibility": "role='tablist', role='tab', aria-selected, keyboard ArrowLeft/ArrowRight navigation, proper <table> headers.",
+        "anti_slop_rules": "Keep every policy URL deep-linkable via hash or query param so procurement teams can bookmark specific agreements."
+      },
+      {
+        "archetype_id": "leg-03",
+        "name": "Versioned Compliance Header with PDF Download",
+        "keywords": "versioned-legal, pdf-download, changelog, plain-english-summary",
+        "best_for": "Regulated enterprise vendors maintaining version history, diff summaries, and downloadable signed PDFs.",
+        "selection_triggers": {
+          "has_version_selector": true
+        },
+        "layout_structure": "Top compliance utility bar (max-w-5xl mx-auto py-8 border-b border-[var(--border-subtle)]) with Last Updated timestamp, version selector dropdown (v2.4 Active / v2.3 Archived), Plain-English Summary toggle, and PDF download action.",
+        "typography_specs": "Version badge: text-xs font-mono font-semibold. Summary text: text-sm leading-relaxed.",
+        "key_components": "Version selector <select> with explicit <label>, plain-English summary panel, accessible PDF download link with file size.",
+        "responsive_behavior": "Utility controls wrap cleanly into a 2-row stack on mobile with >= 44px tap heights.",
+        "accessibility": "Download link announces file format and size; summary toggle uses aria-expanded and aria-controls.",
+        "anti_slop_rules": "Clearly distinguish archived versions with a high-contrast banner so users do not mistake superseded terms for current terms."
+      }
+    ]
   }
 ]

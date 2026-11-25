@@ -212,24 +212,33 @@ def _search_csv(filepath, search_cols, output_cols, query, max_results):
 
 
 def detect_domain(query):
-    """Auto-detect the most relevant domain from query"""
+    """Auto-detect the most relevant domain from query using token/phrase boundaries."""
     query_lower = query.lower()
+    tokens = set(re.findall(r"[a-z0-9]+", query_lower))
 
     domain_keywords = {
-        "color": ["color", "palette", "hex", "#", "rgb"],
+        "section": ["section", "archetype", "navbar", "footer", "accordion", "stepper", "bento", "faq", "marquee", "intake", "newsletter", "deliverables"],
+        "color": ["color", "palette", "hex", "rgb", "hsl", "contrast"],
         "chart": ["chart", "graph", "visualization", "trend", "bar", "pie", "scatter", "heatmap", "funnel"],
-        "landing": ["landing", "page", "cta", "conversion", "hero", "testimonial", "pricing", "section"],
+        "landing": ["landing", "page", "cta", "conversion", "hero", "testimonial", "pricing", "funnel"],
         "product": ["saas", "ecommerce", "e-commerce", "fintech", "healthcare", "gaming", "portfolio", "crypto", "dashboard"],
         "prompt": ["prompt", "css", "implementation", "variable", "checklist", "tailwind"],
         "style": ["style", "design", "ui", "minimalism", "glassmorphism", "neumorphism", "brutalism", "dark mode", "flat", "aurora"],
-        "ux": ["ux", "usability", "accessibility", "wcag", "touch", "scroll", "animation", "keyboard", "navigation", "mobile"],
+        "ux": ["ux", "usability", "accessibility", "wcag", "touch", "scroll", "animation", "keyboard", "navigation", "mobile", "sidebar", "toolbar"],
         "typography": ["font", "typography", "heading", "serif", "sans"],
         "icons": ["icon", "icons", "lucide", "heroicons", "symbol", "glyph", "pictogram", "svg icon"],
         "react": ["react", "next.js", "nextjs", "suspense", "memo", "usecallback", "useeffect", "rerender", "bundle", "waterfall", "barrel", "dynamic import", "rsc", "server component"],
         "web": ["aria", "focus", "outline", "semantic", "virtualize", "autocomplete", "form", "input type", "preconnect"]
     }
 
-    scores = {domain: sum(1 for kw in keywords if kw in query_lower) for domain, keywords in domain_keywords.items()}
+    def matches(kw):
+        if " " in kw or "-" in kw or "." in kw:
+            return bool(re.search(rf"(?<![a-z0-9]){re.escape(kw)}(?![a-z0-9])", query_lower))
+        return kw in tokens
+
+    scores = {domain: sum(1 for kw in keywords if matches(kw)) for domain, keywords in domain_keywords.items()}
+    if re.search(r"(?:^|\s)#[0-9a-f]{3,8}\b", query_lower):
+        scores["color"] += 1
     best = max(scores, key=scores.get)
     return best if scores[best] > 0 else "style"
 

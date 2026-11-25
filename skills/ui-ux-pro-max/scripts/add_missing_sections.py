@@ -7,10 +7,8 @@ Run from any directory.
 """
 
 import json
-import csv
 from pathlib import Path
-
-DATA_DIR = Path("D:/gemini/gemini-uiux-kit/skills/ui-ux-pro-max/data")
+from dataset_utils import DATA_DIR, write_sections_dataset
 
 NEW_SECTIONS = [
     {
@@ -303,47 +301,13 @@ def rebuild():
         else:
             print(f"  WARNING: section_id {sid!r} not found in either dataset")
 
+    # Preserve any dedicated multipage sections beyond the 15 homepage sections
+    for sec in existing:
+        if sec["section_id"] not in final_order:
+            ordered.append(sec)
+
     print(f"Final sections ({len(ordered)}): {[s['section_id'] for s in ordered]}")
-
-    # Count archetypes
-    total = sum(len(s["archetypes"]) for s in ordered)
-    print(f"Total archetypes: {total}")
-
-    # Write JSON
-    with open(json_path, "w", encoding="utf-8") as f:
-        json.dump(ordered, f, indent=2, ensure_ascii=False)
-    print(f"[OK] JSON written: {json_path}")
-
-    # Write CSV
-    fieldnames = [
-        "Section ID", "Section Name", "Archetype ID", "Archetype Name",
-        "Keywords", "Best For", "Selection Triggers", "Layout Structure",
-        "Typography Specs", "Key Components", "Responsive Behavior",
-        "Accessibility", "Anti-Slop Rules"
-    ]
-    count = 0
-    with open(csv_path, "w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        for sec in ordered:
-            for arch in sec["archetypes"]:
-                writer.writerow({
-                    "Section ID": sec["section_id"],
-                    "Section Name": sec["section_name"],
-                    "Archetype ID": arch["archetype_id"],
-                    "Archetype Name": arch["name"],
-                    "Keywords": arch["keywords"],
-                    "Best For": arch["best_for"],
-                    "Selection Triggers": json.dumps(arch["selection_triggers"]),
-                    "Layout Structure": arch["layout_structure"],
-                    "Typography Specs": arch["typography_specs"],
-                    "Key Components": arch["key_components"],
-                    "Responsive Behavior": arch["responsive_behavior"],
-                    "Accessibility": arch["accessibility"],
-                    "Anti-Slop Rules": arch["anti_slop_rules"],
-                })
-                count += 1
-    print(f"[OK] CSV written: {count} archetypes -> {csv_path}")
+    write_sections_dataset(ordered, DATA_DIR)
 
 
 if __name__ == "__main__":

@@ -3,5 +3,7 @@ node_modules/
 dist/
 build/
 *.log
+__pycache__/
+*.py[cod]
 .agents/
 .design/
