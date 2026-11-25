@@ -112,6 +112,21 @@ test("Vanilla Studio works over HTTP (GitHub Pages mode) and passes WCAG 2.2 AA 
   const cliText = await page.locator("#panel-cli").textContent();
   assert.ok(cliText.includes('"page_id": "pricing"'));
 
+  // Stage 6 contextual route highlighting follows Page Route selection
+  await page.locator("#page_id").selectOption("about");
+  assert.equal(await page.locator('details[data-route-group="about"]').getAttribute("open") !== null, true);
+  assert.equal(await page.locator('details[data-route-group="about"] .route-tag').isVisible(), true);
+  assert.equal(await page.locator('details[data-route-group="careers"]').getAttribute("open"), null);
+  assert.ok((await page.locator("#route-context-note").textContent()).includes("About Us & Culture"));
+
+  await page.locator("#page_id").selectOption("careers");
+  assert.equal(await page.locator('details[data-route-group="careers"]').getAttribute("open") !== null, true);
+  assert.equal(await page.locator('details[data-route-group="about"]').getAttribute("open"), null);
+  await page.locator('input[name="interview_pipeline"]').check();
+  await page.locator("#compile-btn").click();
+  await page.locator("#tab-sections").click();
+  assert.ok((await page.locator("#panel-sections").textContent()).includes("jobs-03"));
+
   // Toggle Dark Mode and re-run Axe
   await page.locator("#theme-toggle").click();
   const axeDark = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze();

@@ -806,3 +806,67 @@ details.panel-details[open] > summary .chevron-icon {
 .kv-list strong {
   color: var(--text-primary);
 }
+
+/* 6-Stage Discovery Call Intake & Contextual Route Triggers */
+.stage-legend {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stage-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-action-accent-border);
+  background-color: var(--color-action-accent-surface);
+  color: var(--color-action-accent-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.route-context-banner {
+  margin-bottom: 0.875rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.625rem;
+  border: 1px solid var(--color-action-accent-border);
+  background-color: var(--color-action-accent-surface);
+  color: var(--color-action-accent-text);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+details.panel-details.route-active {
+  border-color: var(--color-action-accent-border);
+  background-color: var(--surface-base);
+}
+
+.route-summary-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.route-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-action-accent-border);
+  background-color: var(--color-action-accent-surface);
+  color: var(--color-action-accent-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.route-tag[hidden] {
+  display: none;
+}

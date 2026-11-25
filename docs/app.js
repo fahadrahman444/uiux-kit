@@ -983,6 +983,36 @@
     return { projectInfo, extra };
   }
 
+  function syncRouteContext(form) {
+    const selectEl = form.querySelector("#page_id");
+    const routeId = selectEl ? selectEl.value : "home";
+    const routeLabel = selectEl && selectEl.selectedOptions && selectEl.selectedOptions[0]
+      ? selectEl.selectedOptions[0].textContent.trim()
+      : routeId;
+
+    form.querySelectorAll("details[data-route-group]").forEach((panel) => {
+      const group = panel.getAttribute("data-route-group");
+      const isMatch = group === routeId;
+      panel.open = isMatch;
+      panel.classList.toggle("route-active", isMatch);
+      const tag = panel.querySelector(".route-tag");
+      if (tag) tag.hidden = !isMatch;
+    });
+
+    const noteEl = document.getElementById("route-context-note");
+    if (noteEl) {
+      const primaryRoutes = routeId === "home" || routeId === "pricing";
+      const suffix = primaryRoutes
+        ? " — All primary triggers for this route are already surfaced in Stages 1–5 above. Expand secondary sub-page groups below only if cross-configuring."
+        : " — Matching page-specific triggers are highlighted and expanded below.";
+      noteEl.replaceChildren(
+        document.createTextNode("Active Route: "),
+        el("strong", { textContent: routeLabel }),
+        document.createTextNode(suffix)
+      );
+    }
+  }
+
   function applyPreset(form, key) {
     const preset = PRESETS[key];
     if (!preset) return;
@@ -994,6 +1024,7 @@
     form.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
       cb.checked = Boolean(preset.checks[cb.name]);
     });
+    syncRouteContext(form);
   }
 
   // ---------- Render Output Sections ----------
@@ -1284,6 +1315,8 @@
     const statusEl = document.getElementById("compile-status");
     const validateAll = setupValidation(form);
     setupTabs();
+    syncRouteContext(form);
+    form.querySelector("#page_id")?.addEventListener("change", () => syncRouteContext(form));
 
     const runCompile = (scrollToOutput) => {
       const { projectInfo, extra } = readFormState(form);
