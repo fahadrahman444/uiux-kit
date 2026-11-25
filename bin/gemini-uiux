@@ -166,7 +166,8 @@ EOF
 
             # Copy sibling local module dependencies (e.g., ./types or ./useDialogA11y) if referenced
             SRC_DIR=$(dirname "$TARGET_FILE")
-            for dep in $(grep -oE 'from "\./[A-Za-z0-9_-]+"' "$TARGET_FILE" 2>/dev/null | sed -E 's/from "\.\/([^"]+)"/\1/'); do
+            while IFS= read -r dep; do
+                [ -z "$dep" ] && continue
                 DEP_FILE=""
                 for ext in .ts .tsx .js .jsx; do
                     [ -f "${SRC_DIR}/${dep}${ext}" ] && DEP_FILE="${SRC_DIR}/${dep}${ext}" && break
@@ -175,7 +176,7 @@ EOF
                     cp "$DEP_FILE" "${DEST_DIR}/$(basename "$DEP_FILE")"
                     echo -e "${GREEN}✓ Injected dependency ${DEST_DIR}/$(basename "$DEP_FILE")${RESET}"
                 fi
-            done
+            done < <(grep -oE 'from "\./[A-Za-z0-9_-]+"' "$TARGET_FILE" 2>/dev/null | sed -E 's/from "\.\/([^"]+)"/\1/' || true)
         else
             echo "Usage: slopguard component [list | add <component_name> [--dry-run] [--diff] [--force]]" >&2
             exit 1
