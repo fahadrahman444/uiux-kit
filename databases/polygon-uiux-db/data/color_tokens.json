@@ -1,0 +1,156 @@
+[
+  {
+    "token_id": "col-01",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "accent",
+    "css_var": "--color-accent-primary",
+    "hex_value": "#3BC77B",
+    "raw_observed_value": "rgb(59, 199, 123)",
+    "wcag_role": "primary-action",
+    "contrast_on_dark": 10.3,
+    "usage_notes": "Primary CTA radial hover fill, marquee strip background, cursor ring"
+  },
+  {
+    "token_id": "col-02",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "accent",
+    "css_var": "--color-accent-pill",
+    "hex_value": "#61CE70",
+    "raw_observed_value": "rgb(97, 206, 112)",
+    "wcag_role": "cta-border",
+    "contrast_on_dark": 10.1,
+    "usage_notes": "Header 46px-radius pill CTA 1px outline stroke"
+  },
+  {
+    "token_id": "col-03",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "accent",
+    "css_var": "--color-accent-soft",
+    "hex_value": "#96DEA0",
+    "raw_observed_value": "rgb(150, 222, 160)",
+    "wcag_role": "secondary-border",
+    "contrast_on_dark": 12.6,
+    "usage_notes": "Light emerald highlight pill border variant"
+  },
+  {
+    "token_id": "col-04",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "accent",
+    "css_var": "--color-filter-active",
+    "hex_value": "#65BC7B",
+    "raw_observed_value": "rgb(101, 188, 123)",
+    "wcag_role": "active-filter",
+    "contrast_on_dark": 9.0,
+    "usage_notes": "Active portfolio/catalog MixItUp category filter pill fill"
+  },
+  {
+    "token_id": "col-05",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "surface",
+    "css_var": "--surface-canvas",
+    "hex_value": "#000000",
+    "raw_observed_value": "#000",
+    "wcag_role": "bg-primary",
+    "contrast_on_dark": 1.0,
+    "usage_notes": "Full-bleed OLED black section and hero backdrop"
+  },
+  {
+    "token_id": "col-06",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "surface",
+    "css_var": "--surface-base",
+    "hex_value": "#0A0A0A",
+    "raw_observed_value": "rgb(10, 10, 10)",
+    "wcag_role": "bg-secondary",
+    "contrast_on_dark": 1.04,
+    "usage_notes": "Alternate deep obsidian section background"
+  },
+  {
+    "token_id": "col-07",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "surface",
+    "css_var": "--surface-card",
+    "hex_value": "#121212",
+    "raw_observed_value": "#121212",
+    "wcag_role": "card-surface",
+    "contrast_on_dark": 1.12,
+    "usage_notes": "Card tile surface, dark button stroke, and dark wrapper (--black-2)"
+  },
+  {
+    "token_id": "col-08",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "surface",
+    "css_var": "--surface-elevated",
+    "hex_value": "#1E1E1E",
+    "raw_observed_value": "rgb(30, 30, 30)",
+    "wcag_role": "surface-elevated",
+    "contrast_on_dark": 1.25,
+    "usage_notes": "Map land tint, subtle raised strips, background grid rule"
+  },
+  {
+    "token_id": "col-09",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "text",
+    "css_var": "--text-primary",
+    "hex_value": "#FFFFFF",
+    "raw_observed_value": "#fff",
+    "wcag_role": "text-primary",
+    "contrast_on_dark": 21.0,
+    "usage_notes": "Primary display headlines and high-emphasis body copy"
+  },
+  {
+    "token_id": "col-10",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "text",
+    "css_var": "--text-secondary",
+    "hex_value": "#C2C2C2",
+    "raw_observed_value": "#c2c2c2",
+    "wcag_role": "text-secondary",
+    "contrast_on_dark": 11.5,
+    "usage_notes": "Body copy, descriptions, and circular CTA labels (--gray)"
+  },
+  {
+    "token_id": "col-11",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "text",
+    "css_var": "--text-muted",
+    "hex_value": "#A8A8A8",
+    "raw_observed_value": "#a8a8a8",
+    "wcag_role": "text-muted",
+    "contrast_on_dark": 8.7,
+    "usage_notes": "WCAG AAA metadata captions replacing unstyled #6B6B6B/#212529"
+  },
+  {
+    "token_id": "col-12",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "text",
+    "css_var": "--text-on-accent",
+    "hex_value": "#020617",
+    "raw_observed_value": "#000000",
+    "wcag_role": "text-on-accent",
+    "contrast_on_dark": 9.9,
+    "usage_notes": "High-contrast dark text rendered over emerald #3BC77B/#65BC7B"
+  },
+  {
+    "token_id": "col-13",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "border",
+    "css_var": "--border-subtle",
+    "hex_value": "#2C2C2C",
+    "raw_observed_value": "#2c2c2c",
+    "wcag_role": "border-subtle",
+    "contrast_on_dark": 1.4,
+    "usage_notes": "Hairline 1px section dividers, row rules, circular CTA outlines (--secondary)"
+  },
+  {
+    "token_id": "col-14",
+    "theme_id": "dark-kinetic-emerald",
+    "token_group": "surface",
+    "css_var": "--surface-dropdown",
+    "hex_value": "#FFFFFF",
+    "raw_observed_value": "#fff",
+    "wcag_role": "dropdown-surface",
+    "contrast_on_dark": 21.0,
+    "usage_notes": "Light dropdown / mega-menu drawer surface paired with #121212 links"
+  }
+]

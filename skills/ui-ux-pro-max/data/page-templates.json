@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "total_pages": 9,
+  "total_pages": 13,
   "pages": [
     {
       "page_id": "home",
@@ -143,6 +143,64 @@
       "default_section_flow": [
         "navbar",
         "legal_doc",
+        "footer"
+      ]
+    },
+    {
+      "page_id": "product_showcase",
+      "name": "Products & Solutions Index",
+      "description": "Multi-product showcase directory highlighting enterprise software platforms with visual previews and vertical filtering.",
+      "default_section_flow": [
+        "navbar",
+        "hero",
+        "product_catalog_grid",
+        "trusted_by",
+        "final_cta",
+        "footer"
+      ]
+    },
+    {
+      "page_id": "product_detail",
+      "name": "Single Product & Feature Deep-Dive",
+      "description": "Dedicated SaaS/enterprise product landing template with multi-card capability breakdown, portal switcher, proof, and demo intake.",
+      "default_section_flow": [
+        "navbar",
+        "hero",
+        "product_feature_matrix",
+        "why_choose_us",
+        "trusted_by",
+        "testimonials",
+        "final_cta",
+        "footer"
+      ]
+    },
+    {
+      "page_id": "service_detail",
+      "name": "Single Service & Delivery Workflow",
+      "description": "Deep-dive template for an individual consulting or engineering practice covering architecture, capabilities, process, and SLAs.",
+      "default_section_flow": [
+        "navbar",
+        "hero",
+        "service_architecture",
+        "product_feature_matrix",
+        "how_we_work",
+        "service_deliverables_matrix",
+        "trusted_by",
+        "final_cta",
+        "footer"
+      ]
+    },
+    {
+      "page_id": "case_study_detail",
+      "name": "Single Case Study Dossier",
+      "description": "Detailed client engineering case study template with project metadata, challenge/solution split, UI gallery, and next/prev navigation.",
+      "default_section_flow": [
+        "navbar",
+        "case_study_hero_highlight",
+        "case_study_dossier",
+        "services",
+        "testimonials",
+        "final_cta",
         "footer"
       ]
     }

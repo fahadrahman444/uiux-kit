@@ -1,0 +1,239 @@
+{
+  "$schema": "https://design-tokens.org/format/1.0",
+  "meta": {
+    "system_name": "Dark Kinetic Emerald Agency UI/UX System",
+    "version": "1.1.0",
+    "kit_style_reference": "Dark Kinetic Emerald (styles.csv #59)",
+    "source_type": "extracted-uiux-system-no-company-data",
+    "accessibility_standard": "WCAG 2.2 AA/AAA"
+  },
+  "colors": {
+    "brand": {
+      "primary_accent": {
+        "value": "#3BC77B",
+        "css_var": "--color-accent-primary",
+        "note": "Primary kinetic emerald override replacing base theme #C9F31D",
+        "wcag_ink_on_accent": "#020617",
+        "contrast_ink_on_accent": 9.9
+      },
+      "accent_pill_border": {
+        "value": "#61CE70",
+        "css_var": "--color-accent-pill",
+        "note": "Header CTA pill 1px border accent"
+      },
+      "accent_pill_soft": {
+        "value": "#96DEA0",
+        "css_var": "--color-accent-soft",
+        "note": "Secondary light emerald highlight stroke"
+      },
+      "accent_filter_active": {
+        "value": "#65BC7B",
+        "css_var": "--color-filter-active",
+        "note": "Active portfolio category filter pill background",
+        "wcag_ink_on_accent": "#020617",
+        "contrast_ink_on_accent": 9.0
+      }
+    },
+    "surface": {
+      "canvas_oled": {
+        "value": "#000000",
+        "css_var": "--surface-canvas",
+        "note": "Primary full-bleed dark viewport background"
+      },
+      "base_deep": {
+        "value": "#0A0A0A",
+        "css_var": "--surface-base",
+        "note": "Secondary section canvas"
+      },
+      "card_dark": {
+        "value": "#121212",
+        "css_var": "--surface-card",
+        "note": "Elevated card and dropdown base surface (--black-2)"
+      },
+      "card_elevated": {
+        "value": "#1E1E1E",
+        "css_var": "--surface-elevated",
+        "note": "Alternating dark container, map land base, hairline band"
+      },
+      "light_contrast_band": {
+        "value": "#F8F8F8",
+        "css_var": "--surface-contrast-light",
+        "note": "Optional light contrast card/text highlight"
+      },
+      "white_pure": {
+        "value": "#FFFFFF",
+        "css_var": "--surface-white",
+        "note": "Pure white contrast surface and dropdown fill"
+      }
+    },
+    "text": {
+      "primary_on_dark": {
+        "value": "#FFFFFF",
+        "css_var": "--text-primary",
+        "contrast_vs_000000": 21.0,
+        "contrast_vs_121212": 18.8
+      },
+      "secondary_on_dark": {
+        "value": "#C2C2C2",
+        "css_var": "--text-secondary",
+        "contrast_vs_000000": 11.5,
+        "contrast_vs_121212": 10.3,
+        "note": "Use instead of base #212529 or #999999 for >= 7:1 dark legibility"
+      },
+      "muted_accessible_on_dark": {
+        "value": "#A8A8A8",
+        "css_var": "--text-muted",
+        "contrast_vs_000000": 8.74,
+        "note": "Accessible metadata / caption ink replacing #6B6B6B"
+      },
+      "primary_on_light_or_accent": {
+        "value": "#020617",
+        "css_var": "--text-on-accent",
+        "contrast_vs_3bc77b": 9.9,
+        "note": "High-contrast dark ink on emerald marquee, filter pills, and white dropdowns"
+      }
+    },
+    "border": {
+      "hairline_dark": {
+        "value": "#2C2C2C",
+        "css_var": "--border-subtle",
+        "note": "1px dividers, service list separators, circular CTA rings"
+      },
+      "line_dark": {
+        "value": "#1E1E1E",
+        "css_var": "--border-hairline",
+        "note": "Background grid line separator (--bg-line)"
+      },
+      "focus_ring": {
+        "value": "#3BC77B",
+        "css_var": "--border-focus",
+        "note": "2px focus-visible outer outline on interactive elements"
+      }
+    }
+  },
+  "typography": {
+    "font_families": {
+      "display": "'Poppins', ui-sans-serif, system-ui, -apple-system, sans-serif",
+      "body": "'Kanit', 'Poppins', ui-sans-serif, system-ui, sans-serif",
+      "mono": "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace"
+    },
+    "scale": {
+      "hero_index": { "desktop": "120px", "mobile": "52px", "line_height": "1.0", "weight": 500, "clamp": "clamp(3rem, 1.5rem + 5.5vw, 7.5rem)" },
+      "hero_detail": { "desktop": "110px", "mobile": "42px", "line_height": "1.1", "weight": 500, "clamp": "clamp(2.625rem, 1.5rem + 4.5vw, 6.875rem)" },
+      "hero_home": { "desktop": "98px", "mobile": "36px", "line_height": "1.17", "weight": 500, "clamp": "clamp(2.25rem, 1.4rem + 4.2vw, 6.125rem)" },
+      "counter_numeral": { "desktop": "100px", "mobile": "48px", "line_height": "1.1", "weight": 400, "clamp": "clamp(3rem, 1.8rem + 4.2vw, 6.25rem)" },
+      "hero_catalog": { "desktop": "92px", "mobile": "44px", "line_height": "1.06", "weight": 600, "clamp": "clamp(2.75rem, 1.6rem + 4vw, 5.75rem)" },
+      "hero_section_lead": { "desktop": "84px", "mobile": "42px", "line_height": "1.0", "weight": 500, "clamp": "clamp(2.625rem, 1.6rem + 3.5vw, 5.25rem)" },
+      "page_heading_secondary": { "desktop": "72px", "mobile": "38px", "line_height": "1.0", "weight": 600, "clamp": "clamp(2.375rem, 1.5rem + 3vw, 4.5rem)" },
+      "section_title": { "desktop": "60px", "mobile": "32px", "line_height": "1.0", "weight": 500, "clamp": "clamp(2rem, 1.4rem + 2.5vw, 3.75rem)" },
+      "service_row_title": { "desktop": "36px", "mobile": "24px", "line_height": "1.2", "weight": 500 },
+      "card_title": { "desktop": "24px", "mobile": "20px", "line_height": "1.35", "weight": 500 },
+      "marquee_strip": { "desktop": "21px", "mobile": "18px", "line_height": "1.2", "weight": 700 },
+      "body_base": { "desktop": "16px", "mobile": "16px", "line_height": "1.5", "weight": 400 },
+      "meta_caption": { "desktop": "14px", "mobile": "14px", "line_height": "1.4", "weight": 400 }
+    }
+  },
+  "layout_and_breakpoints": {
+    "header_height_desktop_px": 90,
+    "touch_target_min_px": 44,
+    "breakpoints_px": {
+      "mobile_sm": 479,
+      "mobile_bs": 575,
+      "tablet_portrait": 767,
+      "tablet_landscape": 1024,
+      "desktop_collapse": 1199,
+      "laptop": 1366,
+      "wide": 1400,
+      "ultrawide": 1919
+    },
+    "radii": {
+      "filter_pill": "5px",
+      "card_surface": "8px",
+      "dark_pill_cta": "33px",
+      "header_pill_cta": "46px",
+      "circular_cta": "9999px"
+    }
+  },
+  "buttons": {
+    "circular_magnetic_cta": {
+      "selector": ".wc-btn-primary.btn-hover.btn-item",
+      "wrapper_selector": ".btn_wrapper, #btn_wrapper",
+      "size_px": 170,
+      "wrapper_sizes_px": { "desktop": 250, "xl": 220, "lg": 190, "md": 180, "sm": 175 },
+      "border_radius": "100%",
+      "border": "1px solid #2C2C2C",
+      "icon_rotation_deg": -45,
+      "radial_fill_span": { "initial_px": 20, "hover_px": 350, "transition_s": 0.7, "bg": "#3BC77B" },
+      "magnetic_pull": { "movement_px": 80, "duration_s": 0.5, "ease": "power2.out" },
+      "outer_transition_s": 0.3
+    },
+    "header_pill_cta": {
+      "selector": ".hfe-menu-item.elementor-button",
+      "dimensions": "182x50px",
+      "border_radius": "46px",
+      "border": "1px solid #61CE70"
+    },
+    "dark_action_pill": {
+      "selector": ".wc-btn-dark",
+      "padding": "20px 54px",
+      "border": "1.3px solid #121212",
+      "border_radius": "33px",
+      "transition_s": 0.3
+    },
+    "mixitup_filter_pill": {
+      "selector": ".filter-button",
+      "height_px": 44,
+      "border_radius_px": 5,
+      "active_bg": "#65BC7B",
+      "recommended_active_ink": "#020617"
+    },
+    "video_modal_circle": {
+      "selector": ".cursor-btn, .yt-btn",
+      "size_px": 250,
+      "border_radius": "100%"
+    }
+  },
+  "motion": {
+    "page_scroll": {
+      "engine": "GSAP ScrollSmoother + ScrollTrigger",
+      "smooth_scroll_factor": 1.35,
+      "smooth_touch": false,
+      "effects_min_width_px": 1025,
+      "snap_behavior": "continuous-no-snap",
+      "data_speed_layers": [0.2, 0.3, 0.5, 0.9],
+      "portfolio_velocity_skew": { "selector": ".portfolio__item-5 img", "divisor": -80, "clamp_deg": [-15, 15], "reset_on_stop": true },
+      "scrub_zooms": {
+        "about_img_2": { "scale": [1, 1.15], "scrub": 1 },
+        "portfolio_img_6": { "scale": [2.5, 1], "scrub": 1.5 }
+      }
+    },
+    "scroll_entrances": {
+      "title_anim": { "selector": ".title-anim", "split": "words, lines", "perspective": 400, "rotation_x_deg": -80, "duration_s": 1.0, "delay_s": 0.3, "stagger_s": 0.1, "trigger_start": "top 90%" },
+      "text_anim": { "selector": ".text-anim p", "split": "lines", "perspective": 400, "rotation_x_deg": -80, "duration_s": 1.0, "delay_s": 0.5, "stagger_s": 0.1, "trigger_start": "top 90%" },
+      "char_come": { "selector": ".animation__char_come", "split": "chars, words", "x_px": 70, "duration_s": 1.0, "stagger_s": 0.05 },
+      "word_come": { "selector": ".animation__word_come", "split": "chars, words", "x_px": 50, "duration_s": 1.0, "stagger_s": 0.05 },
+      "fade_bottom": { "selector": ".fade_bottom", "y_px": 30, "duration_s": 1.0, "stagger_s": 0.2, "ease": "power2.out", "trigger_start": "top center+=300" },
+      "fade_left": { "selector": ".fade_left", "x_px": -20, "duration_s": 1.0, "stagger_s": 0.2, "ease": "power2.out" },
+      "home1_service": { "selector": ".animation_home1_service", "x_px": -50, "duration_s": 1.2, "overlap": "-=1" },
+      "counter_bounce": { "selector": ".counter_animation .counter__anim", "y_px": -100, "ease": "bounce", "duration_s": 1.5, "stagger_s": 0.3 },
+      "button_bounce": { "selector": ".btn_wrapper, #btn_wrapper", "y_px": -70, "ease": "bounce", "duration_s": 1.5 },
+      "zoom_in": { "selector": ".zoom_in", "y_px": 30, "scale": [0.5, 1], "duration_s": 1.0, "stagger_s": 0.2 },
+      "blog_slide": { "selector": ".blog__item, .blog__item-2, .blog__item-3", "x_px": 50, "duration_s": 2.0, "stagger_s": 0.3 }
+    },
+    "hover_and_cursor": {
+      "menu_char_wave": { "selector": ".menu-anim > li > a .menu-text span", "text_shadow_y_px": 16, "duration_s": 0.4, "per_char_delay_step_s": 0.05 },
+      "service_preview_swap": { "selector": ".service__img", "duration_ms": 500, "resting_transform": "rotate(0deg) translateX(-100px)", "active_transform": "rotate(15deg) translateX(60px) translateY(30px)", "ribbon_wipe": { "size": "175x70px", "rotate_deg": -26, "duration_s": 0.3, "delay_s": 0.2 } },
+      "portfolio_caption_slide": { "selector": ".portfolio__content-5", "resting_right_px": -70, "hover_right_px": -50, "duration_s": 0.5 },
+      "custom_cursors": { "desktop_min_px": 1201, "cursor1_px": 40, "cursor1_transition_s": 0.15, "cursor2_px": [8, 60], "cursor2_transition_s": 0.2, "blend_mode": "difference", "contextual_ids": ["client_cursor", "team_cursor", "portf_cursor_6", "featured_cursor", "portfolio4_cursor"] }
+    },
+    "pinned_and_sticky": {
+      "pins": [".portfolio__wrapper-6 -> .portfolio__title-wrap-6", ".job__detail-sidebar"],
+      "sticky_header_threshold_px": 20
+    },
+    "carousels": {
+      "roll_slider": { "speed_ms": 2000, "delay_ms": 1, "freemode": true, "slides_per_view_breakpoints": { "0": 1, "640": 3, "800": 3, "1024": 4, "1300": 5, "1900": 8 } },
+      "roll_slider_2": { "speed_ms": 10000, "delay_ms": 1, "space_between_px": 60 }
+    },
+    "reduced_motion_policy": "Disable ScrollSmoother, data-speed parallax, velocity skewY, SplitText 3D rotation, bounce drops, menu char wave, custom cursors, and marquee autoplay under prefers-reduced-motion: reduce"
+  }
+}

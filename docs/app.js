@@ -11,6 +11,7 @@
     friendly: ["modern", "saas", "approachable"],
     impressive: ["immersive", "interactive", "editorial", "bento"],
     innovative: ["tech", "ai", "modern", "cutting-edge"],
+    kinetic: ["dark", "emerald", "agency", "motion"],
   };
 
   const HIGH_CONTRAST_SERIFS = new Set([
@@ -78,6 +79,9 @@
     careers_perks: "perk-01",
     careers_jobs: "jobs-01",
     legal_doc: "leg-01",
+    product_catalog_grid: "pcg-01",
+    product_feature_matrix: "pfm-01",
+    case_study_dossier: "csd-01",
   };
 
   const PRESETS = {
@@ -672,11 +676,13 @@
       const linkCount = p.link_count ?? 5;
       if (p.mega_menu) return pick("nav-03");
       if (p.lead_header || p.primary_goal === "phone/lead" || p.conversion_focus === "ultra-high") return pick("nav-04");
+      if (p.kinetic_dark || p.has_dropdowns || s.includes("kinetic")) return pick("nav-07");
       if (s.includes("editorial")) return pick("nav-05");
       if (p.has_portal) return pick("nav-06");
       return linkCount <= 5 ? pick("nav-01") : pick("nav-02");
     }
     if (secId === "hero") {
+      if (p.kinetic_dark || p.circular_cta || s.includes("kinetic")) return pick("hero-11");
       if (p.has_video) return pick("hero-03");
       if (p.lead_magnet) return pick("hero-04");
       if (p.has_3d) return pick("hero-09");
@@ -690,6 +696,7 @@
     }
     if (secId === "trusted_by") {
       const logoCount = p.logo_count ?? 8;
+      if (p.kinetic_dark || s.includes("kinetic")) return pick("tb-07");
       if (p.compliance_required) return pick("tb-06");
       if (p.has_press) return pick("tb-04");
       if (p.has_case_studies) return pick("tb-05");
@@ -705,6 +712,7 @@
       return pick("abt-02");
     }
     if (secId === "services") {
+      if (p.kinetic_dark || p.hover_service_list || s.includes("kinetic")) return pick("srv-09");
       if (p.target_audience === "developers/ctos") return pick("srv-08");
       if (p.enterprise) return pick("srv-07");
       if (p.is_productized) return pick("srv-06");
@@ -739,6 +747,7 @@
     }
     if (secId === "portfolio") {
       const caseCount = p.case_count ?? 6;
+      if (p.kinetic_dark || p.mixitup_filter || s.includes("kinetic")) return pick("port-09");
       if (s.includes("avant-garde") || s.includes("editorial")) return pick("port-08");
       if (caseCount >= 10) return pick("port-04");
       if (p.has_metrics) return pick("port-02");
@@ -750,6 +759,7 @@
     }
     if (secId === "testimonials") {
       const reviews = p.review_count ?? 5;
+      if (p.kinetic_dark || s.includes("kinetic")) return pick("tst-09");
       if (p.has_video_reviews) return pick("tst-03");
       if (p.has_audio) return pick("tst-06");
       if (p.has_analytics_data) return pick("tst-05");
@@ -760,6 +770,7 @@
       return pick("tst-01");
     }
     if (secId === "results_metrics") {
+      if (p.kinetic_dark || p.oversized_counters || s.includes("kinetic")) return pick("res-07");
       if (p.has_live_data) return pick("res-05");
       if (p.has_before_after) return pick("res-02");
       if (p.has_analytics_data) return pick("res-03");
@@ -802,6 +813,7 @@
       return pick("cta-01");
     }
     if (secId === "footer") {
+      if (p.kinetic_dark || p.consultation_prefooter || s.includes("kinetic")) return pick("ftr-07");
       if (p.has_mobile_app) return pick("ftr-06");
       if (p.has_multiple_offices) return pick("ftr-05");
       if (p.has_newsletter) return pick("ftr-03");
@@ -870,6 +882,7 @@
       return pick("cform-01");
     }
     if (secId === "contact_location_map") {
+      if (p.geo_map || p.kinetic_dark || s.includes("kinetic")) return pick("cmap-03");
       return p.map_view ? pick("cmap-02") : pick("cmap-01");
     }
     if (secId === "contact_sla_banner") {
@@ -916,6 +929,18 @@
       if (p.multi_policy) return pick("leg-02");
       if (p.has_version_selector) return pick("leg-03");
       return pick("leg-01");
+    }
+    if (secId === "product_catalog_grid") {
+      if (p.has_categories || p.filterable_products) return pick("pcg-02");
+      return pick("pcg-01");
+    }
+    if (secId === "product_feature_matrix") {
+      if (p.has_portal) return pick("pfm-02");
+      return pick("pfm-01");
+    }
+    if (secId === "case_study_dossier") {
+      if (p.has_proof_stats) return pick("csd-02");
+      return pick("csd-01");
     }
 
     const fb = SECTION_FALLBACKS[secId] || archetypes[0].archetype_id;
@@ -1049,6 +1074,12 @@
     if (typoRow["Google Fonts URL"]) md.push(`- **Google Fonts URL:** ${typoRow["Google Fonts URL"]}`);
     md.push("- **Mono / Chips:** `JetBrains Mono` or `ui-monospace`");
     md.push("- **Motion:** 150–200ms `cubic-bezier(0.16,1,0.3,1)`, compositor-only (`transform`, `opacity`)");
+    if (ds.promptMatch && ds.promptMatch["CSS/Technical Keywords"]) {
+      md.push(`- **CSS/Motion Primitives:** \`${ds.promptMatch["CSS/Technical Keywords"]}\``);
+    }
+    if (projectInfo.kinetic_dark || String(projectInfo.style || "").toLowerCase().includes("kinetic")) {
+      md.push("- **Kinetic Scroll & Transition Spec:** Continuous smooth scroll (`ScrollSmoother` `1.35`, no section snap), differential `data-speed` layers (`0.2`, `0.3`, `0.5`, `0.9` on `>=1025px`), velocity `skewY` (`-15..15deg`), scrub zooms (`1->1.15`, `2.5->1`), `ScrollTrigger` entrances (`.title-anim`/`.text-anim p` `rotationX: -80deg` at `top 90%`, `.fade_bottom` `y:30->0` stagger `0.2s`, `.animation_home1_service` `x:-50->0`, `.bounce` counters `y:-100` & CTAs `y:-70`, `.blog__item` `x:50->0`), pinned columns (`.portfolio__title-wrap-6`, `.job__detail-sidebar`), sticky header past `20px`, `170px` CTA (`0.7s` radial fill + `0.5s` `80px` magnetic pull), `.menu-text` char wave (`0.05s/char` `16px` `text-shadow`), `15deg` diagonal `.service__img` swap + `-26deg` ribbon wipe (`0.3s`), desktop (`>1200px`) `.cursor1`/`.cursor2` (`mix-blend-mode: difference`), and `prefers-reduced-motion` + `:focus-visible` parity.");
+    }
     md.push("- **Anti-Slop:** Zero gradient blobs · Zero emoji icons · Zero rainbow borders\n");
 
     md.push("---");

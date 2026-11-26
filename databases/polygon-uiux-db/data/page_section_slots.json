@@ -1,0 +1,434 @@
+[
+  {
+    "slot_id": "ps-01",
+    "page_id": "tpl-01",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-02",
+    "page_id": "tpl-01",
+    "position": 2,
+    "section_id": "sec-02",
+    "layout_variant": "asymmetric-98px-hero",
+    "sample_slots_json": "{\"slots\": [\"{{hero_eyebrow}}\", \"{{hero_h1}}\", \"{{hero_copy}}\", \"{{circle_cta}}\", \"{{video_modal_btn}}\"]}"
+  },
+  {
+    "slot_id": "ps-03",
+    "page_id": "tpl-01",
+    "position": 3,
+    "section_id": "sec-03",
+    "layout_variant": "emerald-108px-marquee",
+    "sample_slots_json": "{\"slots\": [\"{{marquee_chips[]}}\"]}"
+  },
+  {
+    "slot_id": "ps-04",
+    "page_id": "tpl-01",
+    "position": 4,
+    "section_id": "sec-04",
+    "layout_variant": "sticky-preview-numbered-rows",
+    "sample_slots_json": "{\"slots\": [\"{{services_intro}}\", \"{{service_rows[01..05]}}\"]}"
+  },
+  {
+    "slot_id": "ps-05",
+    "page_id": "tpl-01",
+    "position": 5,
+    "section_id": "sec-05",
+    "layout_variant": "100px-countup-4col",
+    "sample_slots_json": "{\"slots\": [\"{{stat_1}}\", \"{{stat_2}}\", \"{{stat_3}}\", \"{{stat_4}}\"]}"
+  },
+  {
+    "slot_id": "ps-06",
+    "page_id": "tpl-01",
+    "position": 6,
+    "section_id": "sec-06",
+    "layout_variant": "svg-world-map-ticker",
+    "sample_slots_json": "{\"slots\": [\"{{coverage_headline}}\", \"{{active_countries[]}}\"]}"
+  },
+  {
+    "slot_id": "ps-07",
+    "page_id": "tpl-01",
+    "position": 7,
+    "section_id": "sec-03",
+    "layout_variant": "24-logo-monochrome-wall",
+    "sample_slots_json": "{\"slots\": [\"{{client_logos[24]}}\"]}"
+  },
+  {
+    "slot_id": "ps-08",
+    "page_id": "tpl-01",
+    "position": 8,
+    "section_id": "sec-08",
+    "layout_variant": "video-modal-swiper",
+    "sample_slots_json": "{\"slots\": [\"{{testimonial_slides[]}}\"]}"
+  },
+  {
+    "slot_id": "ps-09",
+    "page_id": "tpl-01",
+    "position": 9,
+    "section_id": "sec-12",
+    "layout_variant": "prefooter-form-4col-footer",
+    "sample_slots_json": "{\"slots\": [\"{{consultation_form}}\", \"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-10",
+    "page_id": "tpl-02",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-11",
+    "page_id": "tpl-02",
+    "position": 2,
+    "section_id": "sec-02",
+    "layout_variant": "62px-manifesto-hero",
+    "sample_slots_json": "{\"slots\": [\"{{about_headline}}\", \"{{studio_video_trigger}}\"]}"
+  },
+  {
+    "slot_id": "ps-12",
+    "page_id": "tpl-02",
+    "position": 3,
+    "section_id": "sec-05",
+    "layout_variant": "100px-countup-4col",
+    "sample_slots_json": "{\"slots\": [\"{{milestone_stats[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-13",
+    "page_id": "tpl-02",
+    "position": 4,
+    "section_id": "sec-03",
+    "layout_variant": "24-logo-monochrome-wall",
+    "sample_slots_json": "{\"slots\": [\"{{client_logos[24]}}\"]}"
+  },
+  {
+    "slot_id": "ps-14",
+    "page_id": "tpl-02",
+    "position": 5,
+    "section_id": "sec-12",
+    "layout_variant": "prefooter-form-4col-footer",
+    "sample_slots_json": "{\"slots\": [\"{{consultation_form}}\", \"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-15",
+    "page_id": "tpl-03",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-16",
+    "page_id": "tpl-03",
+    "position": 2,
+    "section_id": "sec-04",
+    "layout_variant": "full-service-showcase-blocks",
+    "sample_slots_json": "{\"slots\": [\"{{practice_pillars[4..6]}}\"]}"
+  },
+  {
+    "slot_id": "ps-17",
+    "page_id": "tpl-03",
+    "position": 3,
+    "section_id": "sec-03",
+    "layout_variant": "24-logo-monochrome-wall",
+    "sample_slots_json": "{\"slots\": [\"{{client_logos[24]}}\"]}"
+  },
+  {
+    "slot_id": "ps-18",
+    "page_id": "tpl-03",
+    "position": 4,
+    "section_id": "sec-12",
+    "layout_variant": "prefooter-form-4col-footer",
+    "sample_slots_json": "{\"slots\": [\"{{consultation_form}}\", \"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-19",
+    "page_id": "tpl-04",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-20",
+    "page_id": "tpl-04",
+    "position": 2,
+    "section_id": "sec-02",
+    "layout_variant": "110px-detail-hero",
+    "sample_slots_json": "{\"slots\": [\"{{service_title}}\", \"{{service_banner_img}}\"]}"
+  },
+  {
+    "slot_id": "ps-21",
+    "page_id": "tpl-04",
+    "position": 3,
+    "section_id": "sec-10",
+    "layout_variant": "4col-subcapability-grid",
+    "sample_slots_json": "{\"slots\": [\"{{subcapabilities[]}}\"]}"
+  },
+  {
+    "slot_id": "ps-22",
+    "page_id": "tpl-04",
+    "position": 4,
+    "section_id": "sec-12",
+    "layout_variant": "prefooter-form-4col-footer",
+    "sample_slots_json": "{\"slots\": [\"{{consultation_form}}\", \"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-23",
+    "page_id": "tpl-05",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-24",
+    "page_id": "tpl-05",
+    "position": 2,
+    "section_id": "sec-09",
+    "layout_variant": "92px-hero-staggered-catalog",
+    "sample_slots_json": "{\"slots\": [\"{{catalog_headline}}\", \"{{product_cards[]}}\"]}"
+  },
+  {
+    "slot_id": "ps-25",
+    "page_id": "tpl-05",
+    "position": 3,
+    "section_id": "sec-12",
+    "layout_variant": "prefooter-form-4col-footer",
+    "sample_slots_json": "{\"slots\": [\"{{consultation_form}}\", \"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-26",
+    "page_id": "tpl-06",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-27",
+    "page_id": "tpl-06",
+    "position": 2,
+    "section_id": "sec-02",
+    "layout_variant": "100px-product-hero",
+    "sample_slots_json": "{\"slots\": [\"{{product_title}}\", \"{{product_mockup}}\"]}"
+  },
+  {
+    "slot_id": "ps-28",
+    "page_id": "tpl-06",
+    "position": 3,
+    "section_id": "sec-10",
+    "layout_variant": "8-card-feature-matrix-portals",
+    "sample_slots_json": "{\"slots\": [\"{{core_features[8]}}\", \"{{extra_chips[6]}}\", \"{{portal_tabs[3]}}\"]}"
+  },
+  {
+    "slot_id": "ps-29",
+    "page_id": "tpl-06",
+    "position": 4,
+    "section_id": "sec-12",
+    "layout_variant": "prefooter-form-4col-footer",
+    "sample_slots_json": "{\"slots\": [\"{{consultation_form}}\", \"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-30",
+    "page_id": "tpl-07",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-31",
+    "page_id": "tpl-07",
+    "position": 2,
+    "section_id": "sec-07",
+    "layout_variant": "120px-mixitup-portfolio-grid",
+    "sample_slots_json": "{\"slots\": [\"{{filter_pills[]}}\", \"{{portfolio_cards[]}}\"]}"
+  },
+  {
+    "slot_id": "ps-32",
+    "page_id": "tpl-07",
+    "position": 3,
+    "section_id": "sec-03",
+    "layout_variant": "24-logo-monochrome-wall",
+    "sample_slots_json": "{\"slots\": [\"{{client_logos[24]}}\"]}"
+  },
+  {
+    "slot_id": "ps-33",
+    "page_id": "tpl-07",
+    "position": 4,
+    "section_id": "sec-12",
+    "layout_variant": "prefooter-form-4col-footer",
+    "sample_slots_json": "{\"slots\": [\"{{consultation_form}}\", \"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-34",
+    "page_id": "tpl-08",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-35",
+    "page_id": "tpl-08",
+    "position": 2,
+    "section_id": "sec-11",
+    "layout_variant": "100px-dossier-challenge-solution",
+    "sample_slots_json": "{\"slots\": [\"{{meta_4col}}\", \"{{ui_gallery}}\", \"{{challenge_solution_split}}\", \"{{next_prev_dossier}}\"]}"
+  },
+  {
+    "slot_id": "ps-36",
+    "page_id": "tpl-08",
+    "position": 3,
+    "section_id": "sec-12",
+    "layout_variant": "prefooter-cta-4col-footer",
+    "sample_slots_json": "{\"slots\": [\"{{prefooter_cta}}\", \"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-37",
+    "page_id": "tpl-09",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-38",
+    "page_id": "tpl-09",
+    "position": 2,
+    "section_id": "sec-03",
+    "layout_variant": "72px-24-logo-wall",
+    "sample_slots_json": "{\"slots\": [\"{{clients_heading}}\", \"{{client_logos[24]}}\"]}"
+  },
+  {
+    "slot_id": "ps-39",
+    "page_id": "tpl-09",
+    "position": 3,
+    "section_id": "sec-05",
+    "layout_variant": "100px-countup-4col",
+    "sample_slots_json": "{\"slots\": [\"{{impact_stats[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-40",
+    "page_id": "tpl-09",
+    "position": 4,
+    "section_id": "sec-12",
+    "layout_variant": "prefooter-form-4col-footer",
+    "sample_slots_json": "{\"slots\": [\"{{consultation_form}}\", \"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-41",
+    "page_id": "tpl-10",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-42",
+    "page_id": "tpl-10",
+    "position": 2,
+    "section_id": "sec-04",
+    "layout_variant": "72px-partner-benefit-tiers",
+    "sample_slots_json": "{\"slots\": [\"{{partner_headline}}\", \"{{benefit_cards[]}}\"]}"
+  },
+  {
+    "slot_id": "ps-43",
+    "page_id": "tpl-10",
+    "position": 3,
+    "section_id": "sec-12",
+    "layout_variant": "prefooter-form-4col-footer",
+    "sample_slots_json": "{\"slots\": [\"{{partner_inquiry_form}}\", \"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-44",
+    "page_id": "tpl-11",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-45",
+    "page_id": "tpl-11",
+    "position": 2,
+    "section_id": "sec-02",
+    "layout_variant": "110px-translucent-team-hero",
+    "sample_slots_json": "{\"slots\": [\"{{team_headline}}\", \"{{leadership_grid[]}}\"]}"
+  },
+  {
+    "slot_id": "ps-46",
+    "page_id": "tpl-11",
+    "position": 3,
+    "section_id": "sec-12",
+    "layout_variant": "careers-cta-4col-footer",
+    "sample_slots_json": "{\"slots\": [\"{{careers_cta}}\", \"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-47",
+    "page_id": "tpl-12",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-48",
+    "page_id": "tpl-12",
+    "position": 2,
+    "section_id": "sec-04",
+    "layout_variant": "72px-job-requisitions-list",
+    "sample_slots_json": "{\"slots\": [\"{{open_roles[]}}\", \"{{circle_apply_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-49",
+    "page_id": "tpl-12",
+    "position": 3,
+    "section_id": "sec-12",
+    "layout_variant": "footer-4col",
+    "sample_slots_json": "{\"slots\": [\"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-50",
+    "page_id": "tpl-13",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-51",
+    "page_id": "tpl-13",
+    "position": 2,
+    "section_id": "sec-07",
+    "layout_variant": "62px-3col-blog-grid-pagination",
+    "sample_slots_json": "{\"slots\": [\"{{article_cards[3col]}}\", \"{{circular_pagination}}\"]}"
+  },
+  {
+    "slot_id": "ps-52",
+    "page_id": "tpl-13",
+    "position": 3,
+    "section_id": "sec-12",
+    "layout_variant": "footer-4col",
+    "sample_slots_json": "{\"slots\": [\"{{footer_columns[4]}}\"]}"
+  },
+  {
+    "slot_id": "ps-53",
+    "page_id": "tpl-14",
+    "position": 1,
+    "section_id": "sec-01",
+    "layout_variant": "dark-overlay",
+    "sample_slots_json": "{\"slots\": [\"{{brand_logo}}\", \"{{nav_links[6]}}\", \"{{pill_cta}}\"]}"
+  },
+  {
+    "slot_id": "ps-54",
+    "page_id": "tpl-14",
+    "position": 2,
+    "section_id": "sec-12",
+    "layout_variant": "84px-contact-2col-intake-footer",
+    "sample_slots_json": "{\"slots\": [\"{{office_placeholders}}\", \"{{intake_form}}\", \"{{footer_columns[4]}}\"]}"
+  }
+]

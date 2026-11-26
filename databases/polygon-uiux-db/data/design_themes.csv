@@ -1,0 +1,2 @@
+theme_id,name,mode,kit_style_ref,primary_accent,background_base,surface_raised,border_subtle,heading_font,body_font,notes
+dark-kinetic-emerald,Dark Kinetic Emerald Agency,dark,Dark Kinetic Emerald,#3BC77B,#000000,#121212,#2C2C2C,Poppins,Kanit,"Dark OLED canvas paired with ScrollSmoother (1.35), data-speed parallax, SplitText rotationX (-80deg) reveals, 170px radial/magnetic CTAs, char-wave nav links, 15deg diagonal service previews, and 100px bounce counters."

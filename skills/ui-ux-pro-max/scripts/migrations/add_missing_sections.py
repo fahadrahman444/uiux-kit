@@ -7,7 +7,9 @@ Run from any directory.
 """
 
 import json
+import sys
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from dataset_utils import DATA_DIR, write_sections_dataset
 
 NEW_SECTIONS = [

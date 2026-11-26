@@ -1,0 +1,74 @@
+[
+  {
+    "finding_id": "rem-01",
+    "theme_id": "dark-kinetic-emerald",
+    "category": "contrast",
+    "severity": "blocker",
+    "source_selector_or_line": "rgb(33, 37, 41) / #212529 (186-323 elements/page)",
+    "observed_issue": "Bootstrap default dark body color leaked onto black #000000 containers across routes.",
+    "remediation_applied": "Enforce --text-primary (#FFFFFF, 21:1) and --text-secondary (#C2C2C2, 11.5:1) on all dark wrappers."
+  },
+  {
+    "finding_id": "rem-02",
+    "theme_id": "dark-kinetic-emerald",
+    "category": "contrast",
+    "severity": "major",
+    "source_selector_or_line": "#6B6B6B / #494C4F / #999999 captions",
+    "observed_issue": "Muted greys drop below WCAG AA on #000000 and #121212 card surfaces.",
+    "remediation_applied": "Standardize caption ink on --text-muted (#A8A8A8, 8.74:1 AAA on #000000)."
+  },
+  {
+    "finding_id": "rem-03",
+    "theme_id": "dark-kinetic-emerald",
+    "category": "contrast",
+    "severity": "blocker",
+    "source_selector_or_line": ".filter-button.active",
+    "observed_issue": "White #FFFFFF text rendered over light green #65BC7B active filter background fails WCAG AA contrast.",
+    "remediation_applied": "Pair active #65BC7B and #3BC77B surfaces with --text-on-accent (#020617, 9.0:1-9.9:1 AAA)."
+  },
+  {
+    "finding_id": "rem-04",
+    "theme_id": "dark-kinetic-emerald",
+    "category": "performance",
+    "severity": "blocker",
+    "source_selector_or_line": "axtra_main.js lines 766 & 1897 (.service__item-3, .team__item-7)",
+    "observed_issue": "mousemove attaches un-cleared setInterval(followImageCursor(...), 1000) and invokes callback eagerly per pointer frame.",
+    "remediation_applied": "Replace mousemove timers with CSS compositor hover transitions and optional requestAnimationFrame throttling."
+  },
+  {
+    "finding_id": "rem-05",
+    "theme_id": "dark-kinetic-emerald",
+    "category": "a11y-motion",
+    "severity": "blocker",
+    "source_selector_or_line": "ScrollSmoother, SplitText .title-anim, bounce drops, custom cursors",
+    "observed_issue": "3D rotationX(-80deg) line flips, velocity skewY, smooth scroll inertia, and infinite marquees run without reduced-motion checks.",
+    "remediation_applied": "Gate all GSAP timelines behind matchMedia reduced-motion checks and apply global @media (prefers-reduced-motion: reduce) CSS."
+  },
+  {
+    "finding_id": "rem-06",
+    "theme_id": "dark-kinetic-emerald",
+    "category": "a11y-keyboard",
+    "severity": "major",
+    "source_selector_or_line": ".service__img / .portfolio__content-5 / .wc-btn-primary.btn-hover",
+    "observed_issue": "Sticky image swaps and sliding project labels respond only to mouse hover events.",
+    "remediation_applied": "Mirror :hover visibility rules with :focus-visible / :focus-within and apply 2px #3BC77B focus-visible outlines."
+  },
+  {
+    "finding_id": "rem-07",
+    "theme_id": "dark-kinetic-emerald",
+    "category": "responsive-type",
+    "severity": "minor",
+    "source_selector_or_line": "/projects H1 (82px) & /blog H1 (62px) at 375px",
+    "observed_issue": "Some display headings stayed disproportionately huge on 375px viewports despite 0px overflow.",
+    "remediation_applied": "Use fluid clamp() typography scales (e.g. clamp(3rem, 1.5rem + 5.5vw, 7.5rem)) across all hero tokens."
+  },
+  {
+    "finding_id": "rem-08",
+    "theme_id": "dark-kinetic-emerald",
+    "category": "anti-slop",
+    "severity": "minor",
+    "source_selector_or_line": "axtra_main.js .end (chroma ['#F9D371','#F47340','#EF2F88','#8843F2'])",
+    "observed_issue": "Multi-stop repeating elastic rainbow text animation conflicts with clean emerald agency identity.",
+    "remediation_applied": "Exclude rainbow chroma loop; restrict accents cleanly to #3BC77B / #61CE70 / #65BC7B."
+  }
+]

@@ -95,3 +95,5 @@ No,Product Type,Keywords,Primary (Hex),Secondary (Hex),CTA (Hex),Background (Hex
 94,Generative AI Art,"art, gen-ai, creative",#111111,#333333,#18181B,#FAFAFA,#000000,#E5E5E5,Canvas Neutral + High Contrast
 95,Spatial / Vision OS,"spatial, glass, vision",#FFFFFF,#E5E5E5,#0051B3,#F5F5F7,#000000,#D4D4D8,Apple HIG neutral glass canvas + high-contrast system blue
 96,Climate Tech,"climate, green, energy",#2E8B57,#87CEEB,#854D0E,#F0FFF4,#1A3320,#C6E6C6,Nature Green + Solar Yellow + Air Blue
+97,Software Agency / Tech Consultancy,"software, agency, consultancy, tech, kinetic, dark, emerald, enterprise",#3BC77B,#61CE70,#3BC77B,#000000,#FFFFFF,#2C2C2C,OLED Black (#000000) + Emerald Mint (#3BC77B) + Charcoal Border (#2C2C2C)
+98,Enterprise Digital Solutions Hub,"solutions, products, fintech, ekyc, digital, enterprise, dark, agency",#3BC77B,#65BC7B,#3BC77B,#0A0A0A,#FFFFFF,#1E1E1E,Deep Charcoal (#0A0A0A) + Emerald Pill (#65BC7B) + White Ink (#FFFFFF)

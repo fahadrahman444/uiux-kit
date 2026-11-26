@@ -1,0 +1,156 @@
+[
+  {
+    "page_id": "tpl-01",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Home / Agency Flagship Landing",
+    "source_route_pattern": "/",
+    "kit_page_id": "home",
+    "desktop_section_count": 14,
+    "h1_size_px": 98,
+    "mobile_h1_size_px": 28,
+    "layout_notes": "Continuous ScrollSmoother (1.35) + data-speed (0.2-0.9) parallax across 14 bands: SplitText hero -> emerald marquee -> split intro -> 15deg sticky services -> quote -> bounce counters -> coverage map -> 24-logo wall -> video testimonials -> 3-col blog slide-in -> intake form -> footer"
+  },
+  {
+    "page_id": "tpl-02",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "About Company & Global Delivery",
+    "source_route_pattern": "/about",
+    "kit_page_id": "about",
+    "desktop_section_count": 8,
+    "h1_size_px": 62,
+    "mobile_h1_size_px": 42,
+    "layout_notes": "About manifesto header -> studio ethos + video modal -> marquee & scrub-zoom imagery -> bounce count-up milestones -> team highlights -> 24-logo wall -> consultation pre-footer -> footer"
+  },
+  {
+    "page_id": "tpl-03",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Services Index Directory",
+    "source_route_pattern": "/services",
+    "kit_page_id": "services",
+    "desktop_section_count": 7,
+    "h1_size_px": 84,
+    "mobile_h1_size_px": 50,
+    "layout_notes": "Lead hero (84px) -> 4-5 vertical numbered service blocks (.animation_home1_service x:-50->0) with 170px radial CTAs & nested capability chips -> logo wall -> footer"
+  },
+  {
+    "page_id": "tpl-04",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Service Practice Detail",
+    "source_route_pattern": "/services/{{service_slug}}",
+    "kit_page_id": "service_detail",
+    "desktop_section_count": 11,
+    "h1_size_px": 110,
+    "mobile_h1_size_px": 42,
+    "layout_notes": "110px display title -> hero banner -> layered technical breakdown -> 4-col sub-capabilities -> workflow__slider -> flip cards -> 24-logo wall -> intake footer"
+  },
+  {
+    "page_id": "tpl-05",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Software Products Catalog",
+    "source_route_pattern": "/products",
+    "kit_page_id": "product_showcase",
+    "desktop_section_count": 4,
+    "h1_size_px": 92,
+    "mobile_h1_size_px": 52,
+    "layout_notes": "92px catalog H1 + staggered thumbnail showcase strip -> 2/3-col dark product card grid -> pre-footer intake -> footer"
+  },
+  {
+    "page_id": "tpl-06",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Product / SaaS Platform Detail",
+    "source_route_pattern": "/products/{{product_slug}}",
+    "kit_page_id": "product_detail",
+    "desktop_section_count": 9,
+    "h1_size_px": 100,
+    "mobile_h1_size_px": 48,
+    "layout_notes": "100px product H1 -> banner -> 8-card feature matrix (.animation__feature2) -> 6 feature chips -> multi-portal capabilities -> 3-col differentiators -> intake footer"
+  },
+  {
+    "page_id": "tpl-07",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Projects / Portfolio Filter Hub",
+    "source_route_pattern": "/projects",
+    "kit_page_id": "case_studies",
+    "desktop_section_count": 4,
+    "h1_size_px": 120,
+    "mobile_h1_size_px": 82,
+    "layout_notes": "120px index H1 -> MixItUp 44px filter pills (#65BC7B active) + 3-col dark project grid with scroll velocity skewY & hover overlay -> logo wall -> footer"
+  },
+  {
+    "page_id": "tpl-08",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Case Study Dossier Detail",
+    "source_route_pattern": "/projects/{{project_slug}}",
+    "kit_page_id": "case_study_detail",
+    "desktop_section_count": 14,
+    "h1_size_px": 100,
+    "mobile_h1_size_px": 48,
+    "layout_notes": "100px project H1 -> scrub hero UI mockup -> 4-col meta grid -> Challenge/Solution split -> feature cards + screen gallery slider -> circular CTA + outcome metrics -> Next/Prev nav -> footer"
+  },
+  {
+    "page_id": "tpl-09",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Clients & Impact Wall",
+    "source_route_pattern": "/clients",
+    "kit_page_id": "case_studies",
+    "desktop_section_count": 5,
+    "h1_size_px": 72,
+    "mobile_h1_size_px": 42,
+    "layout_notes": "72px client headline -> 24-tile monochrome client wall -> 100px bounce count-up impact stats -> video/executive testimonials -> pre-footer intake -> footer"
+  },
+  {
+    "page_id": "tpl-10",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Technology & Solution Partners",
+    "source_route_pattern": "/partners",
+    "kit_page_id": "about",
+    "desktop_section_count": 6,
+    "h1_size_px": 72,
+    "mobile_h1_size_px": 38,
+    "layout_notes": "72px partnership headline -> partner model banner -> tier benefit cards -> workflow showcase -> partnership intake form -> footer"
+  },
+  {
+    "page_id": "tpl-11",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Leadership & Engineering Team",
+    "source_route_pattern": "/team",
+    "kit_page_id": "about",
+    "desktop_section_count": 8,
+    "h1_size_px": 110,
+    "mobile_h1_size_px": 52,
+    "layout_notes": "110px translucent editorial H1 -> multi-tier portrait grid with cursor follow -> visual culture banner -> careers CTA band -> footer"
+  },
+  {
+    "page_id": "tpl-12",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Careers & Open Positions",
+    "source_route_pattern": "/careers",
+    "kit_page_id": "careers",
+    "desktop_section_count": 2,
+    "h1_size_px": 72,
+    "mobile_h1_size_px": 42,
+    "layout_notes": "Centered careers intro + radial circular CTA -> 72px Open Positions header + bold 28px job listing cards + pinned job sidebar -> footer"
+  },
+  {
+    "page_id": "tpl-13",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Editorial Insights & Engineering Blog",
+    "source_route_pattern": "/blog",
+    "kit_page_id": "blog",
+    "desktop_section_count": 2,
+    "h1_size_px": 62,
+    "mobile_h1_size_px": 62,
+    "layout_notes": "62px Blog heading -> 3-column article grid (.blog__item-3 horizontal x:50->0 slide, underline links) + 60px circular pagination -> footer"
+  },
+  {
+    "page_id": "tpl-14",
+    "theme_id": "dark-kinetic-emerald",
+    "template_name": "Contact & Consultation Intake",
+    "source_route_pattern": "/contact",
+    "kit_page_id": "contact",
+    "desktop_section_count": 3,
+    "h1_size_px": 84,
+    "mobile_h1_size_px": 50,
+    "layout_notes": "84px contact hero -> 2-column office & channels details + consultation form with 170px radial magnetic submit CTA -> footer"
+  }
+]

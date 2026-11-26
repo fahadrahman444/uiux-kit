@@ -5,6 +5,9 @@ Add dedicated Careers & Talent Acquisition Page sections and archetypes to
 section-archetypes.json and rebuild section-archetypes.csv.
 """
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from dataset_utils import upsert_sections
 
 CAREERS_SECTIONS = [

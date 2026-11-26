@@ -9,7 +9,7 @@ silently DESTROYING the 3 additional sections (why_choose_us, results_metrics, t
 and reverting the dataset from 106 to 72 archetypes.
 
 Canonical rebuild tool (all 15 sections, 106 archetypes):
-  python add_missing_sections.py
+  python migrations/add_missing_sections.py
 
 If you need to add new sections or archetypes, edit add_missing_sections.py instead.
 """

@@ -185,6 +185,8 @@ def choose_sections(product_type: str, landing_name: str) -> list[str]:
         return ["navbar", "hero", "service_architecture", "service_tech_stack", "faq", "final_cta", "footer"]
     if "newsletter" in landing_name.lower() or "blog" in pt or "magazine" in pt:
         return ["navbar", "blog_featured_editorial", "blog_topic_filter_feed", "blog_newsletter_capture", "footer"]
+    if "software agency" in pt or "solutions hub" in pt or "dark kinetic" in landing_name.lower():
+        return ["navbar", "hero", "trusted_by", "about", "services", "results_metrics", "portfolio", "testimonials", "final_cta", "footer"]
     return base + ["services", "how_we_work", "results_metrics", "testimonials", "faq", "final_cta", "footer"]
 
 

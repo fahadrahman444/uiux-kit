@@ -2,8 +2,8 @@
 
 > **Project:** UI/UX Pro Max Engine  
 > **Repository:** Root (`skills/ui-ux-pro-max/`, `components/`, `docs/`)  
-> **Current Milestone:** 9 of 9 Core Pages Complete (100% Complete — Live in Static Studio & Python API)  
-> **Current Scale:** 40 Sections · 173 Archetypes · 0 Critical Audit Errors  
+> **Current Milestone:** 13 of 13 Core & Detail Pages Complete (100% Complete — Live in Static Studio & Python API)  
+> **Current Scale:** 43 Sections · 188 Archetypes · 0 Critical Audit Errors  
 > **Compliance Standard:** WCAG 2.2 AA / AAA · Anti-Slop Rubric (SLOP-001 to SLOP-006)
 
 ---
@@ -50,14 +50,15 @@ flowchart TD
 | Page Template | Route | Sections in Flow | Status | Artifact / Script Link |
 |---|---|:---:|:---:|---|
 | **01. Homepage** | `/` (`home`) | 16 | Complete | [page-templates.json](skills/ui-ux-pro-max/data/page-templates.json) |
-| **02. Pricing** | `/pricing` (`pricing`) | 10 | Complete | [add_pricing_page_sections.py](skills/ui-ux-pro-max/scripts/add_pricing_page_sections.py) |
-| **03. About Us** | `/about` (`about`) | 8 | Complete | [add_about_page_sections.py](skills/ui-ux-pro-max/scripts/add_about_page_sections.py) |
-| **04. Services & Solutions** | `/services` (`services`) | 8 | Complete | [add_services_page_sections.py](skills/ui-ux-pro-max/scripts/add_services_page_sections.py) |
-| **05. Case Studies Hub** | `/case-studies` (`case_studies`) | 7 | Complete | [add_case_studies_page_sections.py](skills/ui-ux-pro-max/scripts/add_case_studies_page_sections.py) |
-| **06. Contact & Intake** | `/contact` (`contact`) | 7 | Complete | [add_contact_page_sections.py](skills/ui-ux-pro-max/scripts/add_contact_page_sections.py) |
-| **07. Blog & Resources** | `/blog` (`blog`) | 6 | Complete | [add_blog_page_sections.py](skills/ui-ux-pro-max/scripts/add_blog_page_sections.py) |
-| **08. Careers & Jobs** | `/careers` (`careers`) | 6 | Complete | [add_careers_page_sections.py](skills/ui-ux-pro-max/scripts/add_careers_page_sections.py) |
-| **09. Legal & Compliance** | `/legal` (`legal`) | 4 | Complete | [add_legal_page_sections.py](skills/ui-ux-pro-max/scripts/add_legal_page_sections.py) |
+| **02. Pricing** | `/pricing` (`pricing`) | 10 | Complete | [add_pricing_page_sections.py](skills/ui-ux-pro-max/scripts/migrations/add_pricing_page_sections.py) |
+| **03. About Us** | `/about` (`about`) | 8 | Complete | [add_about_page_sections.py](skills/ui-ux-pro-max/scripts/migrations/add_about_page_sections.py) |
+| **04. Services & Solutions** | `/services` (`services`) | 8 | Complete | [add_services_page_sections.py](skills/ui-ux-pro-max/scripts/migrations/add_services_page_sections.py) |
+| **05. Case Studies Hub** | `/case-studies` (`case_studies`) | 7 | Complete | [add_case_studies_page_sections.py](skills/ui-ux-pro-max/scripts/migrations/add_case_studies_page_sections.py) |
+| **06. Contact & Intake** | `/contact` (`contact`) | 7 | Complete | [add_contact_page_sections.py](skills/ui-ux-pro-max/scripts/migrations/add_contact_page_sections.py) |
+| **07. Blog & Resources** | `/blog` (`blog`) | 6 | Complete | [add_blog_page_sections.py](skills/ui-ux-pro-max/scripts/migrations/add_blog_page_sections.py) |
+| **08. Careers & Jobs** | `/careers` (`careers`) | 6 | Complete | [add_careers_page_sections.py](skills/ui-ux-pro-max/scripts/migrations/add_careers_page_sections.py) |
+| **09. Legal & Compliance** | `/legal` (`legal`) | 4 | Complete | [add_legal_page_sections.py](skills/ui-ux-pro-max/scripts/migrations/add_legal_page_sections.py) |
+| **10–13. Kinetic Agency & Detail Routes** | `product_showcase`, `product_detail`, `service_detail`, `case_study_detail` | 6–9 | Complete | [add_kinetic_agency_sections.py](skills/ui-ux-pro-max/scripts/migrations/add_kinetic_agency_sections.py) |
 
 ---
 

@@ -20,7 +20,8 @@ The kit enforces **WCAG 2.2 AA accessibility**, **mobile ergonomics (`>= 44px` t
 * **[WORKFLOW.md](WORKFLOW.md):** Hardened operational UI/UX engineering workflow (`v1.6.1`), 3-tier token architecture, single-source-of-truth rules, and waiver governance.
 * **[AUDIT_REPORT.md](AUDIT_REPORT.md):** Latest verified audit metrics across all **7 verification suites** (`100/100` static AST audit across 30 files, `100.0/100` dataset audit, `100.00/100` golden-set eval, and Playwright + Axe checks).
 * **[TEST_CASES.md](TEST_CASES.md):** Functional, accessibility (`WCAG 2.2 AA`), mobile reflow, View Transitions, and static studio test matrix.
-* **[MULTIPAGE_IMPLEMENTATION_PLAN.md](MULTIPAGE_IMPLEMENTATION_PLAN.md):** Completed multi-page intelligence catalog (`9` page routes, `40` sections, `173` archetypes, normalized foreign keys, enterprise components).
+* **[databases/README.md](databases/README.md):** Standalone reusable reference design databases including [polygon-uiux-db](databases/polygon-uiux-db/README.md) (`Dark Kinetic Emerald` SQLite DB, ANSI SQL, design tokens, CSS primitives, button catalog, motion choreography, and 14 page templates with zero company data).
+* **[MULTIPAGE_IMPLEMENTATION_PLAN.md](MULTIPAGE_IMPLEMENTATION_PLAN.md):** Completed multi-page intelligence catalog (`13` native page routes, `43` sections, `188` archetypes, normalized foreign keys, enterprise components).
 * **[CHANGELOG.md](CHANGELOG.md):** Detailed release and unreleased development history.
 
 ---
@@ -36,11 +37,12 @@ Runs cleanly in any browser via GitHub Pages or directly over local `file://` wi
 * **Progressive View Transitions API:** Smooth `forward`/`backward` directional slides on step transitions (`#wizard-stage`), subtle output panel fades (`#output-panels`), and full `@media (prefers-reduced-motion: reduce)` fallbacks.
 * **Portable Drafts:** Auto-saves progress to `localStorage` and supports **Save `.json` / Load `.json`** session portability.
 
-### 2. Design Intelligence Engine (`skills/ui-ux-pro-max/`)
-* **9 Page Templates:** `home`, `pricing`, `about`, `services`, `case_studies`, `contact`, `blog`, `careers`, `legal`.
-* **40 Sections & 173 Reachable Archetypes** (`100%` reachability verified via `system_audit.py`).
-* **96 WCAG AA/AAA Palettes (576 Hex Tokens)** with zero deprecated `Neumorphism` recommendations.
-* **57 Typography Pairings** and **11 Framework Stack Guides** (`nextjs`, `react`, `shadcn`, `html-tailwind`, `vue`, `nuxtjs`, `nuxt-ui`, `svelte`, `swiftui`, `react-native`, `flutter`).
+### 2. Design Intelligence Engine (`skills/ui-ux-pro-max/` & `databases/`)
+* **13 Page Templates:** `home`, `pricing`, `about`, `services`, `case_studies`, `contact`, `blog`, `careers`, `legal`, `product_showcase`, `product_detail`, `service_detail`, `case_study_detail`.
+* **43 Sections & 188 Reachable Archetypes** (`100%` reachability verified via `system_audit.py`).
+* **98 WCAG AA/AAA Palettes (588 Hex Tokens)** with zero deprecated `Neumorphism` recommendations (`98` normalized products, `102` reasoning rules, `106` UX guidelines).
+* **58 Typography Pairings** and **11 Framework Stack Guides** (`nextjs`, `react`, `shadcn`, `html-tailwind`, `vue`, `nuxtjs`, `nuxt-ui`, `svelte`, `swiftui`, `react-native`, `flutter`).
+* **Standalone Kinetic Emerald Database (`databases/polygon-uiux-db/`):** Relational SQLite (`polygon_uiux.db`), SQL dump, tokens/CSS primitives, `6` button patterns, `21` GSAP/ScrollTrigger motion specs, `14` page templates, and `8` accessibility/performance remediations.
 
 ### 3. Production Component Library & Static AST Auditor (`components/` & `scripts/`)
 * **23 Accessible React/TypeScript Components:** Includes `PatternSplitHero`, `PatternBentoGrid`, `PatternComparison`, `PatternSpecAccordion`, `PatternStepper`, `PatternSocialProof`, `PatternTieredPricing`, `PatternCtaBand`, `PatternDataTable`, `PatternFormEngine`, `PatternAppShell`, `PatternChartRow`, overlays, navigation, and feedback primitives wired to [styles/tokens.css](styles/tokens.css).
@@ -60,6 +62,8 @@ gemini-uiux-kit/
 │   ├── slopguard                  # Primary CLI binary (init, audit, doctor, component, upgrade, version)
 │   └── gemini-uiux                # Backward-compatible CLI alias
 ├── components/                    # 23 accessible React components (patterns/, feedback/, navigation/, overlays/)
+├── databases/                     # Standalone reference UI/UX databases (zero company data)
+│   └── polygon-uiux-db/           # Dark Kinetic Emerald SQLite DB, SQL dump, tokens, buttons, motion & 14 templates
 ├── docs/                          # Zero-backend Static Discovery Studio deployed to GitHub Pages
 │   ├── README.md                  # Studio documentation
 │   ├── index.html                 # 5-step discovery workbench + sticky live inspector + 6-tab output
@@ -73,7 +77,7 @@ gemini-uiux-kit/
 │   ├── ast_analyzer.mjs           # Node TypeScript compiler AST wrapper & prop analyzer
 │   ├── build_studio_bundle.py     # Builds docs/data/kit-bundle.{json,js} from canonical CSV/JSON datasets
 │   ├── audit-ui.sh & doctor.sh    # Shell diagnostics and targeted scans
-├── skills/                        # 14 autonomous design/engineering skills & UI/UX Pro Max datasets
+├── skills/                        # 14 autonomous design/engineering skills & UI/UX Pro Max datasets (+ scripts/migrations/)
 ├── styles/tokens.css              # Kit-wide Tier 2 semantic design tokens
 ├── templates/                     # DESIGN_SYSTEM.md & UI_AUDIT.md starter templates
 └── tests/

@@ -1,0 +1,8 @@
+bp_id,name,min_width_px,max_width_px,columns_desktop,columns_mobile,container_padding,source_layer
+bp-01,mobile_xs,0,479,1,1,16px,theme-custom
+bp-02,mobile_bs,480,575,1,1,16px,bootstrap-sm
+bp-03,tablet_sm,576,767,2,1,24px,axtra-responsive
+bp-04,tablet_md,768,1024,2,2,32px,elementor-tablet
+bp-05,laptop_nav_collapse,1025,1199,3,2,40px,header-mobile-drawer
+bp-06,desktop_std,1200,1365,3,2,48px,axtra-desktop
+bp-07,desktop_wide,1366,1919,4,2,64px,elementor-widescreen

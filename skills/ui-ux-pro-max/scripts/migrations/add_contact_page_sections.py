@@ -16,7 +16,7 @@ import json
 import csv
 from pathlib import Path
 
-DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
 
 CONTACT_SECTIONS = [
     {

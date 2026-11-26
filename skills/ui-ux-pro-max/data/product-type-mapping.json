@@ -1991,5 +1991,46 @@
       "final_cta",
       "footer"
     ]
+  },
+  "software-agency-tech-consultancy": {
+    "product_type": "Software Agency / Tech Consultancy",
+    "style_ids": [
+      59
+    ],
+    "primary_style": "Dark Kinetic Emerald + Motion-Driven",
+    "landing_pattern_id": 31,
+    "landing_pattern": "Dark Kinetic Agency Showcase",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "about",
+      "portfolio",
+      "case_study_filter_hub",
+      "testimonials",
+      "final_cta",
+      "footer"
+    ]
+  },
+  "enterprise-digital-solutions-hub": {
+    "product_type": "Enterprise Digital Solutions Hub",
+    "style_ids": [
+      59
+    ],
+    "primary_style": "Dark Kinetic Emerald + Minimalism",
+    "landing_pattern_id": 31,
+    "landing_pattern": "Dark Kinetic Agency Showcase",
+    "recommended_sections": [
+      "navbar",
+      "hero",
+      "trusted_by",
+      "about",
+      "services",
+      "results_metrics",
+      "portfolio",
+      "testimonials",
+      "final_cta",
+      "footer"
+    ]
   }
 }

@@ -1,0 +1,15 @@
+token_id,theme_id,token_group,css_var,hex_value,raw_observed_value,wcag_role,contrast_on_dark,usage_notes
+col-01,dark-kinetic-emerald,accent,--color-accent-primary,#3BC77B,"rgb(59, 199, 123)",primary-action,10.3,"Primary CTA radial hover fill, marquee strip background, cursor ring"
+col-02,dark-kinetic-emerald,accent,--color-accent-pill,#61CE70,"rgb(97, 206, 112)",cta-border,10.1,Header 46px-radius pill CTA 1px outline stroke
+col-03,dark-kinetic-emerald,accent,--color-accent-soft,#96DEA0,"rgb(150, 222, 160)",secondary-border,12.6,Light emerald highlight pill border variant
+col-04,dark-kinetic-emerald,accent,--color-filter-active,#65BC7B,"rgb(101, 188, 123)",active-filter,9.0,Active portfolio/catalog MixItUp category filter pill fill
+col-05,dark-kinetic-emerald,surface,--surface-canvas,#000000,#000,bg-primary,1.0,Full-bleed OLED black section and hero backdrop
+col-06,dark-kinetic-emerald,surface,--surface-base,#0A0A0A,"rgb(10, 10, 10)",bg-secondary,1.04,Alternate deep obsidian section background
+col-07,dark-kinetic-emerald,surface,--surface-card,#121212,#121212,card-surface,1.12,"Card tile surface, dark button stroke, and dark wrapper (--black-2)"
+col-08,dark-kinetic-emerald,surface,--surface-elevated,#1E1E1E,"rgb(30, 30, 30)",surface-elevated,1.25,"Map land tint, subtle raised strips, background grid rule"
+col-09,dark-kinetic-emerald,text,--text-primary,#FFFFFF,#fff,text-primary,21.0,Primary display headlines and high-emphasis body copy
+col-10,dark-kinetic-emerald,text,--text-secondary,#C2C2C2,#c2c2c2,text-secondary,11.5,"Body copy, descriptions, and circular CTA labels (--gray)"
+col-11,dark-kinetic-emerald,text,--text-muted,#A8A8A8,#a8a8a8,text-muted,8.7,WCAG AAA metadata captions replacing unstyled #6B6B6B/#212529
+col-12,dark-kinetic-emerald,text,--text-on-accent,#020617,#000000,text-on-accent,9.9,High-contrast dark text rendered over emerald #3BC77B/#65BC7B
+col-13,dark-kinetic-emerald,border,--border-subtle,#2C2C2C,#2c2c2c,border-subtle,1.4,"Hairline 1px section dividers, row rules, circular CTA outlines (--secondary)"
+col-14,dark-kinetic-emerald,surface,--surface-dropdown,#FFFFFF,#fff,dropdown-surface,21.0,Light dropdown / mega-menu drawer surface paired with #121212 links

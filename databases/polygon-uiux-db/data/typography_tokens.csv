@@ -1,0 +1,14 @@
+type_id,theme_id,role,html_tag,font_family,font_weight,desktop_size_px,desktop_line_height_px,mobile_size_px,fluid_clamp,selector_hint,usage_notes
+typ-01,dark-kinetic-emerald,display_index_h1,h1,Poppins,500,120,120,52,"clamp(3rem, 1.5rem + 5.5vw, 7.5rem)",h1.portfolio__title,Oversized index showcase hero headline
+typ-02,dark-kinetic-emerald,display_detail_h1,h1,Poppins,500,110,121,42,"clamp(2.625rem, 1.5rem + 4.5vw, 6.875rem)",h1.service__detail-title,"Detail dossier hero H1 across service, product, and team routes"
+typ-03,dark-kinetic-emerald,display_counter,h2,Poppins,400,100,110,48,"clamp(3rem, 1.8rem + 4.2vw, 6.25rem)",.counter__number,Light-weight oversized count-up telemetry numerals with tabular-nums
+typ-04,dark-kinetic-emerald,display_home_h1,h1,Poppins,500,98,115,28,"clamp(2.25rem, 1.4rem + 4.2vw, 6.125rem)",.hero__title-3,Asymmetrical kinetic landing hero H1 with SplitText line reveal
+typ-05,dark-kinetic-emerald,display_catalog_h1,h1,Poppins,600,92,98,44,"clamp(2.75rem, 1.6rem + 4vw, 5.75rem)",h1.catalog-hero,Product showcase directory H1
+typ-06,dark-kinetic-emerald,display_lead_h1,h1,Poppins,500,84,84,42,"clamp(2.625rem, 1.6rem + 3.5vw, 5.25rem)",h1.page-lead,Services and Contact primary header headline
+typ-07,dark-kinetic-emerald,page_heading_secondary,h1,Poppins,600,72,72,38,"clamp(2.375rem, 1.5rem + 3vw, 4.5rem)",h1.page-secondary,"Clients, Partners, and Careers lead section heading"
+typ-08,dark-kinetic-emerald,section_heading,h3,Poppins,500,60,60,32,"clamp(2rem, 1.4rem + 2.5vw, 3.75rem)",.sec-title,Primary section display heading
+typ-09,dark-kinetic-emerald,service_row_heading,h3,Poppins,500,36,43,24,"clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem)",".service__title-2, .service__title-7",Numbered hover service list & detail service block titles
+typ-10,dark-kinetic-emerald,card_heading,h3,Poppins,500,24,32,20,1.5rem,".portfolio__title-5, .blog__title","Product, case-study, and editorial article card headings"
+typ-11,dark-kinetic-emerald,marquee_item,h2,Poppins,700,21,25,18,1.3125rem,.roll__slide h2,Full-bleed accent marquee capability label
+typ-12,dark-kinetic-emerald,body_copy,p,Kanit,400,16,24,16,1rem,"body, p",Readable geometric-humanist sans-serif body text
+typ-13,dark-kinetic-emerald,caption_meta,span,Poppins,400,14,20,14,0.875rem,".testimonial__role, .portfolio__name-5","Role subtitle, category tag, and metadata caption"

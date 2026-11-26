@@ -1,0 +1,194 @@
+/* ==========================================================================
+   Dark Kinetic Emerald Agency Design Tokens (Reusable Reference System)
+   Contrast-verified against WCAG 2.2 AA/AAA (zero company data)
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* 1. Brand & Accent Palette */
+  --color-accent-primary: #3bc77b;
+  --color-accent-pill: #61ce70;
+  --color-accent-soft: #96dea0;
+  --color-filter-active: #65bc7b;
+  --color-on-accent: #020617;
+
+  /* 2. Surface Hierarchy */
+  --surface-canvas: #000000;
+  --surface-base: #0a0a0a;
+  --surface-card: #121212;
+  --surface-elevated: #1e1e1e;
+  --surface-dropdown: #ffffff;
+  --surface-contrast-light: #f8f8f8;
+
+  /* 3. Foreground & Ink (WCAG >= 4.5:1 / >= 7:1 enforced) */
+  --text-primary: #ffffff;
+  --text-secondary: #c2c2c2;
+  --text-muted: #a8a8a8;
+  --text-on-light: #121212;
+
+  /* 4. Borders & Focus */
+  --border-subtle: #2c2c2c;
+  --border-hairline: #1e1e1e;
+  --border-focus: #3bc77b;
+
+  /* 5. Typography */
+  --font-display: 'Poppins', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-body: 'Kanit', 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* 6. Fluid Display Scale */
+  --text-hero-index: clamp(3rem, 1.5rem + 5.5vw, 7.5rem);
+  --text-hero-detail: clamp(2.625rem, 1.5rem + 4.5vw, 6.875rem);
+  --text-hero-home: clamp(2.25rem, 1.4rem + 4.2vw, 6.125rem);
+  --text-counter: clamp(3rem, 1.8rem + 4.2vw, 6.25rem);
+  --text-hero-catalog: clamp(2.75rem, 1.6rem + 4vw, 5.75rem);
+  --text-section-title: clamp(2rem, 1.4rem + 2.5vw, 3.75rem);
+  --text-service-row: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --text-card-title: 1.5rem;
+  --text-marquee: 1.3125rem;
+  --text-body: 1rem;
+  --text-meta: 0.875rem;
+
+  /* 7. Geometry, Layout & Motion */
+  --header-height: 90px;
+  --touch-target-min: 44px;
+  --radius-filter-pill: 5px;
+  --radius-card: 8px;
+  --radius-cta-pill: 46px;
+  --radius-circle: 9999px;
+  --ease-kinetic: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-swap: 500ms;
+  --duration-hover: 200ms;
+}
+
+/* Signature Reusable Primitives */
+.dk-header {
+  min-height: var(--header-height);
+  background: color-mix(in srgb, var(--surface-canvas) 92%, transparent);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.dk-pill-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 1.5rem;
+  border-radius: var(--radius-cta-pill);
+  border: 1px solid var(--color-accent-pill);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 500;
+  transition: background-color var(--duration-hover) var(--ease-kinetic), color var(--duration-hover) var(--ease-kinetic);
+}
+
+.dk-pill-cta:hover,
+.dk-pill-cta:focus-visible {
+  background-color: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+  color: var(--color-on-accent);
+}
+
+.dk-circle-cta {
+  width: 170px;
+  height: 170px;
+  border-radius: var(--radius-circle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform var(--duration-hover) var(--ease-kinetic), background-color var(--duration-hover) var(--ease-kinetic), color var(--duration-hover) var(--ease-kinetic), border-color var(--duration-hover) var(--ease-kinetic);
+}
+
+.dk-circle-cta:hover,
+.dk-circle-cta:focus-visible {
+  background-color: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+  color: var(--color-on-accent);
+}
+
+.dk-filter-pill {
+  min-height: var(--touch-target-min);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-filter-pill);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+}
+
+.dk-filter-pill[aria-pressed='true'] {
+  background-color: var(--color-filter-active);
+  border-color: var(--color-filter-active);
+  color: var(--color-on-accent);
+}
+
+.dk-pill-dark {
+  display: inline-block;
+  padding: 1.25rem 3.375rem;
+  border-radius: 33px;
+  border: 1.3px solid var(--surface-card);
+  color: var(--text-on-light);
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;
+}
+
+.dk-pill-dark:hover,
+.dk-pill-dark:focus-visible {
+  background-color: var(--surface-dropdown);
+  border-color: var(--surface-dropdown);
+  color: var(--surface-card);
+}
+
+.dk-service-preview {
+  opacity: 0;
+  transform: rotate(0deg) translateX(-100px);
+  transition: opacity var(--duration-swap) ease, transform var(--duration-swap) ease;
+  pointer-events: none;
+}
+
+.dk-service-row:hover .dk-service-preview,
+.dk-service-row:focus-visible .dk-service-preview,
+.dk-service-preview.is-active {
+  opacity: 1;
+  transform: rotate(15deg) translateX(60px) translateY(30px);
+}
+
+.dk-card-overlay {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity var(--duration-swap) ease, transform var(--duration-swap) ease;
+}
+
+.dk-card:hover .dk-card-overlay,
+.dk-card:focus-within .dk-card-overlay {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dk-focusable:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+@media (forced-colors: active) {
+  .dk-focusable:focus-visible {
+    outline: 2px solid Highlight;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

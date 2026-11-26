@@ -2,7 +2,7 @@
 
 This directory hosts the standalone, browser-only **Client UI/UX Discovery & Blueprint Studio** published via GitHub Pages at **https://fahadrahman444.github.io/uiux-kit/**.
 
-It mirrors 100% of the Python `ui-ux-pro-max` BM25 search engine, WCAG 2.2 AA luminance contrast solver, UI reasoning lookups, and 173 section archetype selectors in pure vanilla HTML, CSS, and JavaScript — with **zero backend server**.
+It mirrors 100% of the Python `ui-ux-pro-max` BM25 search engine, WCAG 2.2 AA luminance contrast solver, UI reasoning lookups, and 188 section archetype selectors in pure vanilla HTML, CSS, and JavaScript — with **zero backend server**.
 
 ---
 
@@ -14,7 +14,7 @@ It mirrors 100% of the Python `ui-ux-pro-max` BM25 search engine, WCAG 2.2 AA lu
 | [tokens.css](tokens.css) | **Warm Drafting Paper** Light tokens (`#F7F6F3` paper, `#FFFFFF` cards, `#1E40AF` cobalt ink) and **Graphite Pro** Dark tokens (`#141415`, `#19191B`, `#EDEDED` primary actions) |
 | [styles.css](styles.css) | Token-bound layout, `:has(input:checked)` active cards, `44px+` touch targets, responsive `320px+` grid, scannable 2-col blueprint specs, and **View Transitions API** animations |
 | [app.js](app.js) | Client-side BM25 search, single/multi-page sitemap compiler, `hero_direction` bidirectional sync, View Transitions helper (`runViewTransition`), `localStorage` autosave, and `.json` session import/export |
-| [data/kit-bundle.json](data/kit-bundle.json) | Precompiled dataset (`40` sections, `173` archetypes, `9` page templates, `96` color palettes, `57` fonts, `96` products, `100` UI reasoning rules, `11` stack CSVs) loaded via `fetch()` over HTTP |
+| [data/kit-bundle.json](data/kit-bundle.json) | Precompiled dataset (`43` sections, `188` archetypes, `13` page templates, `98` color palettes, `58` fonts, `98` products, `102` UI reasoning rules, `106` UX guidelines, `11` stack CSVs) loaded via `fetch()` over HTTP |
 | [data/kit-bundle.js](data/kit-bundle.js) | `window.__SLOPGUARD_KIT_BUNDLE__` wrapper dynamically loaded over direct `file://` URLs where browsers block local `fetch()` |
 
 ---

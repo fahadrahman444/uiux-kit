@@ -3,7 +3,7 @@
 """
 Generate Complete Production-Grade UI/UX Prompts.
 Includes:
-- Full selection rules covering 100% of archetypes across all 40 sections / 9 pages
+- Full selection rules covering 100% of archetypes across all 43 sections / 13 pages
 - Non-destructive intent normalization layer for vague inputs
 - Dynamic luminance-aware surface/text token derivation (WCAG 2.2 AA safe)
 - Isolated per-call warning collection and safe fallbacks
@@ -34,6 +34,7 @@ INTENT_VOCABULARY = {
     "friendly": ["modern", "saas", "approachable"],
     "impressive": ["immersive", "interactive", "editorial", "bento"],
     "innovative": ["tech", "ai", "modern", "cutting-edge"],
+    "kinetic": ["dark", "emerald", "agency", "motion"],
 }
 
 
@@ -169,6 +170,10 @@ SECTION_FALLBACKS = {
     "careers_jobs": "jobs-01",
     # Dedicated Legal Page
     "legal_doc": "leg-01",
+    # Product Showcase, Product/Service Detail & Case Study Dossier Pages
+    "product_catalog_grid": "pcg-01",
+    "product_feature_matrix": "pfm-01",
+    "case_study_dossier": "csd-01",
 }
 
 fallback_warnings = []
@@ -235,6 +240,8 @@ def select_archetype(section_data: dict, project_info: dict, warnings: list = No
                 or project_info.get("primary_goal") == "phone/lead"
                 or project_info.get("conversion_focus") == "ultra-high"):
             return pick("nav-04")
+        if project_info.get("kinetic_dark") or project_info.get("has_dropdowns") or "kinetic" in s:
+            return pick("nav-07")
         if "editorial" in s:
             return pick("nav-05")
         if project_info.get("has_portal"):
@@ -245,6 +252,8 @@ def select_archetype(section_data: dict, project_info: dict, warnings: list = No
 
     # ── HERO ─────────────────────────────────────────────
     elif sec_id == "hero":
+        if project_info.get("kinetic_dark") or project_info.get("circular_cta") or "kinetic" in s:
+            return pick("hero-11")
         if project_info.get("has_video"):
             return pick("hero-03")
         if project_info.get("lead_magnet"):
@@ -268,6 +277,8 @@ def select_archetype(section_data: dict, project_info: dict, warnings: list = No
     # ── TRUSTED BY ───────────────────────────────────────
     elif sec_id == "trusted_by":
         logo_count = project_info.get("logo_count", 8)
+        if project_info.get("kinetic_dark") or "kinetic" in s:
+            return pick("tb-07")
         if project_info.get("compliance_required"):
             return pick("tb-06")
         if project_info.get("has_press"):
@@ -297,6 +308,8 @@ def select_archetype(section_data: dict, project_info: dict, warnings: list = No
 
     # ── SERVICES ─────────────────────────────────────────
     elif sec_id == "services":
+        if project_info.get("kinetic_dark") or project_info.get("hover_service_list") or "kinetic" in s:
+            return pick("srv-09")
         if project_info.get("target_audience") == "developers/ctos":
             return pick("srv-08")
         if project_info.get("enterprise"):
@@ -357,6 +370,8 @@ def select_archetype(section_data: dict, project_info: dict, warnings: list = No
     # ── PORTFOLIO ────────────────────────────────────────
     elif sec_id == "portfolio":
         case_count = project_info.get("case_count", 6)
+        if project_info.get("kinetic_dark") or project_info.get("mixitup_filter") or "kinetic" in s:
+            return pick("port-09")
         if "avant-garde" in s or "editorial" in s:
             return pick("port-08")
         if case_count >= 10:
@@ -376,6 +391,8 @@ def select_archetype(section_data: dict, project_info: dict, warnings: list = No
     # ── TESTIMONIALS ─────────────────────────────────────
     elif sec_id == "testimonials":
         reviews = project_info.get("review_count", 5)
+        if project_info.get("kinetic_dark") or "kinetic" in s:
+            return pick("tst-09")
         if project_info.get("has_video_reviews"):
             return pick("tst-03")
         if project_info.get("has_audio"):
@@ -396,6 +413,8 @@ def select_archetype(section_data: dict, project_info: dict, warnings: list = No
 
     # ── RESULTS / METRICS ────────────────────────────────
     elif sec_id == "results_metrics":
+        if project_info.get("kinetic_dark") or project_info.get("oversized_counters") or "kinetic" in s:
+            return pick("res-07")
         if project_info.get("has_live_data"):
             return pick("res-05")
         if project_info.get("has_before_after"):
@@ -469,6 +488,8 @@ def select_archetype(section_data: dict, project_info: dict, warnings: list = No
 
     # ── FOOTER ───────────────────────────────────────────
     elif sec_id == "footer":
+        if project_info.get("kinetic_dark") or project_info.get("consultation_prefooter") or "kinetic" in s:
+            return pick("ftr-07")
         if project_info.get("has_mobile_app"):
             return pick("ftr-06")
         if project_info.get("has_multiple_offices"):
@@ -593,6 +614,8 @@ def select_archetype(section_data: dict, project_info: dict, warnings: list = No
 
     # ── CONTACT LOCATION MAP ─────────────────────────────
     elif sec_id == "contact_location_map":
+        if project_info.get("geo_map") or project_info.get("kinetic_dark") or "kinetic" in s:
+            return pick("cmap-03")
         if project_info.get("map_view"):
             return pick("cmap-02")
         return pick("cmap-01")
@@ -675,6 +698,24 @@ def select_archetype(section_data: dict, project_info: dict, warnings: list = No
             return pick("leg-01")
         return pick("leg-01")
 
+    # ── PRODUCT CATALOG GRID ─────────────────────────────
+    elif sec_id == "product_catalog_grid":
+        if project_info.get("has_categories") or project_info.get("filterable_products"):
+            return pick("pcg-02")
+        return pick("pcg-01")
+
+    # ── PRODUCT FEATURE MATRIX ───────────────────────────
+    elif sec_id == "product_feature_matrix":
+        if project_info.get("has_portal"):
+            return pick("pfm-02")
+        return pick("pfm-01")
+
+    # ── CASE STUDY DOSSIER ───────────────────────────────
+    elif sec_id == "case_study_dossier":
+        if project_info.get("has_proof_stats"):
+            return pick("csd-02")
+        return pick("csd-01")
+
     # ── GLOBAL FALLBACK (unknown section) ────────────────
     else:
         fallback_id = SECTION_FALLBACKS.get(sec_id, archetypes[0]["archetype_id"])
@@ -728,6 +769,11 @@ def generate_master_prompt(project_info: dict) -> str:
     typo_row = typo_res.get("results", [{}])[0] if typo_res.get("results") else {}
     heading_font = typo_row.get("Heading Font", "Space Grotesk")
     body_font = typo_row.get("Body Font", "Inter")
+
+    style_res = search(normalized, "style", 1)
+    style_row = style_res.get("results", [{}])[0] if style_res.get("results") else {}
+    prompt_res = search(style_row.get("Style Category", normalized), "prompt", 1)
+    prompt_row = prompt_res.get("results", [{}])[0] if prompt_res.get("results") else {}
     high_contrast_serifs = {
         "bodoni moda", "libre bodoni", "playfair display", "cormorant garamond", "instrument serif"
     }
@@ -761,6 +807,12 @@ def generate_master_prompt(project_info: dict) -> str:
     p.append(f"- **Body Font:** `{body_font}` — 400/500, leading-relaxed")
     p.append("- **Mono / Chips:** `JetBrains Mono` or `ui-monospace`")
     p.append("- **Motion:** 150–200ms `cubic-bezier(0.16,1,0.3,1)`, compositor-only (`transform`, `opacity`)")
+    if style_row.get("Effects & Animation"):
+        p.append(f"- **Style Effects & Choreography:** {style_row['Effects & Animation']}")
+    if prompt_row.get("CSS/Technical Keywords"):
+        p.append(f"- **CSS/Motion Primitives:** `{prompt_row['CSS/Technical Keywords']}`")
+    if project_info.get("kinetic_dark") or "kinetic" in raw_style.lower():
+        p.append("- **Kinetic Scroll & Transition Spec:** Continuous smooth scroll (`ScrollSmoother` `1.35`, no section snap), differential `data-speed` layers (`0.2`, `0.3`, `0.5`, `0.9` with `will-change: transform` on `>=1025px`), velocity `skewY` (`-15..15deg`), scrub zooms (`1->1.15`, `2.5->1`), `ScrollTrigger` entrances (`.title-anim`/`.text-anim p` `rotationX: -80deg` at `top 90%`, `.fade_bottom` `y:30->0` stagger `0.2s`, `.animation_home1_service` `x:-50->0`, `.bounce` counters `y:-100` & CTAs `y:-70`, `.blog__item` `x:50->0`), pinned columns (`.portfolio__title-wrap-6`, `.job__detail-sidebar`), sticky header past `20px`, `170px` CTA (`0.7s` radial fill + `0.5s` `80px` magnetic pull), `.menu-text` char wave (`0.05s/char` `16px` `text-shadow`), `15deg` diagonal `.service__img` swap + `-26deg` ribbon wipe (`0.3s`), desktop (`>1200px`) `.cursor1`/`.cursor2` (`mix-blend-mode: difference`), and `prefers-reduced-motion` + `:focus-visible` parity.")
     p.append("- **Anti-Slop:** Zero gradient blobs · Zero emoji icons · Zero rainbow borders\n")
 
     p.append("---")
@@ -812,10 +864,20 @@ def generate_master_prompt(project_info: dict) -> str:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate Production UI/UX Master Prompt")
-    parser.add_argument("--page", default="home", choices=["home", "pricing", "about", "services", "case_studies", "contact", "blog", "careers", "legal"], help="Page type")
+    parser.add_argument(
+        "--page",
+        default="home",
+        choices=[
+            "home", "pricing", "about", "services", "case_studies", "contact",
+            "blog", "careers", "legal",
+            "product_showcase", "product_detail", "service_detail", "case_study_detail",
+        ],
+        help="Page type",
+    )
     parser.add_argument("--name", default="Apex Growth Agency", help="Project name")
     parser.add_argument("--style", default="Industrial Minimalist", help="Style archetype")
     parser.add_argument("--industry", default="b2b", help="Industry for color lookup")
+    parser.add_argument("--kinetic-dark", action="store_true", help="Enable Dark Kinetic Emerald agency archetypes")
     parser.add_argument("--steps", type=int, default=4, help="Process step count")
     parser.add_argument("--reviews", type=int, default=12, help="Review count")
     parser.add_argument("--team-size", type=int, default=6, help="Team size")
@@ -956,6 +1018,7 @@ if __name__ == "__main__":
         "has_toc": args.has_toc,
         "has_version_selector": args.has_version_selector,
         "multi_policy": args.multi_policy,
+        "kinetic_dark": args.kinetic_dark,
     }
 
     prompt = generate_master_prompt(project)

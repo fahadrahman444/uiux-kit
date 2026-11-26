@@ -1,0 +1,72 @@
+[
+  {
+    "bp_id": "bp-01",
+    "name": "mobile_xs",
+    "min_width_px": 0,
+    "max_width_px": 479,
+    "columns_desktop": 1,
+    "columns_mobile": 1,
+    "container_padding": "16px",
+    "source_layer": "theme-custom"
+  },
+  {
+    "bp_id": "bp-02",
+    "name": "mobile_bs",
+    "min_width_px": 480,
+    "max_width_px": 575,
+    "columns_desktop": 1,
+    "columns_mobile": 1,
+    "container_padding": "16px",
+    "source_layer": "bootstrap-sm"
+  },
+  {
+    "bp_id": "bp-03",
+    "name": "tablet_sm",
+    "min_width_px": 576,
+    "max_width_px": 767,
+    "columns_desktop": 2,
+    "columns_mobile": 1,
+    "container_padding": "24px",
+    "source_layer": "axtra-responsive"
+  },
+  {
+    "bp_id": "bp-04",
+    "name": "tablet_md",
+    "min_width_px": 768,
+    "max_width_px": 1024,
+    "columns_desktop": 2,
+    "columns_mobile": 2,
+    "container_padding": "32px",
+    "source_layer": "elementor-tablet"
+  },
+  {
+    "bp_id": "bp-05",
+    "name": "laptop_nav_collapse",
+    "min_width_px": 1025,
+    "max_width_px": 1199,
+    "columns_desktop": 3,
+    "columns_mobile": 2,
+    "container_padding": "40px",
+    "source_layer": "header-mobile-drawer"
+  },
+  {
+    "bp_id": "bp-06",
+    "name": "desktop_std",
+    "min_width_px": 1200,
+    "max_width_px": 1365,
+    "columns_desktop": 3,
+    "columns_mobile": 2,
+    "container_padding": "48px",
+    "source_layer": "axtra-desktop"
+  },
+  {
+    "bp_id": "bp-07",
+    "name": "desktop_wide",
+    "min_width_px": 1366,
+    "max_width_px": 1919,
+    "columns_desktop": 4,
+    "columns_mobile": 2,
+    "container_padding": "64px",
+    "source_layer": "elementor-widescreen"
+  }
+]

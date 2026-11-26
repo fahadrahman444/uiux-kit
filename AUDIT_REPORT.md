@@ -29,9 +29,9 @@ This report records checks **directly executed** across the component kit, runna
 | :--- | :--- | :---: | :--- |
 | **TypeScript Typecheck** | `npm run typecheck` | PASS | Strict `tsc --noEmit` across all 23 components and `apps/demo/src` (`0` errors). |
 | **AST & Multi-File Static Gate** | `npm run audit:static` | EXIT 0 | **100/100** (`typescript-ast+multifile-css`, 19/19 rules active, **30 files** scanned across `components`, `apps/demo/src`, and `docs`, `0` violations). |
-| **System & Dataset Audit** | `npm run audit:system` | PASS | **100.0/100** (15/15 checks passed, 0 warnings, 96/96 `products.csv` FKs normalized, 0 `Neumorphism` recs, 173/173 archetypes reachable). |
+| **System & Dataset Audit** | `npm run audit:system` | PASS | **100.0/100** (15/15 checks passed, 0 warnings, 98/98 `products.csv` FKs normalized, 0 `Neumorphism` recs, 188/188 archetypes reachable across 43 sections / 13 pages). |
 | **Phase 5 Golden-Set Eval** | `npm run eval:golden` | PASS | **100.00/100** average across 30 Enterprise, Agency, and Growth SaaS briefs. |
-| **Unit & Adversarial Suite** | `npm run test:unit` | PASS | 5/5 Python test cases covering all 19 rules, wrapper AST calls, cross-file CSS, waivers, and all 9 page flows. |
+| **Unit & Adversarial Suite** | `npm run test:unit` | PASS | 5/5 Python test cases covering all 19 rules, wrapper AST calls, cross-file CSS, waivers, and page flows. |
 | **Playwright + Axe E2E (`apps/demo`)** | `npm run test:e2e` | PASS | 5/5 headless Chrome checks: WCAG 2.2 AA Light/Dark, CSS token reactivity, accordion `inert` transitions, 320px reflow, target sizes, `2.4.11` focus-not-obscured, modals/sheets, and enterprise components. |
 | **Static Studio Verification (`docs/`)** | `npm run test:studio` | PASS | 2/2 headless Chrome checks: GitHub Pages HTTP mode + `file://` direct offline mode, Light/Dark WCAG 2.2 AA Axe scans (`0` violations), 5-step directional View Transitions, multi-page Sitemap compilation (`5` routes), validation step return, and `320px` mobile reflow. |
 
@@ -57,7 +57,7 @@ This report records checks **directly executed** across the component kit, runna
 
 ### [RESOLVED] Gap 5: `products.csv` Foreign Key & Prohibited `Neumorphism` Debt
 * **Files:** [products.csv](skills/ui-ux-pro-max/data/products.csv), [product-type-mapping.json](skills/ui-ux-pro-max/data/product-type-mapping.json), [normalize_products_dataset.py](skills/ui-ux-pro-max/scripts/normalize_products_dataset.py), [system_audit.py](skills/ui-ux-pro-max/scripts/system_audit.py).
-* **Resolution:** Normalized all 96 rows with strict `style_id`, `landing_id`, and `product_slug` foreign keys (`0` warnings) and removed all `Neumorphism` recommendations (`0` across `ui-reasoning.csv` and `products.csv`).
+* **Resolution:** Normalized all 98 rows with strict `style_id`, `landing_id`, and `product_slug` foreign keys (`0` warnings) and removed all `Neumorphism` recommendations (`0` across `ui-reasoning.csv` and `products.csv`).
 
 ### [RESOLVED] Gap 6: Static Studio Workbench (`docs/`), CSP, Mobile Reflow & Axe ARIA Integrity
 * **Files:** [docs/index.html](docs/index.html), [docs/tokens.css](docs/tokens.css), [docs/styles.css](docs/styles.css), [docs/app.js](docs/app.js), [tests/studio.spec.mjs](tests/studio.spec.mjs).
@@ -65,6 +65,10 @@ This report records checks **directly executed** across the component kit, runna
   - Enforced strict `<meta>` Content Security Policy (`style-src 'self'`, zero inline `style="..."` HTML attributes) and inline SVG favicon.
   - Applied **Warm Drafting Paper** Light + **Graphite Pro** Dark redesign (`tokens.css` / `styles.css`) with sticky Live Specification Inspector and progressive **View Transitions API** (`prefers-reduced-motion` guarded).
   - Resolved mobile CSS grid overflow (`min-width: 0` on `.workbench-main` and `.live-inspector`), eliminated `.sr-only` collision with `PatternAppShell.tsx` in `audit_engine.py` (`.studio-vh`), and fixed Axe `aria-prohibited-attr` by putting `role="img"` + `aria-label` on `.spectrum-bar` with `aria-hidden="true"` spectrum stops.
+
+### [RESOLVED] Gap 7: Dark Kinetic Emerald Pattern Consolidation & Prompt Integration
+* **Files:** [styles.csv](skills/ui-ux-pro-max/data/styles.csv), [prompts.csv](skills/ui-ux-pro-max/data/prompts.csv), [ux-guidelines.csv](skills/ui-ux-pro-max/data/ux-guidelines.csv), [generate_section_prompt.py](skills/ui-ux-pro-max/scripts/generate_section_prompt.py), [docs/app.js](docs/app.js), [databases/polygon-uiux-db](databases/polygon-uiux-db/README.md).
+* **Resolution:** Expanded the catalog to 43 sections / 188 archetypes across 13 native routes (`product_showcase`, `product_detail`, `service_detail`, `case_study_detail`), grouped historical migration scripts under `skills/ui-ux-pro-max/scripts/migrations/`, and consolidated the zero-company-data SQLite/CSS/token reference DB under `databases/polygon-uiux-db/`.
 
 ---
 

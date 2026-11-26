@@ -1,0 +1,15 @@
+[
+  {
+    "theme_id": "dark-kinetic-emerald",
+    "name": "Dark Kinetic Emerald Agency",
+    "mode": "dark",
+    "kit_style_ref": "Dark Kinetic Emerald",
+    "primary_accent": "#3BC77B",
+    "background_base": "#000000",
+    "surface_raised": "#121212",
+    "border_subtle": "#2C2C2C",
+    "heading_font": "Poppins",
+    "body_font": "Kanit",
+    "notes": "Dark OLED canvas paired with ScrollSmoother (1.35), data-speed parallax, SplitText rotationX (-80deg) reveals, 170px radial/magnetic CTAs, char-wave nav links, 15deg diagonal service previews, and 100px bounce counters."
+  }
+]
